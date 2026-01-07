@@ -13,12 +13,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'app-sidenav',
   imports: [RouterLink, RouterLinkActive],
-  templateUrl: './sidenav.html',
-  styleUrl: './sidenav.scss',
+  templateUrl: './sidenav.component.html',
+  styleUrl: './sidenav.component.scss',
 })
-export class Sidenav {
+export class SidenavComponent {
   @ViewChild('sidebar') sidebarRef!: ElementRef<HTMLElement>;
-  private lastFocusedElement: HTMLElement | null = null;
 
   @Input() open = false;
   @Output() close = new EventEmitter<boolean>();

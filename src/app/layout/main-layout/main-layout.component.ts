@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
-import { Sidenav } from '../sidenav/sidenav';
+import { SidenavComponent } from '../sidenav/sidenav.component';
 
 @Component({
   selector: 'app-main-layout',
-  imports: [RouterOutlet, Sidenav],
-  templateUrl: './main-layout.html',
-  styleUrl: './main-layout.scss',
+  imports: [RouterOutlet, SidenavComponent],
+  templateUrl: './main-layout.component.html',
+  styleUrl: './main-layout.component.scss',
 })
-export class MainLayout {
+export class MainLayoutComponent {
   public isSidebarOpen = false;
   public lastFocusedElement: HTMLElement | null = null;
 
