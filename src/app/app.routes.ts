@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 
+// App root level routes
 export const routes: Routes = [
   {
     path: '',
@@ -9,11 +10,12 @@ export const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        loadComponent: () => import('./features/dashboard/dashboard').then((m) => m.Dashboard),
+        loadChildren: () =>
+          import('./features/dashboard/dashboard.routes').then((m) => m.DASHBOARD_ROUTES),
       },
       {
         path: 'users',
-        loadComponent: () => import('./features/users/users').then((m) => m.Users),
+        loadChildren: () => import('./features/users/users.routes').then((m) => m.USERSROUTES),
       },
     ],
   },
