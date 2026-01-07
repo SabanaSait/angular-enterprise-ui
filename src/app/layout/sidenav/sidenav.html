@@ -1,0 +1,18 @@
+<aside
+  #sidebar
+  id="app-sidebar"
+  role="navigation"
+  aria-lable="Main Navigation"
+  class="layout-sidebar"
+  [class.open]="open"
+>
+  <nav>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      Dashboard
+    </a>
+    <a routerLink="/users" routerLinkActive="active">Users</a>
+  </nav>
+</aside>
+@if (open) {
+<div class="sidebar-backdrop" (click)="close.emit()" aria-hidden="true"></div>
+}

@@ -1,0 +1,22 @@
+<div class="layout">
+  <header class="layout-header">
+    <button
+      class="menu-btn"
+      aria-label="Open navigation menu"
+      [aria-expanded]="isSidebarOpen"
+      aria-controls="app-sidebar"
+      (click)="toggleSidebar()"
+    >
+      ☰
+    </button>
+    <span>Enterprise Dashboard</span>
+  </header>
+  <div class="layout-body">
+    <app-sidenav [open]="isSidebarOpen" (close)="closeSidebar()"></app-sidenav>
+    <main class="layout-content">
+      <div class="content-scroll">
+        <router-outlet />
+      </div>
+    </main>
+  </div>
+</div>
