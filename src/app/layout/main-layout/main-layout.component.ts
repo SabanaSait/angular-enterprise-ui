@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
+import { AuthService } from '../../core/auth/auth.service';
 import { SidenavComponent } from '../sidenav/sidenav.component';
 
 @Component({
@@ -13,7 +14,7 @@ export class MainLayoutComponent {
   public isSidebarOpen = false;
   public lastFocusedElement: HTMLElement | null = null;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private readonly auth: AuthService) {
     this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
       this.isSidebarOpen = false;
     });
@@ -29,5 +30,10 @@ export class MainLayoutComponent {
   public closeSidebar() {
     this.isSidebarOpen = false;
     this.lastFocusedElement?.focus();
+  }
+
+  public logout() {
+    this.auth.logout();
+    this.router.navigateByUrl('/login');
   }
 }
