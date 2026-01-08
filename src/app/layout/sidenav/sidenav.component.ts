@@ -9,6 +9,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { AuthService } from '../../core/auth/auth.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -17,6 +18,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './sidenav.component.scss',
 })
 export class SidenavComponent {
+  constructor(public auth: AuthService) {}
+
   @ViewChild('sidebar') sidebarRef!: ElementRef<HTMLElement>;
 
   @Input() open = false;

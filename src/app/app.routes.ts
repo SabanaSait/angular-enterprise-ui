@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { authGuard } from './core/auth/auth.guard';
+import { permissionGuard } from './core/auth/permission.guard';
 
 // App root level routes
 export const routes: Routes = [
@@ -21,6 +22,7 @@ export const routes: Routes = [
       },
       {
         path: 'users',
+        canMatch: [permissionGuard('VIEW_USERS')],
         loadChildren: () => import('./features/users/users.routes').then((m) => m.USERSROUTES),
       },
     ],

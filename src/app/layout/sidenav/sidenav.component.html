@@ -10,7 +10,9 @@
     <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
       Dashboard
     </a>
+    @if (auth.hasPermission('VIEW_USERS')) {
     <a routerLink="/users" routerLinkActive="active">Users</a>
+    }
   </nav>
 </aside>
 @if (open) {

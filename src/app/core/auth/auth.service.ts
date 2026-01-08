@@ -1,15 +1,24 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, computed } from '@angular/core';
+import { Role, Permission, ROLE_PERMISSIONS } from './auth.types';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private readonly _isAuthenticated = signal(false);
+  private readonly _user = signal<{ role: Role; permissions: Permission[] } | null>(null);
 
-  isAuthenticated = this._isAuthenticated.asReadonly();
+  isAuthenticated = computed(() => this._user() !== null);
 
-  login() {
-    this._isAuthenticated.set(true);
+  hasPermission(permission: Permission): boolean {
+    const user = this._user();
+    return user ? ROLE_PERMISSIONS[user.role].includes(permission) : false;
+  }
+
+  login(role: Role = 'ADMIN') {
+    this._user.set({
+      role,
+      permissions: ROLE_PERMISSIONS[role],
+    });
   }
   logout() {
-    this._isAuthenticated.set(false);
+    this._user.set(null);
   }
 }
