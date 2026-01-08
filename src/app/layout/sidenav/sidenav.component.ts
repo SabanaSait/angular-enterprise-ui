@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../core/auth/auth.service';
+import { NAV_ITEMS } from '../navigation.config';
 
 @Component({
   selector: 'app-sidenav',
@@ -24,6 +25,8 @@ export class SidenavComponent {
 
   @Input() open = false;
   @Output() close = new EventEmitter<boolean>();
+
+  public navItems = NAV_ITEMS;
 
   public ngOnChanges() {
     if (this.open) {

@@ -8,9 +8,10 @@ export class AuthService {
   isAuthenticated = computed(() => this._user() !== null);
 
   hasPermission(permission: Permission): boolean {
-    const user = this._user();
-    return user ? ROLE_PERMISSIONS[user.role].includes(permission) : false;
+    return this._user()?.permissions.includes(permission) ?? false;
   }
+
+  hasAccess = (permission?: Permission) => !permission || this.hasPermission(permission);
 
   login(role: Role = 'ADMIN') {
     this._user.set({

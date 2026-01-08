@@ -7,12 +7,14 @@
   [class.open]="open"
 >
   <nav>
-    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-      Dashboard
-    </a>
-    @if (auth.hasPermission('VIEW_USERS')) {
-    <a routerLink="/users" routerLinkActive="active">Users</a>
-    }
+    @for (item of navItems; track item.route) { @if (auth.hasAccess(item.permission)) {
+    <a
+      [routerLink]="item.route"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >{{ item.label }}</a
+    >
+    } }
   </nav>
 </aside>
 @if (open) {
