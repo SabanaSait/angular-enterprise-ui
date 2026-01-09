@@ -10,6 +10,11 @@ export const routes: Routes = [
     loadComponent: () => import('./features/login/login.component').then((m) => m.LoginComponent),
   },
   {
+    path: 'unauthorized',
+    loadComponent: () =>
+      import('./pages/unauthorized/unauthorized.component').then((m) => m.UnauthorizedComponent),
+  },
+  {
     path: '',
     component: MainLayoutComponent,
     canMatch: [authGuard],

@@ -6,9 +6,14 @@ export const authGuard: CanMatchFn = () => {
   const authService = inject(AuthService);
   const router = inject(Router);
 
-  if (authService.isAuthenticated()) {
-    return true;
+  if (!authService.isInitialized) {
+    return false;
   }
 
-  return router.createUrlTree(['/login']);
+  if (!authService.isAuthenticated()) {
+    router.navigateByUrl('/login');
+    return false;
+  }
+
+  return true;
 };
