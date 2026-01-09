@@ -7,3 +7,7 @@ export const ROLE_PERMISSIONS: Record<Role, Permission[]> = {
   SUPERVISOR: ['VIEW_DASHBOARD', 'VIEW_USERS'],
   USER: ['VIEW_DASHBOARD'],
 };
+
+export interface PersistedUser {
+  role: Role;
+}
