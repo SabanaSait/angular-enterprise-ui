@@ -1,3 +1,4 @@
+@if(auth.isInitialized()) {
 <div class="layout">
   <header class="layout-header">
     <button
@@ -21,3 +22,6 @@
     </main>
   </div>
 </div>
+} @else {
+<div>Loading....</div>
+}

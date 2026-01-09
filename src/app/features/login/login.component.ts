@@ -10,8 +10,9 @@ import { AuthService } from '../../core/auth/auth.service';
 })
 export class LoginComponent {
   constructor(private readonly auth: AuthService, private router: Router) {}
+
   public login() {
-    this.auth.login('ADMIN');
+    this.auth.login('USER');
     this.router.navigateByUrl('/');
   }
 }

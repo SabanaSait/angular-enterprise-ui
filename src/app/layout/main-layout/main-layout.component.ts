@@ -14,7 +14,7 @@ export class MainLayoutComponent {
   public isSidebarOpen = false;
   public lastFocusedElement: HTMLElement | null = null;
 
-  constructor(private router: Router, private readonly auth: AuthService) {
+  constructor(private router: Router, public readonly auth: AuthService) {
     this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
       this.isSidebarOpen = false;
     });

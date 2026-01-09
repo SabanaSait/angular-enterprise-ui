@@ -8,10 +8,10 @@ export const permissionGuard = (required: Permission): CanMatchFn => {
     const auth = inject(AuthService);
     const router = inject(Router);
 
-    if (auth.hasPermission(required)) {
-      return true;
+    if (!auth.isInitialized()) {
+      return false;
     }
 
-    return router.createUrlTree(['/']);
+    return auth.hasPermission(required);
   };
 };
