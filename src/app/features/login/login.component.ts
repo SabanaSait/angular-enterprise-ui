@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../core/auth/auth.service';
 
 @Component({
@@ -9,10 +9,17 @@ import { AuthService } from '../../core/auth/auth.service';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  constructor(private readonly auth: AuthService, private router: Router) {}
+  constructor(
+    private readonly auth: AuthService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   public login() {
-    this.auth.login('USER');
-    this.router.navigateByUrl('/');
+    this.auth.login('ADMIN');
+
+    const redirect = this.route.snapshot.queryParamMap.get('redirect') || '/';
+
+    this.router.navigateByUrl(redirect);
   }
 }

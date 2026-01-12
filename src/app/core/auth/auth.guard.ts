@@ -2,17 +2,19 @@ import { inject } from '@angular/core';
 import { CanMatchFn, Router } from '@angular/router';
 import { AuthService } from './auth.service';
 
-export const authGuard: CanMatchFn = () => {
+export const authGuard: CanMatchFn = (route, segments) => {
   const authService = inject(AuthService);
   const router = inject(Router);
 
-  if (!authService.isInitialized) {
-    return false;
+  const attemptedUrl = '/' + segments.map((s) => s.path).join('/');
+  if (!authService.isInitialized()) {
+    return router.createUrlTree(['/loading']);
   }
 
   if (!authService.isAuthenticated()) {
-    router.navigateByUrl('/login');
-    return false;
+    return router.createUrlTree(['/login'], {
+      queryParams: { redirect: attemptedUrl },
+    });
   }
 
   return true;

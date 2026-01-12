@@ -7,7 +7,7 @@ A production-ready Angular application shell showcasing scalable layout architec
 This project is built to demonstrate:
 
 - Enterprise-grade Angular layout architecture
-- Modern standalone component approach (Angular 16+)
+- Modern standalone component approach (Angular 21 LTS)
 - Authentication and authorization
 - Responsive navigation patterns for desktop and mobile
 - Accessibility best practices (keyboard navigation, focus trapping, ESC handling)
@@ -40,7 +40,7 @@ The design intentionally derives permissions from roles to avoid stale or incons
   - Persistent header
   - Responsive sidenav
   - Routed content area
-  - Layout driven routing
+  - Layout-driven routing
 
 - **Auth-aware App Shell**
 

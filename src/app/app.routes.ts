@@ -12,7 +12,12 @@ export const routes: Routes = [
   {
     path: 'unauthorized',
     loadComponent: () =>
-      import('./pages/unauthorized/unauthorized.component').then((m) => m.UnauthorizedComponent),
+      import('./features/unauthorized/unauthorized.component').then((m) => m.UnauthorizedComponent),
+  },
+  {
+    path: 'loading',
+    loadComponent: () =>
+      import('./shared/loading/loading.component').then((m) => m.LoadingComponent),
   },
   {
     path: '',

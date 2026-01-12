@@ -9,6 +9,7 @@ export class AuthService {
 
   public readonly isAuthenticated = computed(() => this._user() !== null);
   public readonly isInitialized = computed(() => this._initialized());
+  public readonly user = this._user.asReadonly();
 
   public hasPermission(permission: Permission): boolean {
     return this._user()?.permissions.includes(permission) ?? false;
@@ -32,16 +33,17 @@ export class AuthService {
   /* ---- Restrore session during APP Bootstrap ----- */
   public restoreSession(): void {
     const rawStorageKey = localStorage.getItem(AuthService.STORAGE_KEY);
-    if (!rawStorageKey) return;
 
-    try {
-      const persisted = JSON.parse(rawStorageKey) as { role: Role };
-      this._user.set({
-        role: persisted.role,
-        permissions: ROLE_PERMISSIONS[persisted.role],
-      });
-    } catch {
-      localStorage.removeItem(AuthService.STORAGE_KEY);
+    if (rawStorageKey) {
+      try {
+        const persisted = JSON.parse(rawStorageKey) as { role: Role };
+        this._user.set({
+          role: persisted.role,
+          permissions: ROLE_PERMISSIONS[persisted.role],
+        });
+      } catch {
+        localStorage.removeItem(AuthService.STORAGE_KEY);
+      }
     }
 
     this._initialized.set(true);
