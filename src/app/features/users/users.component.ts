@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsersApi } from './users.api';
 
 @Component({
   selector: 'app-users',
@@ -6,4 +7,8 @@ import { Component } from '@angular/core';
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss',
 })
-export class UsersComponent {}
+export class UsersComponent {
+  constructor(private usersApi: UsersApi) {
+    this.usersApi.getUsers().subscribe();
+  }
+}

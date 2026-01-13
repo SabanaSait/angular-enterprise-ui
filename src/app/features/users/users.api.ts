@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../../core/api/api.service';
+import { Observable } from 'rxjs';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class UsersApi {
   constructor(private api: ApiService) {}
 
-  public getUsers() {
-    this.api.get<User[]>('/users');
+  public getUsers(): Observable<any> {
+    return this.api.get('/users', {
+      interceptorOptions: {
+        retry: true,
+        retryCount: 3,
+      },
+    });
   }
-}
-
-export interface User {
-  role: string[];
-  permissions: string[];
 }

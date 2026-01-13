@@ -1,10 +1,13 @@
-import { HttpContext, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpContext, HttpContextToken, HttpHeaders, HttpParams } from '@angular/common/http';
 
 export interface ApiHttpOptions {
-  header?: HttpHeaders;
+  headers?: HttpHeaders;
   params?: HttpParams;
   context?: HttpContext;
   withCredentials?: boolean;
+
+  /** Interceptor-level options */
+  interceptorOptions?: ApiInterceptorOptions;
 }
 
 export interface ApiError {
@@ -14,3 +17,15 @@ export interface ApiError {
   details?: unknown;
   original?: unknown;
 }
+
+export interface ApiInterceptorOptions {
+  retry?: boolean;
+  retryCount?: number;
+  retryDelay?: number;
+}
+
+export const API_INTERCEPTOR_OPTIONS = new HttpContextToken<ApiInterceptorOptions>(() => ({
+  retry: true,
+  retryCount: 2,
+  retryDelay: 500,
+}));
