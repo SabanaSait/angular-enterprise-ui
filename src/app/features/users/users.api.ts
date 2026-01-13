@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
 export class UsersApi {
   constructor(private api: ApiService) {}
 
-  public getUsers(): Observable<any> {
-    return this.api.get('/users', {
+  public getUsers() {
+    return this.api.get('/api/users', {
       interceptorOptions: {
         retry: true,
         retryCount: 3,

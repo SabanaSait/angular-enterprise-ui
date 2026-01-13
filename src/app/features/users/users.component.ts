@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { UsersApi } from './users.api';
+import { toDataStateSignal } from '../../core/data-state/data-state.signal';
 
 @Component({
   selector: 'app-users',
@@ -8,7 +9,6 @@ import { UsersApi } from './users.api';
   styleUrl: './users.component.scss',
 })
 export class UsersComponent {
-  constructor(private usersApi: UsersApi) {
-    this.usersApi.getUsers().subscribe();
-  }
+  private readonly usersApi = inject(UsersApi);
+  public readonly userState = toDataStateSignal(this.usersApi.getUsers());
 }

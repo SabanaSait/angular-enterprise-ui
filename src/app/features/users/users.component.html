@@ -1,1 +1,7 @@
-<p>users works!</p>
+@switch (userState().status) { @case ('loading') {
+<div>Show loading...</div>
+} @case ('error') {
+<div>Show error message here...</div>
+} @case ('success') {
+<div>Show users list here...</div>
+}}
