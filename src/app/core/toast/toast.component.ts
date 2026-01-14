@@ -6,7 +6,7 @@ import { ToastMessage } from './toast.types';
   template: `
     <div class="toast" [class]="message.variant">
       <span>{{ message.message }}</span>
-      <button (click)="close.emit()"></button>
+      <button (click)="close.emit()">X</button>
     </div>
   `,
 })

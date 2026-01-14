@@ -12,7 +12,7 @@ export class ErrorService {
     this._errors.update((list) => [
       ...list,
       {
-        id: '1',
+        id: crypto.randomUUID(),
         message: this.normalizeError(error),
         variant: 'error',
         autoClose: false,
@@ -25,8 +25,11 @@ export class ErrorService {
   }
 
   private normalizeError(error: unknown): string {
+    if (typeof error === 'object' && error !== null && 'message' in error) {
+      return String((error as any).message);
+    }
     if (typeof error === 'string') return error;
     if (error instanceof Error) return error.message;
-    return 'something went wrong!';
+    return 'something went wrong. Please try again.';
   }
 }
