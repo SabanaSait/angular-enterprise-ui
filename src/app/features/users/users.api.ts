@@ -3,13 +3,17 @@ import { ApiService } from '../../core/api/api.service';
 import { NotificationService } from '../../core/notification/notification.service';
 import { Observable, tap } from 'rxjs';
 import { User } from './user.types';
+import { PaginatedResponse } from '../../core/api/api.types';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class UsersApi {
   constructor(private api: ApiService, private notificationService: NotificationService) {}
 
-  public getUsers(): Observable<User[]> {
-    return this.api.get<User[]>('/api/users', {
+  public getUsers(pageNumber = 1, pageSize = 10): Observable<PaginatedResponse<User>> {
+    const params = new HttpParams().set('pageNumber', pageNumber).set('pageSize', pageSize);
+    return this.api.get<PaginatedResponse<User>>('/api/users', {
+      params,
       interceptorOptions: {
         retry: true,
         retryCount: 3,

@@ -12,6 +12,7 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { authInterceptor } from './core/auth/auth.interceptor';
 import { apiInterceptor } from './core/api/api.interceptor';
 import { retryInterceptor } from './core/api/retry.interceptor';
+import { mockBackendInterceptor } from './mocks/users-mock.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -21,6 +22,8 @@ export const appConfig: ApplicationConfig = {
     }),
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
-    provideHttpClient(withInterceptors([authInterceptor, retryInterceptor, apiInterceptor])),
+    provideHttpClient(
+      withInterceptors([authInterceptor, mockBackendInterceptor, retryInterceptor, apiInterceptor])
+    ),
   ],
 };

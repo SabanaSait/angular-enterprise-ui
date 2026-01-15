@@ -29,3 +29,10 @@ export const API_INTERCEPTOR_OPTIONS = new HttpContextToken<ApiInterceptorOption
   retryCount: 2,
   retryDelay: 500,
 }));
+
+export interface PaginatedResponse<T> {
+  entities: T[];
+  total: number;
+  pageNumber: number;
+  pageSize: number;
+}
