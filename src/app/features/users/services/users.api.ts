@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from '../../core/api/api.service';
-import { NotificationService } from '../../core/notification/notification.service';
+import { ApiService } from '../../../core/api/api.service';
+import { NotificationService } from '../../../core/notification/notification.service';
 import { Observable, tap } from 'rxjs';
-import { User } from './user.types';
-import { PaginatedResponse } from '../../core/api/api.types';
+import { User } from '../models/user.model';
+import { PaginatedResponse } from '../../../core/api/api.types';
 import { HttpParams } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })

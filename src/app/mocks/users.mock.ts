@@ -1,4 +1,4 @@
-import { User } from '../features/users/user.types';
+import { User } from '../features/users/models/user.model';
 
 export const MOCK_USERS: User[] = Array.from({ length: 42 }).map((_, i) => ({
   id: i + 1,

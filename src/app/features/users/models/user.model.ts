@@ -1,4 +1,4 @@
-import { Role } from '../../core/auth/auth.types';
+import { Role } from '../../../core/auth/auth.types';
 
 export interface User {
   id: number;
