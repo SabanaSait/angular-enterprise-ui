@@ -2,6 +2,13 @@
 <div>Show loading...</div>
 } @case ('error') {
 <div>Show error message here...</div>
-} @case ('success') {
+} @case ('success') { @let users = userState().data; @if (users && users.length) {
 <div>Show users list here...</div>
-}}
+} @else {
+<app-empty-state
+  title="No users yet"
+  description="Start by creating your first user"
+  actionLabel="Create User"
+  [action]="createUser"
+></app-empty-state>
+} }}
