@@ -2,41 +2,13 @@
 <div>Show loading...</div>
 } @case ('error') {
 <div>Show error message here...</div>
-} @case ('success') { @let users = userState().data?.entities; @if (users && users.length) {
-<div>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Role</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for (user of users; track user.id) {
-      <tr>
-        <td>{{ user.name }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.role }}</td>
-        <td>{{ user.status }}</td>
-      </tr>
-      }
-      <tr>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="pagination-container">
-    <button [disabled]="pageNumber() === 1" (click)="prevPage()">Prev</button>
-    <button [disabled]="users.length < pageSize" (click)="nextPage()">Next</button>
-  </div>
-</div>
-} @else {
-<app-empty-state
-  title="No users yet"
-  description="Start by creating your first user"
-  actionLabel="Create User"
-  [action]="createUser"
-></app-empty-state>
-} }}
+} @case ('success') { @let users = userState().data?.entities ?? [];
+<app-users-table
+  [users]="users"
+  [pageNumber]="pageQuery().pageNumber"
+  [pageSize]="pageQuery().pageSize"
+  [total]="userState().data?.total || 0"
+  [loading]="loading()"
+  (pageChange)="setPageNumber($event)"
+></app-users-table>
+} }

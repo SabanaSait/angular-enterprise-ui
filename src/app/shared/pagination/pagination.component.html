@@ -1,0 +1,5 @@
+<button (click)="prevPage()" [disabled]="disabled || pageNumber === 1">Prev</button>
+
+<span> Page {{ pageNumber }} of {{ totalPages }} </span>
+
+<button (click)="nextPage()" [disabled]="disabled || pageNumber === totalPages">Next</button>
