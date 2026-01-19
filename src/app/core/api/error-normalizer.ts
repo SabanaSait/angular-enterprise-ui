@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { ApiError } from './api.types';
+import { ApiError } from './api.model';
 
 export function normalizeHttpError(error: unknown): ApiError {
   if (error instanceof HttpErrorResponse) {

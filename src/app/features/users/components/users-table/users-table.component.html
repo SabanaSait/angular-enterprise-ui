@@ -1,9 +1,14 @@
-<!-- show loading indicator while the data is loading -->
 @if(users.length;) {
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th (click)="!loading && toggleSort('name')" [class.disabled]="loading">
+        Name @if (sortBy === 'name') {
+        <span class="sort-indicator">
+          {{ sortDirection === 'asc' ? '▲' : '▼' }}
+        </span>
+        }
+      </th>
       <th>Email</th>
       <th>Role</th>
       <th>Status</th>
@@ -23,7 +28,6 @@
     </tr>
   </tbody>
 </table>
-
 <app-pagination
   [pageNumber]="pageNumber"
   [pageSize]="pageSize"
@@ -32,11 +36,13 @@
   (pageChange)="pageChange.emit($event)"
 ></app-pagination>
 
-} @else {
+} @if(!loading && users.length === 0) {
 <app-empty-state
   title="No users yet"
   description="Start by creating your first user"
   actionLabel="Create User"
   (action)="createUser.emit()"
 ></app-empty-state>
+} @if (loading) {
+<div class="overlay">Loading users…</div>
 }

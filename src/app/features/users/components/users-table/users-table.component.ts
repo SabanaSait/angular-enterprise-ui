@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PaginationComponent } from '../../../../shared/pagination/pagination.component';
 import { EmptyStateComponent } from '../../../../shared/empty-state/empty-state.component';
 import { User } from '../../models/user.model';
+import { SortDirection, UserSortKey } from '../../models/users-query.model';
 
 @Component({
   selector: 'app-users-table',
@@ -15,7 +16,16 @@ export class UsersTableComponent {
   @Input() pageNumber = 1;
   @Input() pageSize = 10;
   @Input() loading = false;
+  @Input() sortDirection!: SortDirection;
+  @Input() sortBy!: UserSortKey;
 
   @Output() public pageChange = new EventEmitter<number>();
   @Output() public createUser = new EventEmitter<void>();
+  @Output() public sortChange = new EventEmitter<{ by: keyof User; direction: SortDirection }>();
+
+  public toggleSort(column: keyof User) {
+    const isSameColumn = this.sortBy === column;
+    const direction = isSameColumn && this.sortDirection === 'asc' ? 'desc' : 'asc';
+    this.sortChange.emit({ by: column, direction });
+  }
 }

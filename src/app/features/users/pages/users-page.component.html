@@ -1,14 +1,15 @@
-@switch (userState().status) { @case ('loading') {
-<div>Show loading...</div>
-} @case ('error') {
+@switch (userState().status) { @case ('error') {
 <div>Show error message here...</div>
-} @case ('success') { @let users = userState().data?.entities ?? [];
+} @default { @let users = userState().data?.entities ?? [];
 <app-users-table
   [users]="users"
-  [pageNumber]="pageQuery().pageNumber"
-  [pageSize]="pageQuery().pageSize"
+  [pageNumber]="userState().data?.pageNumber ?? query().pageNumber"
+  [pageSize]="query().pageSize"
+  [sortBy]="query().sortBy"
+  [sortDirection]="query().sortDirection"
   [total]="userState().data?.total || 0"
   [loading]="loading()"
   (pageChange)="setPageNumber($event)"
+  (sortChange)="setSort($event)"
 ></app-users-table>
 } }

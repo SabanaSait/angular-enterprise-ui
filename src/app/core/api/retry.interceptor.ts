@@ -7,7 +7,7 @@ import {
 } from '@angular/common/http';
 import { timer, throwError, Observable } from 'rxjs';
 import { catchError, mergeMap } from 'rxjs/operators';
-import { API_INTERCEPTOR_OPTIONS } from './api.types';
+import { API_INTERCEPTOR_OPTIONS } from './api.model';
 
 const DEFAULT_RETRY_COUNT = 2;
 const BASE_DELAY_MS = 500;

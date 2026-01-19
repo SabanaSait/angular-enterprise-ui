@@ -4,8 +4,9 @@ export const idleState = <T>(): DataState<T> => ({
   status: 'idle',
 });
 
-export const loadingState = <T>(): DataState<T> => ({
+export const loadingState = <T>(data?: T): DataState<T> => ({
   status: 'loading',
+  data,
 });
 
 export const successSate = <T>(data: T): DataState<T> => ({

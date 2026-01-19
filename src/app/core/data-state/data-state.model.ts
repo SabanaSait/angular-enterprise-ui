@@ -5,3 +5,7 @@ export interface DataState<T> {
   data?: T;
   error?: unknown;
 }
+
+export interface DataStateOptions {
+  emitLoadingOnNext?: boolean;
+}

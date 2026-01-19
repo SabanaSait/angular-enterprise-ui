@@ -1,4 +1,6 @@
 import { HttpContext, HttpContextToken, HttpHeaders, HttpParams } from '@angular/common/http';
+import { SortDirection } from '../../features/users/models/users-query.model';
+import { User } from '../../features/users/models/user.model';
 
 export interface ApiHttpOptions {
   headers?: HttpHeaders;
@@ -35,4 +37,6 @@ export interface PaginatedResponse<T> {
   total: number;
   pageNumber: number;
   pageSize: number;
+  sortBy: string;
+  sortDirection: SortDirection;
 }

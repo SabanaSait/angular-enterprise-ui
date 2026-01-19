@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { API_INTERCEPTOR_OPTIONS, ApiHttpOptions } from './api.types';
+import { API_INTERCEPTOR_OPTIONS, ApiHttpOptions } from './api.model';
 import { HttpClient, HttpContext } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
