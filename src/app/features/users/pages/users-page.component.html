@@ -1,15 +1,23 @@
-@switch (userState().status) { @case ('error') {
-<div>Show error message here...</div>
-} @default { @let users = userState().data?.entities ?? [];
-<app-users-table
-  [users]="users"
-  [pageNumber]="userState().data?.pageNumber ?? query().pageNumber"
-  [pageSize]="query().pageSize"
-  [sortBy]="query().sortBy"
-  [sortDirection]="query().sortDirection"
-  [total]="userState().data?.total || 0"
-  [loading]="loading()"
-  (pageChange)="setPageNumber($event)"
-  (sortChange)="setSort($event)"
-></app-users-table>
-} }
+@switch (userState().status) {
+  @case ('error') {
+    <div>Show error message here...</div>
+  }
+  @default {
+    @let users = userState().data?.entities ?? [];
+    <div class="page-header">
+      <h1>Users</h1>
+      <p>Manage users and their access.</p>
+    </div>
+    <app-users-table
+      [users]="users"
+      [pageNumber]="userState().data?.pageNumber ?? query().pageNumber"
+      [pageSize]="query().pageSize"
+      [sortBy]="query().sortBy"
+      [sortDirection]="query().sortDirection"
+      [total]="userState().data?.total || 0"
+      [loading]="loading()"
+      (pageChange)="setPageNumber($event)"
+      (sortChange)="setSort($event)"
+    ></app-users-table>
+  }
+}

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PaginationComponent } from '../../../../shared/pagination/pagination.component';
 import { EmptyStateComponent } from '../../../../shared/empty-state/empty-state.component';
-import { User } from '../../models/user.model';
+import { User, UserStatus } from '../../models/user.model';
 import { SortDirection, UserSortKey } from '../../models/users-query.model';
 
 @Component({
@@ -27,5 +27,8 @@ export class UsersTableComponent {
     const isSameColumn = this.sortBy === column;
     const direction = isSameColumn && this.sortDirection === 'asc' ? 'desc' : 'asc';
     this.sortChange.emit({ by: column, direction });
+  }
+  public isActiveUser(user: User): boolean {
+    return user.status === UserStatus.Active;
   }
 }

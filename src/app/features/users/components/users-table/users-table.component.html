@@ -1,48 +1,54 @@
-@if(users.length;) {
-<table>
-  <thead>
-    <tr>
-      <th (click)="!loading && toggleSort('name')" [class.disabled]="loading">
-        Name @if (sortBy === 'name') {
-        <span class="sort-indicator">
-          {{ sortDirection === 'asc' ? '▲' : '▼' }}
-        </span>
-        }
-      </th>
-      <th>Email</th>
-      <th>Role</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    @for (user of users; track user.id) {
-    <tr>
-      <td>{{ user.name }}</td>
-      <td>{{ user.email }}</td>
-      <td>{{ user.role }}</td>
-      <td>{{ user.status }}</td>
-    </tr>
-    }
-    <tr>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-<app-pagination
-  [pageNumber]="pageNumber"
-  [pageSize]="pageSize"
-  [total]="total"
-  [disabled]="loading"
-  (pageChange)="pageChange.emit($event)"
-></app-pagination>
-
-} @if(!loading && users.length === 0) {
-<app-empty-state
-  title="No users yet"
-  description="Start by creating your first user"
-  actionLabel="Create User"
-  (action)="createUser.emit()"
-></app-empty-state>
-} @if (loading) {
-<div class="overlay">Loading users…</div>
+@if (users.length) {
+  <table>
+    <thead>
+      <tr>
+        <th (click)="!loading && toggleSort('name')" [class.disabled]="loading">
+          Name
+          @if (sortBy === 'name') {
+            <span class="sort-indicator">
+              {{ sortDirection === 'asc' ? '▲' : '▼' }}
+            </span>
+          }
+        </th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (user of users; track user.id) {
+        <tr>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role }}</td>
+          <td class="status">
+            <span [class.status-active]="isActiveUser(user)">
+              {{ user.status }}
+            </span>
+          </td>
+        </tr>
+      }
+      <tr>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <app-pagination
+    [pageNumber]="pageNumber"
+    [pageSize]="pageSize"
+    [total]="total"
+    [disabled]="loading"
+    (pageChange)="pageChange.emit($event)"
+  ></app-pagination>
+}
+@if (!loading && users.length === 0) {
+  <app-empty-state
+    title="No users yet"
+    description="Start by creating your first user"
+    actionLabel="Create User"
+    (action)="createUser.emit()"
+  ></app-empty-state>
+}
+@if (loading) {
+  <div class="overlay">Loading users…</div>
 }

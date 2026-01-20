@@ -1,0 +1,29 @@
+:root {
+  /* Text */
+  --color-text-primary: #1f2937; // slate-800
+  --color-text-secondary: #4b5563; // slate-600
+  --color-text-muted: #6b7280; // slate-500
+
+  /* Backgrounds */
+  --color-bg-page: #f9fafb;
+  --color-bg-surface: #ffffff;
+  --color-bg-hover: #f3f4f6;
+
+  /* Borders */
+  --color-border-default: #e5e7eb;
+
+  /* Brand / Actions */
+  --color-primary: #2563eb; // blue-600
+  --color-primary-hover: #1d4ed8;
+
+  /* States */
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-error: #dc2626;
+
+  /* Table */
+  --color-table-bg: #ffffff;
+  --color-table-row-alt: #f9fafb;
+  --color-table-row-hover: #f3f4f6;
+  --color-table-border: #e5e7eb;
+}
