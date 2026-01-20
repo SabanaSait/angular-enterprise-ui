@@ -18,7 +18,7 @@ export class UsersPageComponent {
   private readonly usersApi = inject(UsersApi);
   public readonly query = signal<UsersQuery>({
     pageNumber: 1,
-    pageSize: 10,
+    pageSize: 20,
     sortBy: 'name',
     sortDirection: 'asc',
   });
@@ -30,8 +30,8 @@ export class UsersPageComponent {
         pageSize: q.pageSize,
         sortBy: q.sortBy,
         sortDirection: q.sortDirection,
-      })
-    )
+      }),
+    ),
   );
   public readonly userState = toDataStateSignal<PaginatedResponse<User>>(this.$users, {
     emitLoadingOnNext: true,

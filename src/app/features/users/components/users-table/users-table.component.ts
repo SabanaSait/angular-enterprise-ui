@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { TitleCasePipe } from '@angular/common';
 import { PaginationComponent } from '../../../../shared/pagination/pagination.component';
 import { EmptyStateComponent } from '../../../../shared/empty-state/empty-state.component';
 import { User, UserStatus } from '../../models/user.model';
@@ -6,7 +7,7 @@ import { SortDirection, UserSortKey } from '../../models/users-query.model';
 
 @Component({
   selector: 'app-users-table',
-  imports: [PaginationComponent, EmptyStateComponent],
+  imports: [PaginationComponent, EmptyStateComponent, TitleCasePipe],
   templateUrl: './users-table.component.html',
   styleUrl: './users-table.component.scss',
 })

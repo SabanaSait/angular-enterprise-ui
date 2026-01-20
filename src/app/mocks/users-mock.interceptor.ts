@@ -14,9 +14,7 @@ export const mockBackendInterceptor: HttpInterceptorFn = (req, next) => {
     const end = start + pageSize;
     const users = MOCK_USERS;
 
-    console.log(sortBy, sortDir, 'out');
     if (sortBy && sortDir) {
-      console.log(sortBy, sortDir);
       users.sort((a, b) => {
         const aVal = a[sortBy];
         const bVal = b[sortBy];
@@ -29,8 +27,6 @@ export const mockBackendInterceptor: HttpInterceptorFn = (req, next) => {
       });
     }
 
-    console.log(users, 'users array sorted!');
-
     const response = {
       entities: users.slice(start, end),
       pageNumber,
@@ -42,7 +38,7 @@ export const mockBackendInterceptor: HttpInterceptorFn = (req, next) => {
       new HttpResponse({
         status: 200,
         body: response,
-      })
+      }),
     ).pipe(delay(600));
   }
 

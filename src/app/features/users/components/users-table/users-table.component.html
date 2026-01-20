@@ -1,38 +1,37 @@
 @if (users.length) {
-  <table>
-    <thead>
-      <tr>
-        <th (click)="!loading && toggleSort('name')" [class.disabled]="loading">
-          Name
-          @if (sortBy === 'name') {
-            <span class="sort-indicator">
-              {{ sortDirection === 'asc' ? '▲' : '▼' }}
-            </span>
-          }
-        </th>
-        <th>Email</th>
-        <th>Role</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for (user of users; track user.id) {
+  <div class="users-table-wrapper">
+    <table>
+      <thead>
         <tr>
-          <td>{{ user.name }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.role }}</td>
-          <td class="status">
-            <span [class.status-active]="isActiveUser(user)">
-              {{ user.status }}
-            </span>
-          </td>
+          <th (click)="!loading && toggleSort('name')" [class.disabled]="loading">
+            Name
+            @if (sortBy === 'name') {
+              <span class="sort-indicator">
+                {{ sortDirection === 'asc' ? '▲' : '▼' }}
+              </span>
+            }
+          </th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Status</th>
         </tr>
-      }
-      <tr>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        @for (user of users; track user.id) {
+          <tr>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.role }}</td>
+            <td class="status">
+              <span [class.status-active]="isActiveUser(user)">
+                {{ user.status | titlecase }}
+              </span>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
   <app-pagination
     [pageNumber]="pageNumber"
     [pageSize]="pageSize"
@@ -41,6 +40,7 @@
     (pageChange)="pageChange.emit($event)"
   ></app-pagination>
 }
+
 @if (!loading && users.length === 0) {
   <app-empty-state
     title="No users yet"
