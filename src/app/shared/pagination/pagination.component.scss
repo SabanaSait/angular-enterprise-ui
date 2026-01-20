@@ -1,4 +1,13 @@
 :host {
   display: flex;
+  align-self: flex-end;
+  align-items: center;
   gap: 10px;
+
+  .btn-pagination {
+    font-weight: bold;
+    &:hover:not(:disabled) {
+      background: #f3f4f6;
+    }
+  }
 }
