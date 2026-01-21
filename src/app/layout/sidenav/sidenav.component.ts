@@ -5,7 +5,6 @@ import {
   HostListener,
   Input,
   Output,
-  OnChanges,
   ViewChild,
 } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';

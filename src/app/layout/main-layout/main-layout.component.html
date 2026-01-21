@@ -3,7 +3,7 @@
     <button
       class="menu-btn"
       aria-label="Open navigation menu"
-      [aria-expanded]="isSidebarOpen"
+      [aria-expanded]="isSidebarOpen()"
       aria-controls="app-sidebar"
       (click)="toggleSidebar()"
     >
@@ -13,7 +13,7 @@
     <button class="btn btn-secondary btn-logout" (click)="logout()">Logout</button>
   </header>
   <div class="layout-body">
-    <app-sidenav [open]="isSidebarOpen" (close)="closeSidebar()"></app-sidenav>
+    <app-sidenav [open]="isSidebarOpen()" (close)="closeSidebar()"></app-sidenav>
     <main class="layout-content">
       <div class="content-scroll">
         <router-outlet />
