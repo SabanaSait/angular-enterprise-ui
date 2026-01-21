@@ -22,10 +22,8 @@
             <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.role }}</td>
-            <td class="status">
-              <span [class.status-active]="isActiveUser(user)">
-                {{ user.status | titlecase }}
-              </span>
+            <td>
+              <app-status-pill [status]="user.status"></app-status-pill>
             </td>
           </tr>
         }
@@ -45,7 +43,7 @@
   <app-empty-state
     title="No users yet"
     description="Start by creating your first user"
-    actionLabel="Create User"
+    actionLabel="+ Create User"
     (action)="createUser.emit()"
   ></app-empty-state>
 }

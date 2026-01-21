@@ -17,7 +17,7 @@ export const routes: Routes = [
   {
     path: 'loading',
     loadComponent: () =>
-      import('./shared/loading/loading.component').then((m) => m.LoadingComponent),
+      import('./shared/components/loading/loading.component').then((m) => m.LoadingComponent),
   },
   {
     path: '',

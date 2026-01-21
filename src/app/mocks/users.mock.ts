@@ -1,6 +1,6 @@
 import { User, UserStatus } from '../features/users/models/user.model';
 
-export const MOCK_USERS: User[] = Array.from({ length: 90 }).map((_, i) => ({
+export const MOCK_USERS: User[] = Array.from({ length: 0 }).map((_, i) => ({
   id: i + 1,
   name: `User ${i + 1}`,
   email: `user${i + 1}@company.com`,
