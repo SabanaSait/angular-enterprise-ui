@@ -21,8 +21,10 @@ export class UsersTableComponent {
   @Input() sortBy!: UserSortKey;
 
   @Output() public pageChange = new EventEmitter<number>();
-  @Output() public createUser = new EventEmitter<void>();
   @Output() public sortChange = new EventEmitter<{ by: keyof User; direction: SortDirection }>();
+  @Output() public addUser = new EventEmitter<void>();
+  @Output() public editUser = new EventEmitter<User>();
+  @Output() public deleteUser = new EventEmitter<User>();
 
   public toggleSort(column: keyof User) {
     const isSameColumn = this.sortBy === column;

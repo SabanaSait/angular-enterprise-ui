@@ -5,6 +5,7 @@ import { UsersApi } from '../services/users.api';
 import { toDataStateSignal } from '../../../core/data-state/data-state.signal';
 import { UsersQuery } from '../models/users-query.model';
 import { User } from '../models/user.model';
+import { CreateUserDto, UpdateUserDto } from '../models/user.dto';
 import { PaginatedResponse } from '../../../core/api/api.model';
 
 @Injectable({ providedIn: 'root' })
@@ -50,5 +51,21 @@ export class UsersFacade {
       sortBy,
       sortDirection,
     }));
+  }
+
+  public getUser(id: string) {
+    return this.usersApi.getUser(id);
+  }
+
+  public createUser(payload: CreateUserDto) {
+    return this.usersApi.createUser(payload);
+  }
+
+  public updateUser(payload: UpdateUserDto) {
+    return this.usersApi.updateUser(payload);
+  }
+
+  public deleteUser(id: string) {
+    return this.usersApi.deleteUser(id);
   }
 }

@@ -6,10 +6,14 @@ import { User } from '../models/user.model';
 import { PaginatedResponse } from '../../../core/api/api.model';
 import { HttpParams } from '@angular/common/http';
 import { SortDirection, UserSortKey } from '../models/users-query.model';
+import { CreateUserDto, UpdateUserDto } from '../models/user.dto';
 
 @Injectable({ providedIn: 'root' })
 export class UsersApi {
-  constructor(private api: ApiService, private notificationService: NotificationService) {}
+  constructor(
+    private api: ApiService,
+    private notificationService: NotificationService,
+  ) {}
 
   public getUsers(params: {
     pageNumber?: number;
@@ -35,13 +39,22 @@ export class UsersApi {
     });
   }
 
-  public createUser(payload: any) {
+  public getUser(id: string): Observable<User> {
+    return this.api.get<User>(`/api/users/${id}`, {
+      interceptorOptions: {
+        retry: true,
+        retryCount: 3,
+      },
+    });
+  }
+
+  public createUser(payload: CreateUserDto) {
     return this.api
       .post('/api/users', payload)
       .pipe(tap(() => this.notificationService.success('User created successfully!')));
   }
 
-  public updateUser(payload: any) {
+  public updateUser(payload: UpdateUserDto) {
     return this.api
       .put('/api/users', payload)
       .pipe(tap(() => this.notificationService.success('User updated successfully!')));

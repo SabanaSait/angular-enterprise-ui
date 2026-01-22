@@ -14,6 +14,7 @@
           <th>Email</th>
           <th>Role</th>
           <th>Status</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -24,6 +25,26 @@
             <td>{{ user.role }}</td>
             <td>
               <app-status-pill [status]="user.status"></app-status-pill>
+            </td>
+            <td class="actions">
+              <button
+                class="btn btn-ghost"
+                type="button"
+                title="Edit user"
+                aria-label="Edit user"
+                (click)="editUser.emit(user)"
+              >
+                ✏️
+              </button>
+              <button
+                class="btn btn-ghost"
+                type="button"
+                title="Delete user"
+                aria-label="Delete user"
+                (click)="deleteUser.emit(user)"
+              >
+                🗑
+              </button>
             </td>
           </tr>
         }
@@ -44,7 +65,7 @@
     title="No users yet"
     description="Start by creating your first user"
     actionLabel="+ Create User"
-    (action)="createUser.emit()"
+    (action)="addUser.emit()"
   ></app-empty-state>
 }
 @if (loading) {
