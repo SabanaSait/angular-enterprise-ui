@@ -10,7 +10,7 @@ import { ToastComponent } from './toast.component';
   template: `
     <div class="toast-container">
       @for (toast of allMessages(); track toast.id) {
-      <app-toast [message]="toast" (click)="remove(toast)"></app-toast>
+        <app-toast [message]="toast" (close)="remove(toast)"></app-toast>
       }
     </div>
   `,
@@ -18,7 +18,7 @@ import { ToastComponent } from './toast.component';
 export class ToastContainerComponent {
   constructor(
     private readonly errorService: ErrorService,
-    private readonly notificationService: NotificationService
+    private readonly notificationService: NotificationService,
   ) {}
   public allMessages = computed(() => [
     ...this.errorService.errors(),

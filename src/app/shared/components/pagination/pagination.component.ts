@@ -31,4 +31,16 @@ export class PaginationComponent {
       this.pageChange.emit(this.pageNumber + 1);
     }
   }
+
+  public firstPage(): void {
+    if (this.pageNumber > 1 && !this.disabled) {
+      this.pageChange.emit(1);
+    }
+  }
+
+  public lastPage(): void {
+    if (this.pageNumber < this.totalPages && !this.disabled) {
+      this.pageChange.emit(this.totalPages);
+    }
+  }
 }

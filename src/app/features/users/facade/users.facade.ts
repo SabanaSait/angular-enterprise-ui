@@ -16,16 +16,22 @@ export class UsersFacade {
     sortBy: 'name',
     sortDirection: 'asc',
   });
+  private readonly refreshTick = signal(0);
 
   public readonly query = this._query.asReadonly();
 
-  private readonly users$ = toObservable(this._query).pipe(
-    switchMap((q) =>
+  private readonly users$ = toObservable(
+    computed(() => ({
+      query: this._query(),
+      refresh: this.refreshTick(),
+    })),
+  ).pipe(
+    switchMap(({ query }) =>
       this.usersApi.getUsers({
-        pageNumber: q.pageNumber,
-        pageSize: q.pageSize,
-        sortBy: q.sortBy,
-        sortDirection: q.sortDirection,
+        pageNumber: query.pageNumber,
+        pageSize: query.pageSize,
+        sortBy: query.sortBy,
+        sortDirection: query.sortDirection,
       }),
     ),
   );
@@ -57,15 +63,25 @@ export class UsersFacade {
     return this.usersApi.getUser(id);
   }
 
-  public createUser(payload: CreateUserDto) {
-    return this.usersApi.createUser(payload);
+  public createUser(payload: CreateUserDto): void {
+    this.usersApi.createUser(payload).subscribe(() => {
+      this.refresh();
+    });
   }
 
   public updateUser(payload: UpdateUserDto) {
-    return this.usersApi.updateUser(payload);
+    this.usersApi.updateUser(payload).subscribe(() => {
+      this.refresh();
+    });
   }
 
   public deleteUser(id: string) {
-    return this.usersApi.deleteUser(id);
+    this.usersApi.deleteUser(id).subscribe(() => {
+      this.refresh();
+    });
+  }
+
+  private refresh(): void {
+    this.refreshTick.update((val) => val + 1);
   }
 }

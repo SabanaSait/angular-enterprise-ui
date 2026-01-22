@@ -36,6 +36,6 @@ export class UsersPageComponent {
   }
 
   public onDeleteUser(user: User): void {
-    this.facade.deleteUser(user.id).subscribe();
+    this.facade.deleteUser(user.id);
   }
 }

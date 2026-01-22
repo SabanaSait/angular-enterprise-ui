@@ -11,11 +11,11 @@ export class ApiService {
     return this.http.get<T>(url, this.buildHttpOptions(options));
   }
 
-  public post<T>(url: string, body: unknown, options?: ApiHttpOptions) {
+  public post<T>(url: string, body: T, options?: ApiHttpOptions) {
     return this.http.post(url, body, this.buildHttpOptions(options));
   }
 
-  public put<T>(url: string, body: unknown, options?: ApiHttpOptions) {
+  public put<T>(url: string, body: T, options?: ApiHttpOptions) {
     return this.http.put(url, body, this.buildHttpOptions(options));
   }
 

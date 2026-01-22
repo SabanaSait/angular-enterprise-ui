@@ -23,7 +23,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideHttpClient(
-      withInterceptors([authInterceptor, mockBackendInterceptor, retryInterceptor, apiInterceptor])
+      withInterceptors([authInterceptor, mockBackendInterceptor, retryInterceptor, apiInterceptor]),
     ),
   ],
 };

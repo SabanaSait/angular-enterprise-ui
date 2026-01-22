@@ -1,7 +1,8 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, effect, inject, Signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { of } from 'rxjs';
 import { UsersFacade } from '../../facade/users.facade';
 import { UserStatus } from '../../models/user.model';
 import { Role } from '../../../../core/auth/auth.types';
@@ -22,19 +23,22 @@ export class UserFormPageComponent {
 
   public readonly isEdit = computed(() => !!this.userId);
 
-  public readonly user = this.userId ? toSignal(this.facade.getUser(this.userId)) : null;
+  public readonly user = toSignal(this.userId ? this.facade.getUser(this.userId) : of(null));
 
   public readonly form = this.fb.nonNullable.group({
     name: ['', Validators.required],
     email: ['', Validators.email],
-    role: ['USER', Validators.required],
+    role: ['user', Validators.required],
     status: [UserStatus.Active, Validators.required],
   });
 
   constructor() {
-    if (this.user) {
-      this.form.patchValue(this.user()!);
-    }
+    effect(() => {
+      const user = this.user();
+      if (user) {
+        this.form.patchValue(user);
+      }
+    });
   }
 
   public submit(): void {

@@ -15,7 +15,7 @@ const MAX_DELAY_MS = 4000;
 
 export const retryInterceptor: HttpInterceptorFn = (
   req: HttpRequest<unknown>,
-  next: HttpHandlerFn
+  next: HttpHandlerFn,
 ): Observable<HttpEvent<unknown>> => {
   const options = req.context.get(API_INTERCEPTOR_OPTIONS);
 
@@ -45,7 +45,7 @@ function retryStrategy(
   req: HttpRequest<unknown>,
   next: HttpHandlerFn,
   maxRetries: number,
-  attempt: number
+  attempt: number,
 ): Observable<HttpEvent<unknown>> {
   if (attempt >= maxRetries || !isRetryableError(error)) {
     return throwError(() => error);
@@ -55,8 +55,8 @@ function retryStrategy(
 
   return timer(delay).pipe(
     mergeMap(() =>
-      next(req).pipe(catchError((err) => retryStrategy(err, req, next, maxRetries, attempt + 1)))
-    )
+      next(req).pipe(catchError((err) => retryStrategy(err, req, next, maxRetries, attempt + 1))),
+    ),
   );
 }
 

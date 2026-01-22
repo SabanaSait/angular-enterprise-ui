@@ -1,6 +1,16 @@
 <button
-  title="Previous"
   class="btn btn-ghost btn-pagination"
+  title="First"
+  aria-label="Go to first page"
+  (click)="firstPage()"
+  [disabled]="disabled || pageNumber === 1"
+>
+  <<
+</button>
+<button
+  class="btn btn-ghost btn-pagination"
+  title="Previous"
+  aria-label="Go to previous page"
   (click)="prevPage()"
   [disabled]="disabled || pageNumber === 1"
 >
@@ -8,10 +18,20 @@
 </button>
 <span> Page {{ pageNumber }} of {{ totalPages }} </span>
 <button
-  title="Next"
   class="btn btn-ghost btn-pagination"
+  title="Next"
+  aria-label="Go to next page"
   (click)="nextPage()"
   [disabled]="disabled || pageNumber === totalPages"
 >
   >
+</button>
+<button
+  class="btn btn-ghost btn-pagination"
+  title="Last"
+  aria-label="Go to last page"
+  (click)="lastPage()"
+  [disabled]="disabled || pageNumber === totalPages"
+>
+  >>
 </button>
