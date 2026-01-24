@@ -1,0 +1,15 @@
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  .page-header {
+    display: flex;
+    flex-direction: column;
+  }
+  .stat-cards {
+    display: flex;
+    gap: 30px;
+  }
+}

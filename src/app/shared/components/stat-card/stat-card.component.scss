@@ -1,0 +1,18 @@
+:host {
+  padding: 8px;
+  .stat-card {
+    padding: 16px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    .label {
+      color: #6b7280;
+    }
+
+    .value {
+      color: #111827;
+      font-weight: 600;
+    }
+  }
+}

@@ -25,7 +25,7 @@ export const routes: Routes = [
     canMatch: [authGuard],
     children: [
       {
-        path: '',
+        path: 'dashboard',
         pathMatch: 'full',
         loadChildren: () =>
           import('./features/dashboard/dashboard.routes').then((m) => m.DASHBOARD_ROUTES),

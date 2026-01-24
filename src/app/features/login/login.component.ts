@@ -14,13 +14,13 @@ export class LoginComponent {
     private readonly auth: AuthService,
     private router: Router,
     private route: ActivatedRoute,
-    private http: HttpClient
+    private http: HttpClient,
   ) {}
 
   public login() {
     this.auth.login('ADMIN');
 
-    const redirect = this.route.snapshot.queryParamMap.get('redirect') || '/';
+    const redirect = this.route.snapshot.queryParamMap.get('redirect') || '/dashboard';
 
     this.router.navigateByUrl(redirect);
   }
