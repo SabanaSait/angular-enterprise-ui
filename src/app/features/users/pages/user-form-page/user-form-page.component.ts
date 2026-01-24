@@ -27,8 +27,8 @@ export class UserFormPageComponent {
 
   public readonly form = this.fb.nonNullable.group({
     name: ['', Validators.required],
-    email: ['', Validators.email],
-    role: ['user', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    role: ['', Validators.required],
     status: [UserStatus.Active, Validators.required],
   });
 
@@ -36,6 +36,7 @@ export class UserFormPageComponent {
     effect(() => {
       const user = this.user();
       if (user) {
+        console.log(user, 'user');
         this.form.patchValue(user);
       }
     });
@@ -63,5 +64,20 @@ export class UserFormPageComponent {
 
   public cancel(): void {
     this.router.navigate(['/users']);
+  }
+
+  public isRequired(controlName: string): boolean {
+    const control = this.form.get(controlName);
+    return !!control?.hasValidator(Validators.required);
+  }
+
+  public isInvalidControl(controlName: string): boolean {
+    const control = this.form.get(controlName);
+
+    if (!control?.invalid) {
+      return false;
+    }
+
+    return !!(control?.touched || control?.dirty);
   }
 }

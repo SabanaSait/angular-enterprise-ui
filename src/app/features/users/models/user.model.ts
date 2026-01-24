@@ -1,8 +1,8 @@
 import { Role } from '../../../core/auth/auth.types';
 
 export enum UserStatus {
-  Active = 'active',
-  Inactive = 'inactive',
+  Active = 'Active',
+  Inactive = 'Inactive',
 }
 
 export interface User {

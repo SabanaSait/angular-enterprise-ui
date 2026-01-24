@@ -2,28 +2,96 @@
   <h1>{{ isEdit() ? 'Edit User' : 'Create User' }}</h1>
 </div>
 <form [formGroup]="form" (ngSubmit)="submit()">
-  <div class="controls">
-    <label>Name:</label>
-    <input type="text" formControlName="name" />
+  @let isNameInvalid = isInvalidControl('name');
+  <div class="controls" [class.invalidControl]="isNameInvalid">
+    <div class="control-wrapper">
+      <label for="name"
+        >Name
+        @if (isRequired('name')) {
+          <span class="required">*</span>
+        }
+      </label>
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        placeholder="e.g. John Doe"
+        aria-invalid="{{ isNameInvalid }}"
+        aria-describedby="name-error"
+      />
+    </div>
+    @if (form.controls.name.errors?.['required']) {
+      <span id="name-error" class="errMessage" aria-hidden="{{ !isNameInvalid }}"
+        >Name is required</span
+      >
+    }
+  </div>
+  @let isEmailInvalid = isInvalidControl('email');
+  <div class="controls" [class.invalidControl]="isEmailInvalid">
+    <div class="control-wrapper">
+      <label for="email"
+        >Email
+        @if (isRequired('email')) {
+          <span class="required">*</span>
+        }
+      </label>
+      <input
+        id="email"
+        type="text"
+        formControlName="email"
+        placeholder="e.g. john.doe@company.com"
+        aria-invalid="{{ isEmailInvalid }}"
+        aria-describedby="email-required-error email-format-error"
+      />
+    </div>
+    @if (isEmailInvalid) {
+      @if (form.controls.email.errors?.['required']) {
+        <span id="email-required-error" class="errMessage" aria-hidden="{{ !isEmailInvalid }}"
+          >Email is required</span
+        >
+      }
+      @if (form.controls.email.errors?.['email']) {
+        <span id="email-format-error" class="errMessage" aria-hidden="{{ !isEmailInvalid }}"
+          >Enter a valid email address</span
+        >
+      }
+    }
+  </div>
+  @let isRoleInvalid = isInvalidControl('role');
+  <div class="controls" [class.invalidControl]="isRoleInvalid">
+    <div class="control-wrapper">
+      <label for="role"
+        >Role
+        @if (isRequired('role')) {
+          <span class="required">*</span>
+        }
+      </label>
+      <select
+        id="role"
+        formControlName="role"
+        aria-invalid="{{ isRoleInvalid }}"
+        aria-describedby="role-error"
+      >
+        <option value="" disabled>Select a role</option>
+        <option value="USER">USER</option>
+        <option value="SUPERVISOR">SUPERVISOR</option>
+        <option value="ADMIN">ADMIN</option>
+      </select>
+    </div>
+    @if (form.controls.role.errors?.['required']) {
+      <span id="role-error" class="errMessage" aria-hidden="{{ !isRoleInvalid }}"
+        >Role is required</span
+      >
+    }
   </div>
   <div class="controls">
-    <label>Email:</label>
-    <input type="text" formControlName="email" />
-  </div>
-  <div class="controls">
-    <label>Role:</label>
-    <select formControlName="role">
-      <option value="USER">USER</option>
-      <option value="SUPERVISOR">SUPERVISOR</option>
-      <option value="ADMIN">ADMIN</option>
-    </select>
-  </div>
-  <div class="controls">
-    <label>Status:</label>
-    <select formControlName="status">
-      <option value="Active">Active</option>
-      <option value="Inactive">Inactive</option>
-    </select>
+    <div class="control-wrapper">
+      <label for="status">Status</label>
+      <select id="status" formControlName="status">
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+      </select>
+    </div>
   </div>
 
   <div class="actions">

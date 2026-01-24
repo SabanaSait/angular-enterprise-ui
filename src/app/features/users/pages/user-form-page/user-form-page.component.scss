@@ -13,10 +13,16 @@
 
     .controls {
       display: flex;
-      gap: 15px;
+      flex-direction: column;
+      gap: 10px;
+
+      .control-wrapper {
+        display: flex;
+        gap: 15px;
+      }
 
       label {
-        width: 50px;
+        min-width: 70px;
       }
 
       input,
@@ -25,6 +31,33 @@
         height: 32px;
         border-radius: 4px;
         border: 1px solid var(--color-border-default);
+      }
+      .required {
+        color: var(--color-error);
+      }
+
+      input::placeholder {
+        color: var(--color-text-muted);
+        opacity: 0.7;
+      }
+
+      select option[disabled] {
+        color: var(--color-text-muted);
+      }
+
+      .errMessage {
+        display: none;
+      }
+
+      &.invalidControl {
+        input,
+        select {
+          border: 1px solid var(--color-error);
+        }
+        .errMessage {
+          display: block;
+          color: var(--color-error);
+        }
       }
     }
     .actions {

@@ -69,13 +69,13 @@ export class UsersFacade {
     });
   }
 
-  public updateUser(payload: UpdateUserDto) {
+  public updateUser(payload: UpdateUserDto): void {
     this.usersApi.updateUser(payload).subscribe(() => {
       this.refresh();
     });
   }
 
-  public deleteUser(id: string) {
+  public deleteUser(id: string): void {
     this.usersApi.deleteUser(id).subscribe(() => {
       this.refresh();
     });
