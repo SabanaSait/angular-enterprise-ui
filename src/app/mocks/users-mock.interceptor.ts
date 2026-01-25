@@ -136,5 +136,25 @@ export const mockBackendInterceptor: HttpInterceptorFn = (req, next) => {
     ).pipe(delay(400));
   }
 
+  if (method === 'GET' && url.endsWith('/api/dashboard/metrics')) {
+    const totalUsers = usersDB.length;
+    const activeUsers = usersDB.filter((u) => u.status === 'Active').length;
+    const inactiveUsers = usersDB.filter((u) => u.status === 'Inactive').length;
+    const adminsCount = usersDB.filter((u) => u.role === 'ADMIN').length;
+    console.log(usersDB);
+
+    return of(
+      new HttpResponse({
+        status: 200,
+        body: {
+          totalUsers,
+          activeUsers,
+          inactiveUsers,
+          adminsCount,
+        },
+      }),
+    ).pipe(delay(300));
+  }
+
   return next(req);
 };

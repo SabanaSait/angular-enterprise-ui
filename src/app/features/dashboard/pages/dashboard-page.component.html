@@ -3,7 +3,17 @@
   <p>Overview of system activity</p>
 </div>
 <div class="stat-cards">
-  <app-stat-card label="Total Users" [value]="totalUsers"></app-stat-card>
-  <app-stat-card label="Active Users" [value]="activeUsers"></app-stat-card>
-  <app-stat-card label="Inactive Users" [value]="inActiveUsers"></app-stat-card>
+  <app-stat-card label="Total Users" [value]="metricsState().data?.totalUsers || 0"></app-stat-card>
+  <app-stat-card
+    label="Active Users"
+    [value]="metricsState().data?.activeUsers || 0"
+  ></app-stat-card>
+  <app-stat-card
+    label="Inactive Users"
+    [value]="metricsState().data?.inactiveUsers || 0"
+  ></app-stat-card>
+  <app-stat-card
+    label="Admin Users"
+    [value]="metricsState().data?.activeUsers || 0"
+  ></app-stat-card>
 </div>

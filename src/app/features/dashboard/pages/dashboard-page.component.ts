@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { DashboardFacade } from '../facade/dashboard.facade';
 import { StatCardComponent } from '../../../shared/components/stat-card/stat-card.component';
 
 @Component({
@@ -8,8 +9,8 @@ import { StatCardComponent } from '../../../shared/components/stat-card/stat-car
   styleUrl: './dashboard-page.component.scss',
 })
 export class DashboardPageComponent {
-  // mock values
-  public totalUsers = 100;
-  public activeUsers = 50;
-  public inActiveUsers = 50;
+  private readonly facade = inject(DashboardFacade);
+  protected readonly metricsState = this.facade.metricsState;
+
+  constructor() {}
 }
