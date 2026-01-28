@@ -5,7 +5,7 @@ import { SortDirection, UserSortKey } from '../features/users/models/users-query
 import { User } from '../features/users/models/user.model';
 let usersDB: User[] = [...MOCK_USERS];
 
-export const mockBackendInterceptor: HttpInterceptorFn = (req, next) => {
+export const usersMockInterceptor: HttpInterceptorFn = (req, next) => {
   const { method, url, params, body } = req;
 
   /* -------------------------------

@@ -36,7 +36,6 @@ export class UserFormPageComponent {
     effect(() => {
       const user = this.user();
       if (user) {
-        console.log(user, 'user');
         this.form.patchValue(user);
       }
     });

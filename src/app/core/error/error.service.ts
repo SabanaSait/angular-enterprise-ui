@@ -18,6 +18,7 @@ export class ErrorService {
         autoClose: false,
       },
     ]);
+    console.log(this._errors(), 'errors...');
   }
 
   public removeError(id: string) {
