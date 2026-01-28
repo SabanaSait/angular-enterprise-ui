@@ -7,24 +7,7 @@
   }
   @default {
     @if (roles().length) {
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Code</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (role of roles(); track role) {
-            <tr>
-              <td>{{ role.name }}</td>
-              <td>{{ role.code }}</td>
-              <td>{{ role.description }}</td>
-            </tr>
-          }
-        </tbody>
-      </table>
+      <app-roles-table [roles]="roles()"></app-roles-table>
     }
   }
 }

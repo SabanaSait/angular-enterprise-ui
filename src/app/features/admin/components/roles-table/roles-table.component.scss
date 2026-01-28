@@ -6,7 +6,7 @@
   border: 1px solid var(--color-border-default);
   overflow: hidden;
 
-  .users-table-wrapper {
+  .role-table-wrapper {
     overflow-y: auto;
     border-bottom: 1px solid var(--color-table-border);
   }
@@ -38,15 +38,5 @@
         }
       }
     }
-  }
-  th.disabled {
-    pointer-events: none;
-  }
-  .loading {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    align-items: center;
-    justify-content: center;
   }
 }

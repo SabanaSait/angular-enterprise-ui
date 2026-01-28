@@ -1,0 +1,16 @@
+<nav class="tabs">
+  @for (tab of tabs; track tab) {
+    <a
+      [routerLink]="tab.route"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      [class.disabled]="tab.disabled"
+      class="tab"
+    >
+      @if (tab.icon) {
+        <span class="icon">{{ tab.icon }}</span>
+      }
+      <span>{{ tab.label }}</span>
+    </a>
+  }
+</nav>

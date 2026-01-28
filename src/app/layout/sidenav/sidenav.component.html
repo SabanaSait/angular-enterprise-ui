@@ -7,16 +7,13 @@
   [class.open]="open"
 >
   <nav>
-    @for (item of navItems; track item.route) { @if (auth.hasAccess(item.permission)) {
-    <a
-      [routerLink]="item.route"
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }"
-      >{{ item.label }}</a
-    >
-    } }
+    @for (item of navItems; track item.route) {
+      @if (auth.hasAccess(item.permission)) {
+        <a [routerLink]="item.route" routerLinkActive="active">{{ item.label }}</a>
+      }
+    }
   </nav>
 </aside>
 @if (open) {
-<div class="sidebar-backdrop" (click)="close.emit()" aria-hidden="true"></div>
+  <div class="sidebar-backdrop" (click)="close.emit()" aria-hidden="true"></div>
 }
