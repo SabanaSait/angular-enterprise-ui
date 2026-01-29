@@ -16,5 +16,5 @@ export class RolesFacade {
 
   public readonly roles = computed(() => this.rolesState().data ?? []);
 
-  /* Intents */
+  /* Intents methods */
 }

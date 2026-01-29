@@ -3,6 +3,7 @@
   --color-text-primary: #1f2937; // slate-800
   --color-text-secondary: #4b5563; // slate-600
   --color-text-muted: #6b7280; // slate-500
+  --color-text-disabled: #cdcfd0;
 
   /* Backgrounds */
   --color-bg-page: #f9fafb;
@@ -23,7 +24,14 @@
 
   /* Table */
   --color-table-bg: #ffffff;
+  --color-table-header: #dde0e3;
   --color-table-row-alt: #f9fafb;
   --color-table-row-hover: #f3f4f6;
   --color-table-border: #e5e7eb;
+
+  /* Link */
+  --color-link: #334155;
+  --color-link-active: #0f172a;
+  --color-link-active-bg: #e5e8f0;
+  --color-link-hover-bg: #e5e7eb;
 }

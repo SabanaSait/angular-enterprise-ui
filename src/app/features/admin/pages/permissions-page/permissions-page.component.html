@@ -1,1 +1,11 @@
-<p>permissions page component works!</p>
+@switch (permissionsSate().status) {
+  @case ('loading') {
+    <div>Permissions loading</div>
+  }
+  @case ('error') {
+    <div>Something went wrong...</div>
+  }
+  @default {
+    <app-permissions-table [permissions]="permissions()"></app-permissions-table>
+  }
+}

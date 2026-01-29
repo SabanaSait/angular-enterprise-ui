@@ -2,5 +2,7 @@ export interface DashboardMetrics {
   totalUsers: number;
   activeUsers: number;
   inactiveUsers: number;
-  adminUsers: number;
+  adminUsersCount: number;
+  supervisorsCount: number;
+  generalUsersCount: number;
 }

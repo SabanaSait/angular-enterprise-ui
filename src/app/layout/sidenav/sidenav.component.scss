@@ -16,14 +16,14 @@
         text-decoration: none;
         padding: 8px 12px;
         border-radius: 6px;
-        color: #334155;
+        color: var(--color-link);
         font-weight: 500;
         transition:
           background-color 0.15s ease,
           color 0.15s ease;
 
         &:hover {
-          background: #e5e7eb;
+          background: var(--color-link-hover-bg);
         }
         &:focus-visible {
           outline: none;
@@ -31,7 +31,7 @@
         }
 
         &.active {
-          background: #e5e8f0;
+          background: var(--color-link-active-bg);
           color: #0f172a;
           font-weight: 600;
         }

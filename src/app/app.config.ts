@@ -14,6 +14,7 @@ import { apiInterceptor } from './core/api/api.interceptor';
 import { retryInterceptor } from './core/api/retry.interceptor';
 import { usersMockInterceptor } from './mocks/users-mock.interceptor';
 import { rolesMockInterceptor } from './mocks/roles-mock.interceptor';
+import { PermissionsMockInterceptor } from './mocks/permissions-mock.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -28,6 +29,7 @@ export const appConfig: ApplicationConfig = {
         authInterceptor,
         usersMockInterceptor,
         rolesMockInterceptor,
+        PermissionsMockInterceptor,
         retryInterceptor,
         apiInterceptor,
       ]),

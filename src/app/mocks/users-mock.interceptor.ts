@@ -136,11 +136,18 @@ export const usersMockInterceptor: HttpInterceptorFn = (req, next) => {
     ).pipe(delay(400));
   }
 
+  /* -------------------------------
+   * GET: Dashbord metrics list
+   * /api/dashboard/metrics
+   * ------------------------------- */
   if (method === 'GET' && url.endsWith('/api/dashboard/metrics')) {
     const totalUsers = usersDB.length;
     const activeUsers = usersDB.filter((u) => u.status === 'Active').length;
     const inactiveUsers = usersDB.filter((u) => u.status === 'Inactive').length;
-    const adminsCount = usersDB.filter((u) => u.role === 'ADMIN').length;
+    const adminUsersCount = usersDB.filter((u) => u.role === 'ADMIN').length;
+    const supervisorsCount = usersDB.filter((u) => u.role === 'SUPERVISOR').length;
+    const generalUsersCount = usersDB.filter((u) => u.role === 'USER').length;
+
     console.log(usersDB);
 
     return of(
@@ -150,7 +157,9 @@ export const usersMockInterceptor: HttpInterceptorFn = (req, next) => {
           totalUsers,
           activeUsers,
           inactiveUsers,
-          adminsCount,
+          adminUsersCount,
+          supervisorsCount,
+          generalUsersCount,
         },
       }),
     ).pipe(delay(300));

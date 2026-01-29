@@ -8,7 +8,7 @@
   @default {
     <div class="page-header">
       <h1>Dashboard</h1>
-      <p>Overview of system activity</p>
+      <p>Overview of system activity.</p>
     </div>
     <div class="stat-cards">
       <app-stat-card
@@ -25,7 +25,15 @@
       ></app-stat-card>
       <app-stat-card
         label="Admin Users"
-        [value]="metricsState().data?.activeUsers || 0"
+        [value]="metricsState().data?.adminUsersCount || 0"
+      ></app-stat-card>
+      <app-stat-card
+        label="Supervisors"
+        [value]="metricsState().data?.supervisorsCount || 0"
+      ></app-stat-card>
+      <app-stat-card
+        label="General Users"
+        [value]="metricsState().data?.generalUsersCount || 0"
       ></app-stat-card>
     </div>
   }
