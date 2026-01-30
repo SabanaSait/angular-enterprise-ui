@@ -5,23 +5,34 @@
     <h1>Role Details: {{ role?.name }}</h1>
   </div>
   <div class="role-page-details">
-    <div>Role: {{ role.code }}</div>
-    <div>Description: {{ role.description }}</div>
-    <div>Type: {{ role.system ? 'System' : 'Custom' }}</div>
+    <div class="role-metadata">
+      <span class="label">Role:</span><span class="value role-code">{{ role.code }}</span>
+    </div>
+    <div class="role-metadata">
+      <span class="label">Description:</span> <span class="value">{{ role.description }}</span>
+    </div>
+    <div class="role-metadata">
+      <span class="label">Type:</span>
+      <span class="value role-type" [class.custom]="!role.system">{{
+        role.system ? 'System' : 'Custom'
+      }}</span>
+    </div>
     @let permissions = role.permissions;
     @if (permissions?.length) {
-      <div>Assigned permissions:</div>
-      <ul>
-        @for (permission of permissions; track permission) {
-          <li>
-            <span class="check">✔</span>
-            {{ permission }}
-          </li>
-        }
-      </ul>
+      <div class="role-metadata">
+        <div class="label">Assigned permissions:</div>
+        <ul>
+          @for (permission of permissions; track permission) {
+            <li>
+              <span class="check">✔ </span>
+              {{ permission }}
+            </li>
+          }
+        </ul>
+      </div>
     } @else {
       <div class="no-permissions">No permissions assigned.</div>
     }
   </div>
-  <button type="button" (click)="cancel()">Cancel</button>
+  <button class="btn btn-secondary cancel" type="button" (click)="cancel()">Cancel</button>
 }

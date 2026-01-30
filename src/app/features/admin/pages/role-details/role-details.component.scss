@@ -1,8 +1,7 @@
 :host {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  align-items: flex-start;
+  gap: 1.5rem;
 
   ul {
     padding: 0 1rem;
@@ -10,10 +9,45 @@
       list-style-type: none;
     }
   }
+  .role-page-header {
+    padding-bottom: 15px;
+    box-shadow: 0 1px 1px #dcc;
+  }
   .role-page-details {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    padding: 20px;
+    border: 1px solid #dcc;
+    border-radius: 6px;
+  }
+  .role-metadata {
+    display: flex;
+    gap: 12px;
+  }
+  .label {
+    min-width: 70px;
+    white-space: nowrap;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+  .role-code {
+    font-weight: 600;
+  }
+  .role-type {
+    padding: 2px 8px;
+    border-radius: 12px;
+    background-color: #eefff2;
+
+    &.custom {
+      background-color: #fce09a;
+    }
+  }
+  .check {
+    color: var(--color-primary);
+  }
+  .cancel {
+    align-self: flex-start;
   }
   .no-permissions {
     font-weight: 600;
