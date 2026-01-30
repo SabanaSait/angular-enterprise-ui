@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminRole } from '../../models/role.model';
 
 @Component({
@@ -8,5 +9,10 @@ import { AdminRole } from '../../models/role.model';
   styleUrl: './roles-table.component.scss',
 })
 export class RolesTableComponent {
+  private readonly router = inject(Router);
   @Input() public roles: AdminRole[] = [];
+
+  public viewRoleDetails(roleId: string): void {
+    this.router.navigate(['admin', 'roles', roleId]);
+  }
 }

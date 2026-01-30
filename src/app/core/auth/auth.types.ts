@@ -14,10 +14,11 @@ export const ROLE_PERMISSIONS: Record<Role, Permission[]> = {
   ADMIN: [
     'VIEW_DASHBOARD',
     'VIEW_USERS',
+    'MANAGE_USERS',
     'VIEW_ADMIN',
-
-    'VIEW_PERMISSIONS',
+    'VIEW_ROLES',
     'MANAGE_ROLES',
+    'VIEW_PERMISSIONS',
     'MANAGE_PERMISSIONS',
   ],
   SUPERVISOR: ['VIEW_DASHBOARD', 'VIEW_USERS'],

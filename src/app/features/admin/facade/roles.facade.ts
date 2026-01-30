@@ -1,4 +1,4 @@
-import { signal, Injectable, inject, computed } from '@angular/core';
+import { Injectable, inject, computed } from '@angular/core';
 import { RolesApi } from '../services/roles.api';
 import { toDataStateSignal } from '../../../core/data-state/data-state.signal';
 import { AdminRole } from '../models/role.model';
@@ -17,4 +17,7 @@ export class RolesFacade {
   public readonly roles = computed(() => this.rolesState().data ?? []);
 
   /* Intents methods */
+  public getRole<AdminRole>(id: string) {
+    return this.rolesApi.getRole(id);
+  }
 }

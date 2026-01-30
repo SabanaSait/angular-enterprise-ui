@@ -6,7 +6,16 @@ export const MOCK_ROLES: AdminRole[] = [
     code: 'ADMIN',
     name: 'Administrator',
     description: 'Full system access',
-    permissions: ['VIEW_DASHBOARD', 'VIEW_USERS', 'MANAGE_USERS'],
+    permissions: [
+      'VIEW_DASHBOARD',
+      'VIEW_USERS',
+      'MANAGE_USERS',
+      'VIEW_ADMIN',
+      'VIEW_ROLES',
+      'MANAGE_ROLES',
+      'VIEW_PERMISSIONS',
+      'MANAGE_PERMISSIONS',
+    ],
     system: true,
   },
   {

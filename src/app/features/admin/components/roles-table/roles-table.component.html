@@ -6,7 +6,7 @@
         <th>Code</th>
         <th>Description</th>
         <th>Type</th>
-        <!-- <th>Actions</th> -->
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -16,14 +16,17 @@
           <td>{{ role.code }}</td>
           <td>{{ role.description }}</td>
           <td>{{ role.system ? 'System' : 'Custom' }}</td>
-          <!-- <td class="actions">
-          <button class="btn btn-ghost" type="button" title="Edit role" aria-label="Edit role">
-            ✏️
-          </button>
-          <button class="btn btn-ghost" type="button" title="Delete role" aria-label="Delete role">
-            🗑
-          </button>
-        </td> -->
+          <td class="actions">
+            <button
+              class="btn btn-ghost"
+              type="button"
+              title="View details"
+              aria-label="View details"
+              (click)="viewRoleDetails(role.id)"
+            >
+              👁
+            </button>
+          </td>
         </tr>
       }
     </tbody>

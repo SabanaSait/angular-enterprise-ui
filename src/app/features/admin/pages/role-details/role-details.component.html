@@ -1,0 +1,27 @@
+@let role = roleDetail();
+
+@if (role) {
+  <div class="role-page-header">
+    <h1>Role Details: {{ role?.name }}</h1>
+  </div>
+  <div class="role-page-details">
+    <div>Role: {{ role.code }}</div>
+    <div>Description: {{ role.description }}</div>
+    <div>Type: {{ role.system ? 'System' : 'Custom' }}</div>
+    @let permissions = role.permissions;
+    @if (permissions?.length) {
+      <div>Assigned permissions:</div>
+      <ul>
+        @for (permission of permissions; track permission) {
+          <li>
+            <span class="check">✔</span>
+            {{ permission }}
+          </li>
+        }
+      </ul>
+    } @else {
+      <div class="no-permissions">No permissions assigned.</div>
+    }
+  </div>
+  <button type="button" (click)="cancel()">Cancel</button>
+}
