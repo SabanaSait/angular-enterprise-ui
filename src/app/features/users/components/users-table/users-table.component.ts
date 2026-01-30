@@ -14,11 +14,12 @@ import { StatusPillComponent } from '../../../../shared/components/status-pill.c
 export class UsersTableComponent {
   @Input() public users: User[] = [];
   @Input() public total = 0;
-  @Input() pageNumber = 1;
-  @Input() pageSize = 10;
-  @Input() loading = false;
-  @Input() sortDirection!: SortDirection;
-  @Input() sortBy!: UserSortKey;
+  @Input() public pageNumber = 1;
+  @Input() public pageSize = 10;
+  @Input() public loading = false;
+  @Input() public sortDirection!: SortDirection;
+  @Input() public sortBy!: UserSortKey;
+  @Input() public canManageUsers: boolean = false;
 
   @Output() public pageChange = new EventEmitter<number>();
   @Output() public sortChange = new EventEmitter<{ by: keyof User; direction: SortDirection }>();

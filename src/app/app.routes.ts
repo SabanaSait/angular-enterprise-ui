@@ -37,8 +37,13 @@ export const routes: Routes = [
       },
       {
         path: 'admin',
-        canMatch: [permissionGuard('MANAGE_USERS')],
+        canMatch: [permissionGuard('VIEW_ADMIN')],
         loadChildren: () => import('./features/admin/admin.routes').then((m) => m.ADMIN_ROUTES),
+      },
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'dashboard',
       },
     ],
   },

@@ -19,6 +19,6 @@ export const NAV_ITEMS: NavItem[] = [
   {
     label: 'Admin',
     route: '/admin',
-    permission: 'MANAGE_USERS',
+    permission: 'VIEW_ADMIN',
   },
 ];

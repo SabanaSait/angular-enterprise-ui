@@ -9,13 +9,15 @@
         <h1>Users</h1>
         <p>Manage users and their access.</p>
       </div>
-      <button
-        class="btn btn-primary"
-        [disabled]="userState().status === 'loading'"
-        (click)="onAddUser()"
-      >
-        + Add User
-      </button>
+      @if (canManageUsers) {
+        <button
+          class="btn btn-primary"
+          [disabled]="userState().status === 'loading'"
+          (click)="onAddUser()"
+        >
+          + Add User
+        </button>
+      }
     </div>
     <app-users-table
       [users]="users"
@@ -25,6 +27,7 @@
       [sortDirection]="query().sortDirection"
       [total]="userState().data?.total || 0"
       [loading]="loading()"
+      [canManageUsers]="canManageUsers"
       (pageChange)="setPageNumber($event)"
       (sortChange)="setSort($event)"
       (addUser)="onAddUser()"

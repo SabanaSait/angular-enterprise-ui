@@ -14,7 +14,9 @@
           <th>Email</th>
           <th>Role</th>
           <th>Status</th>
-          <th>Actions</th>
+          @if (canManageUsers) {
+            <th>Actions</th>
+          }
         </tr>
       </thead>
       <tbody>
@@ -26,26 +28,28 @@
             <td>
               <app-status-pill [status]="user.status"></app-status-pill>
             </td>
-            <td class="actions">
-              <button
-                class="btn btn-ghost"
-                type="button"
-                title="Edit user"
-                aria-label="Edit user"
-                (click)="editUser.emit(user)"
-              >
-                ✏️
-              </button>
-              <button
-                class="btn btn-ghost"
-                type="button"
-                title="Delete user"
-                aria-label="Delete user"
-                (click)="deleteUser.emit(user)"
-              >
-                🗑
-              </button>
-            </td>
+            @if (canManageUsers) {
+              <td class="actions">
+                <button
+                  class="btn btn-ghost"
+                  type="button"
+                  title="Edit user"
+                  aria-label="Edit user"
+                  (click)="editUser.emit(user)"
+                >
+                  ✏️
+                </button>
+                <button
+                  class="btn btn-ghost"
+                  type="button"
+                  title="Delete user"
+                  aria-label="Delete user"
+                  (click)="deleteUser.emit(user)"
+                >
+                  🗑
+                </button>
+              </td>
+            }
           </tr>
         }
       </tbody>

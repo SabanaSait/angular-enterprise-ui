@@ -1,9 +1,25 @@
 export type Role = 'ADMIN' | 'SUPERVISOR' | 'USER';
 
-export type Permission = 'VIEW_DASHBOARD' | 'VIEW_USERS' | 'MANAGE_USERS';
+export type Permission =
+  | 'VIEW_DASHBOARD'
+  | 'VIEW_USERS'
+  | 'MANAGE_USERS'
+  | 'VIEW_ADMIN'
+  | 'VIEW_ROLES'
+  | 'VIEW_PERMISSIONS'
+  | 'MANAGE_ROLES'
+  | 'MANAGE_PERMISSIONS';
 
 export const ROLE_PERMISSIONS: Record<Role, Permission[]> = {
-  ADMIN: ['VIEW_DASHBOARD', 'VIEW_USERS', 'MANAGE_USERS'],
+  ADMIN: [
+    'VIEW_DASHBOARD',
+    'VIEW_USERS',
+    'VIEW_ADMIN',
+
+    'VIEW_PERMISSIONS',
+    'MANAGE_ROLES',
+    'MANAGE_PERMISSIONS',
+  ],
   SUPERVISOR: ['VIEW_DASHBOARD', 'VIEW_USERS'],
   USER: ['VIEW_DASHBOARD'],
 };
