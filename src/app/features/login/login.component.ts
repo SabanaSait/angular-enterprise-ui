@@ -1,24 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../core/auth/auth.service';
-import { HttpClient } from '@angular/common/http';
+import { Role } from '../../core/auth/auth.types';
 
 @Component({
   selector: 'app-login',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
+  private readonly fb = inject(FormBuilder);
+
+  public readonly loginForm = this.fb.nonNullable.group({
+    userRole: ['USER', Validators.required],
+  });
+
   constructor(
     private readonly auth: AuthService,
     private router: Router,
     private route: ActivatedRoute,
-    private http: HttpClient,
   ) {}
 
   public login() {
-    this.auth.login('ADMIN');
+    const userRoleSelected = this.loginForm.value.userRole as Role;
+    console.log(userRoleSelected, 'userRoleSelected');
+    this.auth.login(userRoleSelected);
 
     const redirect = this.route.snapshot.queryParamMap.get('redirect') || '/dashboard';
 
