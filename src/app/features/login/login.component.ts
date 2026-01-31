@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../core/auth/auth.service';
 import { Role } from '../../core/auth/auth.types';
+import { ROLE_OPTIONS } from '../../core/auth/auth.constants';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ import { Role } from '../../core/auth/auth.types';
 })
 export class LoginComponent {
   private readonly fb = inject(FormBuilder);
+  public readonly roleOptions = ROLE_OPTIONS;
 
   public readonly loginForm = this.fb.nonNullable.group({
     userRole: ['USER', Validators.required],

@@ -3,9 +3,9 @@
   <div class="control-wrapper">
     <label for="userRole">Select a role to simulate permissions:</label>
     <select id="userRole" formControlName="userRole">
-      <option value="USER">User</option>
-      <option value="SUPERVISOR">Supervisor</option>
-      <option value="ADMIN">Admin</option>
+      @for (role of roleOptions; track role) {
+        <option [value]="role.value">{{ role.label }}</option>
+      }
     </select>
   </div>
   <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid">Login</button>

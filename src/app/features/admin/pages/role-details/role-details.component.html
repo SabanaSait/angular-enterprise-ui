@@ -13,9 +13,10 @@
     </div>
     <div class="role-metadata">
       <span class="label">Type:</span>
-      <span class="value role-type" [class.custom]="!role.system">{{
-        role.system ? 'System' : 'Custom'
-      }}</span>
+      <app-badge
+        [label]="role.system ? 'System' : 'Custom'"
+        [variant]="role.system ? 'neutral' : 'info'"
+      ></app-badge>
     </div>
     @let permissions = role.permissions;
     @if (permissions?.length) {

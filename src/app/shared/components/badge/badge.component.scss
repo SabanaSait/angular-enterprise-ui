@@ -1,0 +1,33 @@
+:host {
+  .badge {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+
+    &-success {
+      background: #ecfdf5;
+      color: #047857;
+    }
+
+    &-neutral {
+      background: #eef2f7;
+      color: #334155;
+    }
+
+    &-warning {
+      background: #fff4e5;
+      color: #92400e;
+    }
+
+    &-info {
+      background: #e7f1ff;
+      color: #1c5fd4;
+    }
+
+    &-danger {
+      background: #fdecea;
+      color: #c92a2a;
+    }
+  }
+}

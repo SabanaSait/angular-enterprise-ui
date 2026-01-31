@@ -1,13 +1,16 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { TitleCasePipe } from '@angular/common';
 import { PaginationComponent } from '../../../../shared/components/pagination/pagination.component';
 import { EmptyStateComponent } from '../../../../shared/components/empty-state/empty-state.component';
 import { User, UserStatus } from '../../models/user.model';
 import { SortDirection, UserSortKey } from '../../models/users-query.model';
 import { StatusPillComponent } from '../../../../shared/components/status-pill.component/status-pill.component';
+import { RoleLabelPipe } from '../../../../shared/pipes/role-label.pipe';
+import { BadgeComponent } from '../../../../shared/components/badge/badge.component';
 
 @Component({
   selector: 'app-users-table',
-  imports: [PaginationComponent, EmptyStateComponent, StatusPillComponent],
+  imports: [TitleCasePipe, PaginationComponent, EmptyStateComponent, RoleLabelPipe, BadgeComponent],
   templateUrl: './users-table.component.html',
   styleUrl: './users-table.component.scss',
 })
@@ -31,5 +34,9 @@ export class UsersTableComponent {
     const isSameColumn = this.sortBy === column;
     const direction = isSameColumn && this.sortDirection === 'asc' ? 'desc' : 'asc';
     this.sortChange.emit({ by: column, direction });
+  }
+
+  public isActiveUser(status: string): boolean {
+    return status === UserStatus.Active;
   }
 }

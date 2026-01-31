@@ -24,9 +24,12 @@
           <tr>
             <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
-            <td>{{ user.role }}</td>
+            <td>{{ user.role | roleLabel }}</td>
             <td>
-              <app-status-pill [status]="user.status"></app-status-pill>
+              <app-badge
+                [label]="user.status | titlecase"
+                [variant]="isActiveUser(user.status) ? 'success' : 'neutral'"
+              ></app-badge>
             </td>
             @if (canManageUsers) {
               <td class="actions">

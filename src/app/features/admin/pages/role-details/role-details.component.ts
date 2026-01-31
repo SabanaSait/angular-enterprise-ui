@@ -4,10 +4,11 @@ import { of } from 'rxjs';
 import { RolesFacade } from '../../facade/roles.facade';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Role } from '../../../../core/auth/auth.types';
+import { BadgeComponent } from '../../../../shared/components/badge/badge.component';
 
 @Component({
   selector: 'app-role-details',
-  imports: [],
+  imports: [BadgeComponent],
   templateUrl: './role-details.component.html',
   styleUrl: './role-details.component.scss',
 })

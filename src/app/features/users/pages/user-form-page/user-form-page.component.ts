@@ -6,6 +6,7 @@ import { of } from 'rxjs';
 import { UsersFacade } from '../../facade/users.facade';
 import { UserStatus } from '../../models/user.model';
 import { Role } from '../../../../core/auth/auth.types';
+import { ROLE_OPTIONS } from '../../../../core/auth/auth.constants';
 
 @Component({
   selector: 'app-user-form-page',
@@ -24,6 +25,7 @@ export class UserFormPageComponent {
   public readonly isEdit = computed(() => !!this.userId);
 
   public readonly user = toSignal(this.userId ? this.facade.getUser(this.userId) : of(null));
+  public readonly roleOptions = ROLE_OPTIONS;
 
   public readonly form = this.fb.nonNullable.group({
     name: ['', Validators.required],

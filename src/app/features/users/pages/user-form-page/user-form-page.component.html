@@ -73,9 +73,9 @@
         aria-describedby="role-error"
       >
         <option value="" disabled>Select a role</option>
-        <option value="USER">USER</option>
-        <option value="SUPERVISOR">SUPERVISOR</option>
-        <option value="ADMIN">ADMIN</option>
+        @for (role of roleOptions; track role) {
+          <option [value]="role.value">{{ role.label }}</option>
+        }
       </select>
     </div>
     @if (form.controls.role.errors?.['required']) {

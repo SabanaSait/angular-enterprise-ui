@@ -15,7 +15,12 @@
           <td>{{ role.name }}</td>
           <td>{{ role.code }}</td>
           <td>{{ role.description }}</td>
-          <td>{{ role.system ? 'System' : 'Custom' }}</td>
+          <td>
+            <app-badge
+              [label]="role.system ? 'System' : 'Custom'"
+              [variant]="role.system ? 'neutral' : 'info'"
+            ></app-badge>
+          </td>
           <td class="actions">
             <button
               class="btn btn-ghost"
