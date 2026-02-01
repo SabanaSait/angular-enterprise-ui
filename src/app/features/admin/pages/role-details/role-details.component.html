@@ -18,22 +18,33 @@
         [variant]="role.system ? 'neutral' : 'info'"
       ></app-badge>
     </div>
-    @let permissions = role.permissions;
-    @if (permissions?.length) {
-      <div class="role-metadata">
-        <div class="label">Assigned permissions:</div>
-        <ul>
-          @for (permission of permissions; track permission) {
-            <li>
-              <span class="check">✔ </span>
-              {{ permission }}
-            </li>
+
+    <div class="role-permissions">
+      <div class="label">Assigned permissions:</div>
+      <div class="value">
+        @let permissions = role.permissions;
+        @if (permissions?.length) {
+          @for (group of permissionGroups; track group.key) {
+            @let granted = getPermissionsForGroup(group, role.permissions);
+
+            @if (granted.length) {
+              <section class="permission-group">
+                <h3>{{ group.label }}</h3>
+
+                <ul>
+                  @for (permission of granted; track permission) {
+                    <li>
+                      <span class="check">✔</span>
+                      {{ permission | permissionLabel }}
+                    </li>
+                  }
+                </ul>
+              </section>
+            }
           }
-        </ul>
+        }
       </div>
-    } @else {
-      <div class="no-permissions">No permissions assigned.</div>
-    }
+    </div>
   </div>
   <button class="btn btn-secondary cancel" type="button" (click)="cancel()">Cancel</button>
 }

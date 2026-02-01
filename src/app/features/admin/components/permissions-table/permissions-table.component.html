@@ -2,6 +2,7 @@
   <table>
     <thead>
       <tr>
+        <th>Name</th>
         <th>Code</th>
         <th>Description</th>
         <!-- <th>Actions</th> -->
@@ -10,8 +11,9 @@
     <tbody>
       @for (permission of permissions; track permission) {
         <tr>
+          <td>{{ permission.code | permissionLabel }}</td>
           <td>{{ permission.code }}</td>
-          <td>{{ permission.label }}</td>
+          <td>{{ permission.description }}</td>
           <!-- <td class="actions">
           <button class="btn btn-ghost" type="button" title="Edit role" aria-label="Edit role">
             ✏️

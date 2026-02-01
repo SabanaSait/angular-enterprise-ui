@@ -10,20 +10,14 @@ export type Permission =
   | 'MANAGE_ROLES'
   | 'MANAGE_PERMISSIONS';
 
-export const ROLE_PERMISSIONS: Record<Role, Permission[]> = {
-  ADMIN: [
-    'VIEW_DASHBOARD',
-    'VIEW_USERS',
-    'MANAGE_USERS',
-    'VIEW_ADMIN',
-    'VIEW_ROLES',
-    'MANAGE_ROLES',
-    'VIEW_PERMISSIONS',
-    'MANAGE_PERMISSIONS',
-  ],
-  SUPERVISOR: ['VIEW_DASHBOARD', 'VIEW_USERS'],
-  USER: ['VIEW_DASHBOARD'],
-};
+export interface RoleOption {
+  value: Role;
+  label: string;
+}
+export interface PermissionMeta {
+  label: string;
+  group: string;
+}
 
 export interface PersistedUser {
   role: Role;

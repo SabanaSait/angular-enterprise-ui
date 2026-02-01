@@ -9,10 +9,6 @@
       list-style-type: none;
     }
   }
-  .role-page-header {
-    padding-bottom: 15px;
-    box-shadow: 0 1px 1px #dcc;
-  }
   .role-page-details {
     display: flex;
     flex-direction: column;
@@ -41,6 +37,28 @@
 
     &.custom {
       background-color: #fce09a;
+    }
+  }
+  .role-permissions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 10px;
+
+    .label {
+      box-shadow: 0 0.5px 0.5px #dcc;
+      padding-bottom: 10px;
+    }
+
+    .value {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    h3 {
+      font-size: 14px;
+      margin-bottom: 5px;
     }
   }
   .check {
