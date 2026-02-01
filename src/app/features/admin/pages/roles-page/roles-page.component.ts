@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { RolesFacade } from '../../facade/roles.facade';
 import { RolesTableComponent } from '../../components/roles-table/roles-table.component';
+import { EmptyStateComponent } from '../../../../shared/components/empty-state/empty-state.component';
 
 @Component({
   selector: 'app-roles-page',
-  imports: [RolesTableComponent],
+  imports: [EmptyStateComponent, RolesTableComponent],
   templateUrl: './roles-page.component.html',
   styleUrl: './roles-page.component.scss',
 })

@@ -6,6 +6,13 @@
     <div>Something went wrong...</div>
   }
   @default {
-    <app-permissions-table [permissions]="permissions()"></app-permissions-table>
+    @if (permissions().length) {
+      <app-permissions-table [permissions]="permissions()"></app-permissions-table>
+    } @else {
+      <app-empty-state
+        title="No permissions available"
+        description="Permissions control access to features across the application. System permissions will appear here once available."
+      ></app-empty-state>
+    }
   }
 }
