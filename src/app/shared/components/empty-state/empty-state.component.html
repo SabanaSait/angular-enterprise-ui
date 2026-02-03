@@ -1,5 +1,7 @@
-<h3>{{ title }}</h3>
-<p>{{ description }}</p>
-@if (actionLabel) {
-  <button class="btn btn-primary" (click)="(action)">{{ actionLabel }}</button>
-}
+<section class="empty-state">
+  <h3>{{ heading }}</h3>
+  <p>{{ description }}</p>
+  @if (actionLabel) {
+    <button class="btn btn-primary" (click)="action.emit()">{{ actionLabel }}</button>
+  }
+</section>

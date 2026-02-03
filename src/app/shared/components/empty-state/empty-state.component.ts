@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-empty-state',
@@ -6,8 +6,8 @@ import { Component, Input } from '@angular/core';
   styleUrl: './empty-state.component.scss',
 })
 export class EmptyStateComponent {
-  @Input() public title = 'No data available';
+  @Input() public heading = 'No data available';
   @Input() public description = '';
   @Input() public actionLabel = '';
-  @Input() public action?: () => void;
+  @Output() public action = new EventEmitter<void>();
 }

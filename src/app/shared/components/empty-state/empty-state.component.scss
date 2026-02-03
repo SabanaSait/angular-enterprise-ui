@@ -1,9 +1,16 @@
 :host {
-  display: flex;
-  flex-direction: column;
   flex: 1;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
-  color: var(--color-text-primary);
+  border: 1px solid #dcc;
+  border-radius: 4px;
+
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    color: var(--color-text-primary);
+  }
 }

@@ -69,9 +69,9 @@
 
 @if (!loading && users.length === 0) {
   <app-empty-state
-    title="No users yet"
+    heading="No users yet"
     description="Start by creating your first user"
-    actionLabel="+ Create User"
+    actionLabel="+ Add User"
     (action)="addUser.emit()"
   ></app-empty-state>
 }

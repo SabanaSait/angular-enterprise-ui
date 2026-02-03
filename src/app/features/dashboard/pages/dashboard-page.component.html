@@ -13,31 +13,26 @@
     ></app-error-state>
   }
   @default {
-    <div class="stat-cards">
-      <app-stat-card
-        label="Total Users"
-        [value]="metricsState().data?.totalUsers || 0"
-      ></app-stat-card>
-      <app-stat-card
-        label="Active Users"
-        [value]="metricsState().data?.activeUsers || 0"
-      ></app-stat-card>
-      <app-stat-card
-        label="Inactive Users"
-        [value]="metricsState().data?.inactiveUsers || 0"
-      ></app-stat-card>
-      <app-stat-card
-        label="Admin Users"
-        [value]="metricsState().data?.adminUsersCount || 0"
-      ></app-stat-card>
-      <app-stat-card
-        label="Supervisors"
-        [value]="metricsState().data?.supervisorsCount || 0"
-      ></app-stat-card>
-      <app-stat-card
-        label="General Users"
-        [value]="metricsState().data?.generalUsersCount || 0"
-      ></app-stat-card>
-    </div>
+    @let metrics = metricsState().data;
+    @if (metrics?.totalUsers) {
+      <div class="stat-cards">
+        <app-stat-card label="Total Users" [value]="metrics?.totalUsers || 0"> </app-stat-card>
+        <app-stat-card label="Active Users" [value]="metrics?.activeUsers || 0"></app-stat-card>
+        <app-stat-card label="Inactive Users" [value]="metrics?.inactiveUsers || 0"></app-stat-card>
+        <app-stat-card label="Admin Users" [value]="metrics?.adminUsersCount || 0"></app-stat-card>
+        <app-stat-card label="Supervisors" [value]="metrics?.supervisorsCount || 0"></app-stat-card>
+        <app-stat-card
+          label="General Users"
+          [value]="metrics?.generalUsersCount || 0"
+        ></app-stat-card>
+      </div>
+    } @else {
+      <app-empty-state
+        heading="No metrics available"
+        description="Metrics will appear once users are added to the system."
+        actionLabel="Go to Users"
+        (action)="goToUsers()"
+      ></app-empty-state>
+    }
   }
 }
