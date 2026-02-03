@@ -8,6 +8,7 @@ import {
 import { timer, throwError, Observable } from 'rxjs';
 import { catchError, mergeMap } from 'rxjs/operators';
 import { API_INTERCEPTOR_OPTIONS } from './api.model';
+import { IS_FINAL_ERROR } from './api-context.token';
 
 const DEFAULT_RETRY_COUNT = 2;
 const BASE_DELAY_MS = 500;
@@ -30,8 +31,13 @@ export const retryInterceptor: HttpInterceptorFn = (
   }
 
   const maxRetries = options.retryCount ?? DEFAULT_RETRY_COUNT;
+  const retryReq = req.clone({
+    context: req.context.set(IS_FINAL_ERROR, false),
+  });
 
-  return next(req).pipe(catchError((error) => retryStrategy(error, req, next, maxRetries, 0)));
+  return next(retryReq).pipe(
+    catchError((error) => retryStrategy(error, retryReq, next, maxRetries, 0)),
+  );
 };
 
 /* ----------------- Helpers ----------------- */
@@ -42,11 +48,18 @@ function isRetryableMethod(method: string): boolean {
 
 function retryStrategy(
   error: HttpErrorResponse,
-  req: HttpRequest<unknown>,
+  retryReq: HttpRequest<unknown>,
   next: HttpHandlerFn,
   maxRetries: number,
   attempt: number,
 ): Observable<HttpEvent<unknown>> {
+  let finalReq = retryReq;
+
+  if (attempt === maxRetries - 1) {
+    finalReq = retryReq.clone({
+      context: retryReq.context.set(IS_FINAL_ERROR, true),
+    });
+  }
   if (attempt >= maxRetries || !isRetryableError(error)) {
     return throwError(() => error);
   }
@@ -55,7 +68,9 @@ function retryStrategy(
 
   return timer(delay).pipe(
     mergeMap(() =>
-      next(req).pipe(catchError((err) => retryStrategy(err, req, next, maxRetries, attempt + 1))),
+      next(finalReq).pipe(
+        catchError((err) => retryStrategy(err, retryReq, next, maxRetries, attempt + 1)),
+      ),
     ),
   );
 }

@@ -1,0 +1,12 @@
+<section class="error-state">
+  @let error = resolvedError();
+  <h2>{{ error.title }}</h2>
+  @if (error.description) {
+    <p>{{ error.description }}</p>
+  }
+  @if (actionLabel) {
+    <button class="btn btn-primary" type="button" (click)="action.emit()">
+      {{ actionLabel }}
+    </button>
+  }
+</section>

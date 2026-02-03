@@ -1,24 +1,31 @@
+<div class="page-header">
+  <div>
+    <h1>Users</h1>
+    <p>Manage users and their access.</p>
+  </div>
+  @if (canManageUsers) {
+    <button
+      class="btn btn-primary"
+      [disabled]="userState().status === 'loading'"
+      (click)="onAddUser()"
+    >
+      + Add User
+    </button>
+  }
+</div>
 @switch (userState().status) {
+  @case ('loading') {
+    <app-loading-state></app-loading-state>
+  }
   @case ('error') {
-    <div>Show error message here...</div>
+    <app-error-state
+      errorTitle="Unable to load users list"
+      errorDescription="Please try again later."
+    ></app-error-state>
   }
   @default {
     @let users = userState().data?.entities ?? [];
-    <div class="page-header">
-      <div>
-        <h1>Users</h1>
-        <p>Manage users and their access.</p>
-      </div>
-      @if (canManageUsers) {
-        <button
-          class="btn btn-primary"
-          [disabled]="userState().status === 'loading'"
-          (click)="onAddUser()"
-        >
-          + Add User
-        </button>
-      }
-    </div>
+
     <app-users-table
       [users]="users"
       [pageNumber]="userState().data?.pageNumber ?? query().pageNumber"

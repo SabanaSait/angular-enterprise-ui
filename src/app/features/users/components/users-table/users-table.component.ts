@@ -4,7 +4,6 @@ import { PaginationComponent } from '../../../../shared/components/pagination/pa
 import { EmptyStateComponent } from '../../../../shared/components/empty-state/empty-state.component';
 import { User, UserStatus } from '../../models/user.model';
 import { SortDirection, UserSortKey } from '../../models/users-query.model';
-import { StatusPillComponent } from '../../../../shared/components/status-pill.component/status-pill.component';
 import { RoleLabelPipe } from '../../../../shared/pipes/role-label.pipe';
 import { BadgeComponent } from '../../../../shared/components/badge/badge.component';
 

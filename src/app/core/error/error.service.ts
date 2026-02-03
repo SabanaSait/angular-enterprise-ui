@@ -1,5 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { ToastMessage } from '../toast/toast.types';
+import { ApiError } from '../api/api.model';
+import { HTTP_ERROR_MESSAGES } from './error.constants';
 
 @Injectable({
   providedIn: 'root',
@@ -8,29 +10,19 @@ export class ErrorService {
   private readonly _errors = signal<ToastMessage[]>([]);
   readonly errors = this._errors.asReadonly();
 
-  public pushError(error: unknown) {
+  public pushError(error: ApiError) {
     this._errors.update((list) => [
       ...list,
       {
         id: crypto.randomUUID(),
-        message: this.normalizeError(error),
+        message: HTTP_ERROR_MESSAGES[error.status].title,
         variant: 'error',
         autoClose: false,
       },
     ]);
-    console.log(this._errors(), 'errors...');
   }
 
   public removeError(id: string) {
     this._errors.update((list) => list.filter((e) => e.id !== id));
-  }
-
-  private normalizeError(error: unknown): string {
-    if (typeof error === 'object' && error !== null && 'message' in error) {
-      return String((error as any).message);
-    }
-    if (typeof error === 'string') return error;
-    if (error instanceof Error) return error.message;
-    return 'something went wrong. Please try again.';
   }
 }

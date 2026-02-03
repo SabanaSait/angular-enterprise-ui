@@ -5,7 +5,7 @@ import { loadingState, successSate, errorState } from './data-state.helpers';
 
 export function toDataState<T>(
   source$: Observable<T>,
-  options: DataStateOptions
+  options: DataStateOptions,
 ): Observable<DataState<T>> {
   const { emitLoadingOnNext = false } = options;
 

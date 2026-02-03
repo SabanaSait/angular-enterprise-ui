@@ -1,14 +1,16 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../../core/auth/auth.service';
-import { SortDirection, UserSortKey } from '../../models/users-query.model';
-import { UsersTableComponent } from '../../components/users-table/users-table.component';
 import { UsersFacade } from '../../facade/users.facade';
 import { User } from '../../models/user.model';
+import { SortDirection, UserSortKey } from '../../models/users-query.model';
+import { UsersTableComponent } from '../../components/users-table/users-table.component';
+import { ErrorStateComponent } from '../../../../shared/components/error-state/error-state.component';
+import { LoadingStateComponent } from '../../../../shared/components/loading-state/loading-state.component';
 
 @Component({
   selector: 'app-users',
-  imports: [UsersTableComponent],
+  imports: [UsersTableComponent, ErrorStateComponent, LoadingStateComponent],
   templateUrl: './users-page.component.html',
   styleUrl: './users-page.component.scss',
 })

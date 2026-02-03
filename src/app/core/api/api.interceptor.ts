@@ -5,6 +5,7 @@ import { catchError, throwError } from 'rxjs';
 import { normalizeHttpError } from './error-normalizer';
 import { AuthService } from '../auth/auth.service';
 import { ErrorService } from '../error/error.service';
+import { IS_FINAL_ERROR } from './api-context.token';
 
 export const apiInterceptor: HttpInterceptorFn = (req, next) => {
   const router = inject(Router);
@@ -14,6 +15,12 @@ export const apiInterceptor: HttpInterceptorFn = (req, next) => {
   return next(req).pipe(
     catchError((error) => {
       const normalizedError = normalizeHttpError(error);
+      const isFinalError = req.context.get(IS_FINAL_ERROR);
+
+      // Ignore intermediate retry failures
+      if (!isFinalError) {
+        return throwError(() => normalizedError);
+      }
 
       if (normalizedError.status === 401) {
         auth.logout();
@@ -25,12 +32,11 @@ export const apiInterceptor: HttpInterceptorFn = (req, next) => {
 
       // raise doamin error
       errorService.pushError({
-        id: crypto.randomUUID(),
         message: normalizedError.message,
         status: normalizedError.status,
       });
 
       return throwError(() => normalizedError);
-    })
+    }),
   );
 };

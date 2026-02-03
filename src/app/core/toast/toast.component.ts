@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { timer } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ToastMessage } from './toast.types';
 
 @Component({
@@ -6,7 +8,7 @@ import { ToastMessage } from './toast.types';
   template: `
     <div class="toast" [class]="message.variant">
       <span>{{ message.message }}</span>
-      <button (click)="close.emit()">X</button>
+      <button title="Close" (click)="close.emit()">X</button>
     </div>
   `,
 })

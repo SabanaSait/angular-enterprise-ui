@@ -15,11 +15,6 @@ export const routes: Routes = [
       import('./features/unauthorized/unauthorized.component').then((m) => m.UnauthorizedComponent),
   },
   {
-    path: 'loading',
-    loadComponent: () =>
-      import('./shared/components/loading/loading.component').then((m) => m.LoadingComponent),
-  },
-  {
     path: '',
     component: MainLayoutComponent,
     canMatch: [authGuard],

@@ -12,6 +12,7 @@ export class RolesApi {
   constructor(private readonly api: ApiService) {}
 
   public getRoles(): Observable<AdminRole[]> {
+    console.log('get roles called....');
     return this.api.get<AdminRole[]>(this.baseUrl, {
       interceptorOptions: {
         retry: true,

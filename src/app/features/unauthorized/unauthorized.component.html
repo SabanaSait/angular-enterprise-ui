@@ -1,6 +1,5 @@
-<section class="unauthorized-section">
-  <h1>403 — Access Denied</h1>
-  <p>You don't have permission to view this page.</p>
-
-  <a routerLink="/">Go back to dashboard</a>
-</section>
+<app-error-state
+  [statusCode]="403"
+  actionLabel="Go back to Dashboard"
+  (action)="goBack()"
+></app-error-state>

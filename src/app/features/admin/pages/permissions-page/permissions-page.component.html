@@ -1,9 +1,12 @@
 @switch (permissionsSate().status) {
   @case ('loading') {
-    <div>Permissions loading</div>
+    <app-loading-state></app-loading-state>
   }
   @case ('error') {
-    <div>Something went wrong...</div>
+    <app-error-state
+      errorTitle="Unable to load permissions"
+      errorDescription="Please try again later."
+    ></app-error-state>
   }
   @default {
     @if (permissions().length) {
