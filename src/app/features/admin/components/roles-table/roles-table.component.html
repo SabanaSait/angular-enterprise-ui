@@ -1,12 +1,12 @@
 <div class="data-table-wrapper">
-  <table>
+  <table aria-label="Roles list">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Code</th>
-        <th>Description</th>
-        <th>Type</th>
-        <th>Actions</th>
+        <th scope="col">Name</th>
+        <th scope="col">Code</th>
+        <th scope="col">Description</th>
+        <th scope="col">Type</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -26,10 +26,10 @@
               class="btn btn-ghost"
               type="button"
               title="View details"
-              aria-label="View details"
+              aria-label="View details of role {{ role.name }}"
               (click)="viewRoleDetails(role.id)"
             >
-              👁
+              <span aria-hidden="true">👁</span>
             </button>
           </td>
         </tr>

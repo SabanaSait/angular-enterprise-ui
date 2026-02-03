@@ -1,5 +1,8 @@
-<app-error-state
-  [statusCode]="403"
-  actionLabel="Go back to Dashboard"
-  (action)="goBack()"
-></app-error-state>
+<main class="unauthorized-page">
+  <app-error-state
+    class="no-border"
+    [statusCode]="403"
+    actionLabel="Go back to Dashboard"
+    (action)="goBack()"
+  ></app-error-state>
+</main>

@@ -8,7 +8,7 @@ import { ToastComponent } from './toast.component';
   selector: 'app-toast-container',
   imports: [ToastComponent],
   template: `
-    <div class="toast-container">
+    <div class="toast-container" aria-live="polite" aria-atomic="false">
       @for (toast of allMessages(); track toast.id) {
         <app-toast [message]="toast" (close)="remove(toast)"></app-toast>
       }

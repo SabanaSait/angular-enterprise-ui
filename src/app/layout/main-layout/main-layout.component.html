@@ -1,5 +1,5 @@
 <div class="layout">
-  <header class="layout-header">
+  <header class="layout-header" role="banner">
     <button
       class="menu-btn"
       aria-label="Open navigation menu"
@@ -9,12 +9,12 @@
     >
       ☰
     </button>
-    <span>Enterprise Dashboard</span>
+    <h3 class="app-title">Enterprise Dashboard</h3>
     <button class="btn btn-secondary btn-logout" (click)="logout()">Logout</button>
   </header>
   <div class="layout-body">
     <app-sidenav [open]="isSidebarOpen()" (close)="closeSidebar()"></app-sidenav>
-    <main class="layout-content">
+    <main class="layout-content" id="main-content">
       <div class="content-scroll">
         <router-outlet />
       </div>

@@ -1,37 +1,43 @@
-<button
-  class="btn btn-ghost btn-pagination"
-  title="First"
-  aria-label="Go to first page"
-  (click)="firstPage()"
-  [disabled]="disabled || pageNumber === 1"
->
-  <<
-</button>
-<button
-  class="btn btn-ghost btn-pagination"
-  title="Previous"
-  aria-label="Go to previous page"
-  (click)="prevPage()"
-  [disabled]="disabled || pageNumber === 1"
->
-  <
-</button>
-<span> Page {{ pageNumber }} of {{ totalPages }} </span>
-<button
-  class="btn btn-ghost btn-pagination"
-  title="Next"
-  aria-label="Go to next page"
-  (click)="nextPage()"
-  [disabled]="disabled || pageNumber === totalPages"
->
+<nav aria-label="pagination">
+  <button
+    class="btn btn-ghost btn-pagination"
+    type="button"
+    title="First"
+    aria-label="Go to first page"
+    [disabled]="disabled || pageNumber === 1"
+    (click)="firstPage()"
   >
-</button>
-<button
-  class="btn btn-ghost btn-pagination"
-  title="Last"
-  aria-label="Go to last page"
-  (click)="lastPage()"
-  [disabled]="disabled || pageNumber === totalPages"
->
-  >>
-</button>
+    <span aria-hidden="true"><<</span>
+  </button>
+  <button
+    class="btn btn-ghost btn-pagination"
+    type="button"
+    title="Previous"
+    aria-label="Go to previous page"
+    [disabled]="disabled || pageNumber === 1"
+    (click)="prevPage()"
+  >
+    <span aria-hidden="true"><</span>
+  </button>
+  <span aria-live="polite"> Page {{ pageNumber }} of {{ totalPages }} </span>
+  <button
+    class="btn btn-ghost btn-pagination"
+    type="button"
+    title="Next"
+    aria-label="Go to next page"
+    (click)="nextPage()"
+    [disabled]="disabled || pageNumber === totalPages"
+  >
+    <span aria-hidden="true">></span>
+  </button>
+  <button
+    class="btn btn-ghost btn-pagination"
+    type="button"
+    title="Last"
+    aria-label="Go to last page"
+    (click)="lastPage()"
+    [disabled]="disabled || pageNumber === totalPages"
+  >
+    <span aria-hidden="true">>></span>
+  </button>
+</nav>

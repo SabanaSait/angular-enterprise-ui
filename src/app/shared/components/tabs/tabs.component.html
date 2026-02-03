@@ -4,11 +4,12 @@
       [routerLink]="tab.route"
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
-      [class.disabled]="tab.disabled"
+      #rla="routerLinkActive"
+      [attr.aria-current]="rla.isActive ? 'page' : null"
       class="tab"
     >
       @if (tab.icon) {
-        <span class="icon">{{ tab.icon }}</span>
+        <span class="icon" aria-hidden="true">{{ tab.icon }}</span>
       }
       <span>{{ tab.label }}</span>
     </a>

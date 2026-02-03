@@ -5,6 +5,7 @@
   </div>
   @if (canManageUsers) {
     <button
+      type="button"
       class="btn btn-primary"
       [disabled]="userState().status === 'loading'"
       (click)="onAddUser()"

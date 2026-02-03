@@ -16,12 +16,14 @@
         type="text"
         formControlName="name"
         placeholder="e.g. John Doe"
-        aria-invalid="{{ isNameInvalid }}"
+        aria-required="true"
         aria-describedby="name-error"
+        [attr.aria-invalid]="isNameInvalid"
+        required
       />
     </div>
     @if (form.controls.name.errors?.['required']) {
-      <span id="name-error" class="errMessage" aria-hidden="{{ !isNameInvalid }}"
+      <span role="alert" id="name-error" class="errMessage" [attr.aria-hidden]="!isNameInvalid"
         >Name is required</span
       >
     }
@@ -37,21 +39,37 @@
       </label>
       <input
         id="email"
-        type="text"
+        type="email"
         formControlName="email"
         placeholder="e.g. john.doe@company.com"
-        aria-invalid="{{ isEmailInvalid }}"
-        aria-describedby="email-required-error email-format-error"
+        aria-required="true"
+        [attr.aria-describedby]="
+          isEmailInvalid
+            ? form.controls.email.errors?.['required']
+              ? 'email-required-error'
+              : 'email-format-error'
+            : null
+        "
+        [attr.aria-invalid]="isEmailInvalid"
+        required
       />
     </div>
     @if (isEmailInvalid) {
       @if (form.controls.email.errors?.['required']) {
-        <span id="email-required-error" class="errMessage" aria-hidden="{{ !isEmailInvalid }}"
+        <span
+          role="alert"
+          id="email-required-error"
+          class="errMessage"
+          [attr.aria-hidden]="!isEmailInvalid"
           >Email is required</span
         >
       }
       @if (form.controls.email.errors?.['email']) {
-        <span id="email-format-error" class="errMessage" aria-hidden="{{ !isEmailInvalid }}"
+        <span
+          role="alert"
+          id="email-format-error"
+          class="errMessage"
+          [attr.aria-hidden]="!isEmailInvalid"
           >Enter a valid email address</span
         >
       }
@@ -69,8 +87,10 @@
       <select
         id="role"
         formControlName="role"
-        aria-invalid="{{ isRoleInvalid }}"
+        aria-required="true"
         aria-describedby="role-error"
+        [attr.aria-invalid]="isRoleInvalid"
+        required
       >
         <option value="" disabled>Select a role</option>
         @for (role of roleOptions; track role) {
@@ -79,7 +99,7 @@
       </select>
     </div>
     @if (form.controls.role.errors?.['required']) {
-      <span id="role-error" class="errMessage" aria-hidden="{{ !isRoleInvalid }}"
+      <span role="alert" id="role-error" class="errMessage" [attr.aria-hidden]="!isRoleInvalid"
         >Role is required</span
       >
     }

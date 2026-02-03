@@ -1,4 +1,4 @@
-<section class="error-state">
+<section class="error-state" role="alert" aria-live="assertive">
   @let error = resolvedError();
   <h2>{{ error.title }}</h2>
   @if (error.description) {

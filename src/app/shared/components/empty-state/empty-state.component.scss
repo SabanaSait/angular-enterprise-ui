@@ -6,6 +6,10 @@
   border: 1px solid #dcc;
   border-radius: 4px;
 
+  &.no-border {
+    border: 0;
+  }
+
   .empty-state {
     display: flex;
     flex-direction: column;

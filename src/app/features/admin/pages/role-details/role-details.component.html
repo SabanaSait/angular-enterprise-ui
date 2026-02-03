@@ -34,7 +34,7 @@
                 <ul>
                   @for (permission of granted; track permission) {
                     <li>
-                      <span class="check">✔</span>
+                      <span class="check" aria-hidden="true">✔</span>
                       {{ permission | permissionLabel }}
                     </li>
                   }

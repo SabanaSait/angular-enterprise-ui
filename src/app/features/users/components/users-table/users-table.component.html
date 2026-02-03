@@ -1,21 +1,31 @@
 @if (users.length) {
   <div class="data-table-wrapper">
-    <table>
+    <table aria-label="Users list">
       <thead>
         <tr>
-          <th (click)="!loading && toggleSort('name')" [class.disabled]="loading">
-            Name
-            @if (sortBy === 'name') {
-              <span class="sort-indicator">
-                {{ sortDirection === 'asc' ? '▲' : '▼' }}
-              </span>
-            }
+          <th class="sort" scope="col">
+            <button
+              [disabled]="loading"
+              [attr.aria-sort]="
+                sortBy === 'name' ? (sortDirection === 'asc' ? 'ascending' : 'descending') : 'none'
+              "
+              aria-label="Sort by name"
+              (click)="toggleSort('name')"
+            >
+              Name
+              @if (sortBy === 'name') {
+                <span class="sort-indicator">
+                  {{ sortDirection === 'asc' ? '▲' : '▼' }}
+                </span>
+              }
+            </button>
           </th>
-          <th>Email</th>
-          <th>Role</th>
-          <th>Status</th>
+
+          <th scope="col">Email</th>
+          <th scope="col">Role</th>
+          <th scope="col">Status</th>
           @if (canManageUsers) {
-            <th>Actions</th>
+            <th scope="col">Actions</th>
           }
         </tr>
       </thead>
@@ -37,19 +47,19 @@
                   class="btn btn-ghost"
                   type="button"
                   title="Edit user"
-                  aria-label="Edit user"
+                  aria-label="Edit user {{ user.name }}"
                   (click)="editUser.emit(user)"
                 >
-                  ✏️
+                  <span aria-hidden="true">✏️</span>
                 </button>
                 <button
                   class="btn btn-ghost"
                   type="button"
                   title="Delete user"
-                  aria-label="Delete user"
+                  aria-label="Delete user {{ user.name }}"
                   (click)="deleteUser.emit(user)"
                 >
-                  🗑
+                  <span aria-hidden="true">🗑</span>
                 </button>
               </td>
             }
@@ -69,9 +79,14 @@
 
 @if (!loading && users.length === 0) {
   <app-empty-state
+    class="no-border"
     heading="No users yet"
-    description="Start by creating your first user"
-    actionLabel="+ Add User"
+    [description]="
+      canManageUsers
+        ? 'Get started by adding your first user to the system.'
+        : 'Users will appear here once they are added by an administrator.'
+    "
+    [actionLabel]="canManageUsers ? '+ Add User' : ''"
     (action)="addUser.emit()"
   ></app-empty-state>
 }

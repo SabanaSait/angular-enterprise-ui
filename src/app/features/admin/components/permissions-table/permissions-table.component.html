@@ -1,11 +1,10 @@
 <div class="data-table-wrapper">
-  <table>
+  <table aria-label="Permissions list">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Code</th>
-        <th>Description</th>
-        <!-- <th>Actions</th> -->
+        <th scope="col">Name</th>
+        <th scope="col">Code</th>
+        <th scope="col">Description</th>
       </tr>
     </thead>
     <tbody>
@@ -14,14 +13,6 @@
           <td>{{ permission.code | permissionLabel }}</td>
           <td>{{ permission.code }}</td>
           <td>{{ permission.description }}</td>
-          <!-- <td class="actions">
-          <button class="btn btn-ghost" type="button" title="Edit role" aria-label="Edit role">
-            ✏️
-          </button>
-          <button class="btn btn-ghost" type="button" title="Delete role" aria-label="Delete role">
-            🗑
-          </button>
-        </td> -->
         </tr>
       }
     </tbody>

@@ -9,9 +9,11 @@
     flex-direction: column;
   }
   .stat-cards {
+    padding: 0;
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    list-style-type: none;
   }
 }

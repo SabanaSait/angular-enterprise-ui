@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-loading-state',
@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './loading-state.component.html',
   styleUrl: './loading-state.component.scss',
 })
-export class LoadingStateComponent {}
+export class LoadingStateComponent {
+  @Input() public loadingText = 'Loading...';
+}

@@ -1,4 +1,4 @@
-import { Component, computed, effect, inject, Signal } from '@angular/core';
+import { Component, computed, effect, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -19,14 +19,11 @@ export class UserFormPageComponent {
   private readonly router = inject(Router);
   private readonly route = inject(ActivatedRoute);
   private readonly fb = inject(FormBuilder);
-
   private readonly userId = this.route.snapshot.paramMap.get('id');
 
   public readonly isEdit = computed(() => !!this.userId);
-
   public readonly user = toSignal(this.userId ? this.facade.getUser(this.userId) : of(null));
   public readonly roleOptions = ROLE_OPTIONS;
-
   public readonly form = this.fb.nonNullable.group({
     name: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],

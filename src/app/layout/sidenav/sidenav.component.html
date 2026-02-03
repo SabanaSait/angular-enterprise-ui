@@ -1,15 +1,20 @@
 <aside
   #sidebar
   id="app-sidebar"
-  role="navigation"
-  aria-lable="Main Navigation"
+  aria-label="Main Navigation"
   class="layout-sidebar"
   [class.open]="open"
 >
-  <nav>
+  <nav aria-label="Main navigation">
     @for (item of navItems; track item.route) {
       @if (auth.hasAccess(item.permission)) {
-        <a [routerLink]="item.route" routerLinkActive="active">{{ item.label }}</a>
+        <a
+          [routerLink]="item.route"
+          routerLinkActive="active"
+          #rla="routerLinkActive"
+          [attr.aria-current]="rla.isActive ? 'page' : null"
+          >{{ item.label }}</a
+        >
       }
     }
   </nav>
