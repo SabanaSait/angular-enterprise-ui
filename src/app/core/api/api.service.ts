@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { API_INTERCEPTOR_OPTIONS, ApiHttpOptions } from './api.model';
 import { HttpClient, HttpContext } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
-  constructor(private http: HttpClient) {}
+  private http = inject(HttpClient);
+
 
   public get<T>(url: string, options?: ApiHttpOptions): Observable<T> {
     return this.http.get<T>(url, this.buildHttpOptions(options));

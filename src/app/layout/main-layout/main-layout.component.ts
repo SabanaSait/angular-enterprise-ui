@@ -1,6 +1,6 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
-import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { filter } from 'rxjs';
 import { AuthService } from '../../core/auth/auth.service';
 import { SidenavComponent } from '../sidenav/sidenav.component';
@@ -11,16 +11,16 @@ import { SidenavComponent } from '../sidenav/sidenav.component';
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss',
 })
-export class MainLayoutComponent {
+export class MainLayoutComponent implements OnInit {
+  private router = inject(Router);
+  readonly auth = inject(AuthService);
+
   public isSidebarOpen = signal(false);
   public lastFocusedElement: HTMLElement | null = null;
 
   private readonly breakpointObserver = inject(BreakpointObserver);
 
-  constructor(
-    private router: Router,
-    public readonly auth: AuthService,
-  ) {
+  constructor() {
     this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
       this.isSidebarOpen.set(false);
     });

@@ -1,4 +1,4 @@
-import { Component, computed } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { ErrorService } from '../error/error.service';
 import { NotificationService } from '../notification/notification.service';
 import { ToastMessage } from './toast.types';
@@ -10,16 +10,15 @@ import { ToastComponent } from './toast.component';
   template: `
     <div class="toast-container" aria-live="polite" aria-atomic="false">
       @for (toast of allMessages(); track toast.id) {
-        <app-toast [message]="toast" (close)="remove(toast)"></app-toast>
+        <app-toast [message]="toast" (toastClose)="remove(toast)"></app-toast>
       }
     </div>
   `,
 })
 export class ToastContainerComponent {
-  constructor(
-    private readonly errorService: ErrorService,
-    private readonly notificationService: NotificationService,
-  ) {}
+  private readonly errorService = inject(ErrorService);
+  private readonly notificationService = inject(NotificationService);
+
   public allMessages = computed(() => [
     ...this.errorService.errors(),
     ...this.notificationService.messages(),

@@ -17,7 +17,7 @@ export class RolesFacade {
   public readonly roles = computed(() => this.rolesState().data ?? []);
 
   /* Intents methods */
-  public getRole<AdminRole>(id: string) {
+  public getRole(id: string) {
     return this.rolesApi.getRole(id);
   }
 }

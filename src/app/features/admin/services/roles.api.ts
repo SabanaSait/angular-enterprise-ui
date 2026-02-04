@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiService } from '../../../core/api/api.service';
 import { AdminRole } from '../models/role.model';
@@ -7,9 +7,9 @@ import { AdminRole } from '../models/role.model';
   providedIn: 'root',
 })
 export class RolesApi {
-  private readonly baseUrl = '/api/admin/roles';
+  private readonly api = inject(ApiService);
 
-  constructor(private readonly api: ApiService) {}
+  private readonly baseUrl = '/api/admin/roles';
 
   public getRoles(): Observable<AdminRole[]> {
     console.log('get roles called....');

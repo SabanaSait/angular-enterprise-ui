@@ -1,4 +1,4 @@
-import { Injectable, signal, computed } from '@angular/core';
+import { Injectable, signal, computed, inject } from '@angular/core';
 import { switchMap } from 'rxjs';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { UsersApi } from '../services/users.api';
@@ -10,6 +10,8 @@ import { PaginatedResponse } from '../../../core/api/api.model';
 
 @Injectable({ providedIn: 'root' })
 export class UsersFacade {
+  private readonly usersApi = inject(UsersApi);
+
   private readonly _query = signal<UsersQuery>({
     pageNumber: 1,
     pageSize: 20,
@@ -41,8 +43,6 @@ export class UsersFacade {
   });
 
   readonly loading = computed(() => this.usersState().status === 'loading');
-
-  constructor(private readonly usersApi: UsersApi) {}
 
   /* ===== Intent APIs ===== */
 

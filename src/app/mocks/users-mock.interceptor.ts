@@ -3,7 +3,7 @@ import { delay, of } from 'rxjs';
 import { MOCK_USERS } from './users.mock';
 import { SortDirection, UserSortKey } from '../features/users/models/users-query.model';
 import { User } from '../features/users/models/user.model';
-let usersDB: User[] = [...MOCK_USERS];
+const usersDB: User[] = [...MOCK_USERS];
 
 export const usersMockInterceptor: HttpInterceptorFn = (req, next) => {
   const { method, url, params, body } = req;

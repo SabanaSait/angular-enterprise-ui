@@ -12,18 +12,16 @@ import { ROLE_OPTIONS } from '../../core/auth/auth.constants';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
+  private readonly auth = inject(AuthService);
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+
   private readonly fb = inject(FormBuilder);
   public readonly roleOptions = ROLE_OPTIONS;
 
   public readonly loginForm = this.fb.nonNullable.group({
     userRole: ['USER', Validators.required],
   });
-
-  constructor(
-    private readonly auth: AuthService,
-    private router: Router,
-    private route: ActivatedRoute,
-  ) {}
 
   public login() {
     const userRoleSelected = this.loginForm.value.userRole as Role;

@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { DashboardFacade } from '../facade/dashboard.facade';
 import { StatCardComponent } from '../../../shared/components/stat-card/stat-card.component';

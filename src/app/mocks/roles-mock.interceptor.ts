@@ -4,7 +4,7 @@ import { delay } from 'rxjs/operators';
 import { MOCK_ROLES } from './roles.mock';
 import { AdminRole } from '../features/admin/models/role.model';
 
-let rolesDB: AdminRole[] = [...MOCK_ROLES];
+const rolesDB: AdminRole[] = [...MOCK_ROLES];
 
 export const rolesMockInterceptor: HttpInterceptorFn = (
   req: HttpRequest<unknown>,

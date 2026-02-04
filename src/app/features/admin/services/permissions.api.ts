@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiService } from '../../../core/api/api.service';
 import { AdminPermission } from '../models/permission.model';
@@ -7,8 +7,9 @@ import { AdminPermission } from '../models/permission.model';
   providedIn: 'root',
 })
 export class PermissionsApi {
+  private readonly api = inject(ApiService);
+
   private readonly baseUrl = '/api/admin/permissions';
-  constructor(private readonly api: ApiService) {}
 
   public getPermissions(): Observable<AdminPermission[]> {
     return this.api.get<AdminPermission[]>(this.baseUrl, {

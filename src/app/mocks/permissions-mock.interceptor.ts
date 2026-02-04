@@ -3,7 +3,7 @@ import { of, delay } from 'rxjs';
 import { AdminPermission } from '../features/admin/models/permission.model';
 import { MOCK_PERMISSIONS } from './permissions-mock';
 
-let permissionsDB = [...MOCK_PERMISSIONS];
+const permissionsDB = [...MOCK_PERMISSIONS];
 
 export const PermissionsMockInterceptor: HttpInterceptorFn = (
   req: HttpRequest<unknown>,

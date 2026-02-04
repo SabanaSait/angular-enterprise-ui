@@ -1,5 +1,4 @@
-import { Observable, of } from 'rxjs';
-import { catchError, map, startWith, scan } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { DataState, DataStateOptions } from './data-state.model';
 import { loadingState, successSate, errorState } from './data-state.helpers';
 

@@ -6,7 +6,12 @@ import { ToastMessage } from './toast.types';
   template: `
     <div class="toast" [class]="message.variant" role="status">
       <span>{{ message.message }}</span>
-      <button type="button" aria-label="Dismiss notification" title="Close" (click)="close.emit()">
+      <button
+        type="button"
+        aria-label="Dismiss notification"
+        title="Close"
+        (click)="toastClose.emit()"
+      >
         X
       </button>
     </div>
@@ -14,12 +19,12 @@ import { ToastMessage } from './toast.types';
 })
 export class ToastComponent implements OnInit {
   @Input({ required: true }) public message!: ToastMessage;
-  @Output() public close = new EventEmitter<void>();
+  @Output() public toastClose = new EventEmitter<void>();
 
   public ngOnInit(): void {
     if (this.message.autoClose) {
       setTimeout(() => {
-        this.close.emit();
+        this.toastClose.emit();
       }, 4000);
     }
   }

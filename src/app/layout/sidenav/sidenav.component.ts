@@ -4,8 +4,10 @@ import {
   EventEmitter,
   HostListener,
   Input,
+  OnChanges,
   Output,
   ViewChild,
+  inject,
 } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../core/auth/auth.service';
@@ -17,13 +19,13 @@ import { NAV_ITEMS } from '../navigation.config';
   templateUrl: './sidenav.component.html',
   styleUrl: './sidenav.component.scss',
 })
-export class SidenavComponent {
-  constructor(public auth: AuthService) {}
+export class SidenavComponent implements OnChanges {
+  auth = inject(AuthService);
 
   @ViewChild('sidebar') sidebarRef!: ElementRef<HTMLElement>;
 
   @Input() open = false;
-  @Output() close = new EventEmitter<boolean>();
+  @Output() sidenavClose = new EventEmitter<boolean>();
 
   public navItems = NAV_ITEMS;
 
@@ -39,7 +41,7 @@ export class SidenavComponent {
 
     switch (event.key) {
       case 'Escape':
-        this.close.emit();
+        this.sidenavClose.emit();
         break;
 
       case 'Tab':

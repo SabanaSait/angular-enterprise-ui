@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { ApiService } from '../../../core/api/api.service';
 import { NotificationService } from '../../../core/notification/notification.service';
 import { Observable, tap } from 'rxjs';
@@ -10,10 +10,9 @@ import { CreateUserDto, UpdateUserDto } from '../models/user.dto';
 
 @Injectable({ providedIn: 'root' })
 export class UsersApi {
-  constructor(
-    private api: ApiService,
-    private notificationService: NotificationService,
-  ) {}
+  private api = inject(ApiService);
+  private notificationService = inject(NotificationService);
+
 
   public getUsers(params: {
     pageNumber?: number;
