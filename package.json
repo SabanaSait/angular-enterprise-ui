@@ -11,11 +11,15 @@
     "test": "ng test",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
-    "format": "prettier --write \"src/**/*.{ts,html,scss,css,json,md}\""
+    "format": "prettier --write \"src/**/*.{ts,html,scss,css,json,md}\"",
+    "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{ts,html,scss,css,json,md}": [
+    "*.{ts,html,scss,css}": [
       "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json, md}": [
       "prettier --write"
     ]
   },
