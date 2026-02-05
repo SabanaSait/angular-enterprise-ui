@@ -1,37 +1,39 @@
-app-toast-container {
-  position: fixed;
-  top: 0;
-  right: 0;
-}
-.toast-container {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.toast {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 12px 16px;
-  border-radius: 6px;
-  color: #fff;
-
-  button {
-    border: 0;
-    background: none;
-    color: #fff;
+:host {
+  app-toast-container {
+    position: fixed;
+    top: 0;
+    right: 0;
   }
-}
+  .toast-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .toast {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: 6px;
+    color: #fff;
 
-.toast.success {
-  background: #2e7d32;
-}
-.toast.error {
-  background: #c62828;
-}
-.toast.info {
-  background: #0277bd;
-}
-.toast.warning {
-  background: #f9a825;
+    button {
+      border: 0;
+      background: none;
+      color: #fff;
+    }
+  }
+
+  .toast.success {
+    background: #2e7d32;
+  }
+  .toast.error {
+    background: #c62828;
+  }
+  .toast.info {
+    background: #0277bd;
+  }
+  .toast.warning {
+    background: #f9a825;
+  }
 }

@@ -8,7 +8,7 @@ import { HTTP_ERROR_MESSAGES } from '../../../core/error/error.constants';
   styleUrl: './error-state.component.scss',
 })
 export class ErrorStateComponent {
-  @Input() public errorTitle!: string;
+  @Input() public errorTitle?: string;
   @Input() public errorDescription?: string;
   @Input() public statusCode?: number;
   @Input() public actionLabel?: string;

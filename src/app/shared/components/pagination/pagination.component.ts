@@ -1,6 +1,3 @@
-// This page currently owns users state and API orchestration.
-// As the feature grows (filters, sorting, actions),
-// this logic can be extracted into a UsersFacade.
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
