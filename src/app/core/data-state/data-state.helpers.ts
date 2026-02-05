@@ -9,7 +9,7 @@ export const loadingState = <T>(data?: T): DataState<T> => ({
   data,
 });
 
-export const successSate = <T>(data: T): DataState<T> => ({
+export const successState = <T>(data: T): DataState<T> => ({
   status: 'success',
   data,
 });

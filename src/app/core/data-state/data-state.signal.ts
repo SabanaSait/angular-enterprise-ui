@@ -7,7 +7,7 @@ import { loadingState } from './data-state.helpers';
 
 export function toDataStateSignal<T>(
   source$: Observable<T>,
-  options: DataStateOptions
+  options: DataStateOptions<T>,
 ): Signal<DataState<T>> {
   const state$ = toDataState(source$, options);
 

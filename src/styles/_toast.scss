@@ -19,6 +19,7 @@ app-toast-container {
   button {
     border: 0;
     background: none;
+    color: #fff;
   }
 }
 
@@ -27,9 +28,6 @@ app-toast-container {
 }
 .toast.error {
   background: #c62828;
-  button {
-    color: #fff;
-  }
 }
 .toast.info {
   background: #0277bd;

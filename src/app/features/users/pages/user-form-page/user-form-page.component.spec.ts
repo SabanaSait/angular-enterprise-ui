@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { UserFormPageComponent } from './user-form-page.component';
 
@@ -8,9 +9,9 @@ describe('UserFormPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UserFormPageComponent]
-    })
-    .compileComponents();
+      imports: [UserFormPageComponent],
+      providers: [provideRouter([])],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(UserFormPageComponent);
     component = fixture.componentInstance;

@@ -25,7 +25,6 @@ export class LoginComponent {
 
   public login() {
     const userRoleSelected = this.loginForm.value.userRole as Role;
-    console.log(userRoleSelected, 'userRoleSelected');
     this.auth.login(userRoleSelected);
 
     const redirect = this.route.snapshot.queryParamMap.get('redirect') || '/dashboard';

@@ -11,11 +11,12 @@ export class ErrorService {
   readonly errors = this._errors.asReadonly();
 
   public pushError(error: ApiError) {
+    const errorMessage = HTTP_ERROR_MESSAGES[error.status] || HTTP_ERROR_MESSAGES[500];
     this._errors.update((list) => [
       ...list,
       {
         id: crypto.randomUUID(),
-        message: HTTP_ERROR_MESSAGES[error.status].title,
+        message: errorMessage.title,
         variant: 'error',
         autoClose: false,
       },

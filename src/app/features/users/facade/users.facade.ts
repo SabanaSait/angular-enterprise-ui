@@ -38,8 +38,16 @@ export class UsersFacade {
     ),
   );
 
-  readonly usersState = toDataStateSignal<PaginatedResponse<User>>(this.users$, {
-    emitLoadingOnNext: true,
+  // Observable that emits when query changes (triggers loading)
+  private readonly queryChange$ = toObservable(
+    computed(() => ({
+      query: this._query(),
+      refresh: this.refreshTick(),
+    })),
+  );
+
+  public readonly usersState = toDataStateSignal<PaginatedResponse<User>>(this.users$, {
+    loadingTrigger$: this.queryChange$, // Emit loading when query changes
   });
 
   readonly loading = computed(() => this.usersState().status === 'loading');

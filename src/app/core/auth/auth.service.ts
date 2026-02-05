@@ -18,7 +18,7 @@ export class AuthService {
 
   public hasAccess = (permission?: Permission) => !permission || this.hasPermission(permission);
 
-  public login(role: Role = 'ADMIN') {
+  public login(role: Role = 'USER') {
     this._user.set({
       role,
       permissions: ROLE_PERMISSIONS[role],
@@ -38,10 +38,17 @@ export class AuthService {
     if (rawStorageKey) {
       try {
         const persisted = JSON.parse(rawStorageKey) as { role: Role };
-        this._user.set({
-          role: persisted.role,
-          permissions: ROLE_PERMISSIONS[persisted.role],
-        });
+        // Validate that the role exists in ROLE_PERMISSIONS
+        if (persisted.role && ROLE_PERMISSIONS[persisted.role]) {
+          const userRole = persisted.role;
+          this._user.set({
+            role: userRole,
+            permissions: ROLE_PERMISSIONS[userRole],
+          });
+        } else {
+          // Invalid role, remove corrupted data
+          localStorage.removeItem(AuthService.STORAGE_KEY);
+        }
       } catch {
         localStorage.removeItem(AuthService.STORAGE_KEY);
       }
