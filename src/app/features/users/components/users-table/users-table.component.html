@@ -1,5 +1,8 @@
 @if (users.length) {
-  <div class="data-table-wrapper">
+  @if (loading) {
+    <app-loading-state class="loading-overlay"></app-loading-state>
+  }
+  <div class="data-table-wrapper" [class.is-loading]="loading">
     <table aria-label="Users list">
       <thead>
         <tr>
@@ -75,18 +78,20 @@
     [disabled]="loading"
     (pageChange)="pageChange.emit($event)"
   ></app-pagination>
-}
-
-@if (!loading && users.length === 0) {
-  <app-empty-state
-    class="no-border"
-    heading="No users yet"
-    [description]="
-      canManageUsers
-        ? 'Get started by adding your first user to the system.'
-        : 'Users will appear here once they are added by an administrator.'
-    "
-    [actionLabel]="canManageUsers ? '+ Add User' : ''"
-    (action)="addUser.emit()"
-  ></app-empty-state>
+} @else {
+  @if (loading) {
+    <app-loading-state></app-loading-state>
+  } @else {
+    <app-empty-state
+      class="no-border"
+      heading="No users yet"
+      [description]="
+        canManageUsers
+          ? 'Get started by adding your first user to the system.'
+          : 'Users will appear here once they are added by an administrator.'
+      "
+      [actionLabel]="canManageUsers ? '+ Add User' : ''"
+      (action)="addUser.emit()"
+    ></app-empty-state>
+  }
 }

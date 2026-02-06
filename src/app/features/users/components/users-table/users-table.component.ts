@@ -6,10 +6,18 @@ import { User, UserStatus } from '../../models/user.model';
 import { SortDirection, UserSortKey } from '../../models/users-query.model';
 import { RoleLabelPipe } from '../../../../shared/pipes/role-label.pipe';
 import { BadgeComponent } from '../../../../shared/components/badge/badge.component';
+import { LoadingStateComponent } from '../../../../shared/components/loading-state/loading-state.component';
 
 @Component({
   selector: 'app-users-table',
-  imports: [TitleCasePipe, PaginationComponent, EmptyStateComponent, RoleLabelPipe, BadgeComponent],
+  imports: [
+    TitleCasePipe,
+    PaginationComponent,
+    EmptyStateComponent,
+    RoleLabelPipe,
+    BadgeComponent,
+    LoadingStateComponent,
+  ],
   templateUrl: './users-table.component.html',
   styleUrl: './users-table.component.scss',
 })
