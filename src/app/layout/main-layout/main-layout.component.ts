@@ -38,7 +38,7 @@ export class MainLayoutComponent implements OnInit {
   }
 
   public toggleSidebar() {
-    if (!this.isSidebarOpen) {
+    if (!this.isSidebarOpen()) {
       this.lastFocusedElement = document.activeElement as HTMLElement;
     }
     this.isSidebarOpen.update((val) => !val);
