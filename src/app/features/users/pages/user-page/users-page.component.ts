@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../../core/auth/auth.service';
 import { UsersFacade } from '../../facade/users.facade';
@@ -13,7 +13,7 @@ import { ErrorStateComponent } from '../../../../shared/components/error-state/e
   templateUrl: './users-page.component.html',
   styleUrl: './users-page.component.scss',
 })
-export class UsersPageComponent {
+export class UsersPageComponent implements OnInit {
   private readonly authService = inject(AuthService);
   private readonly facade = inject(UsersFacade);
   private readonly router = inject(Router);
@@ -22,6 +22,10 @@ export class UsersPageComponent {
   protected readonly query = this.facade.query;
   protected readonly canManageUsers = this.authService.hasAccess('MANAGE_USERS');
   constructor() {}
+
+  ngOnInit() {
+    this.facade.refresh();
+  }
 
   public setPageNumber(pageNumber: number): void {
     this.facade.setPage(pageNumber);

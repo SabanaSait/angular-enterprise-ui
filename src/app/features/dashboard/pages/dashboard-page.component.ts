@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DashboardFacade } from '../facade/dashboard.facade';
 import { StatCardComponent } from '../../../shared/components/stat-card/stat-card.component';
@@ -12,12 +12,16 @@ import { EmptyStateComponent } from '../../../shared/components/empty-state/empt
   templateUrl: './dashboard-page.component.html',
   styleUrl: './dashboard-page.component.scss',
 })
-export class DashboardPageComponent {
+export class DashboardPageComponent implements OnInit {
   private readonly router = inject(Router);
   private readonly facade = inject(DashboardFacade);
   protected readonly metricsState = this.facade.metricsState;
 
   constructor() {}
+
+  public ngOnInit(): void {
+    this.facade.refresh();
+  }
 
   public goToUsers(): void {
     this.router.navigate(['users/']);
