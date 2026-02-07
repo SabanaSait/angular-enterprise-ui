@@ -1,5 +1,5 @@
 import { Injectable, signal, computed, inject } from '@angular/core';
-import { switchMap } from 'rxjs';
+import { skip, switchMap } from 'rxjs';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { UsersApi } from '../services/users.api';
 import { toDataStateSignal } from '../../../core/data-state/data-state.signal';
@@ -28,6 +28,7 @@ export class UsersFacade {
       refresh: this.refreshTick(),
     })),
   ).pipe(
+    skip(1),
     switchMap(({ query }) =>
       this.usersApi.getUsers({
         pageNumber: query.pageNumber,
@@ -89,7 +90,7 @@ export class UsersFacade {
     });
   }
 
-  private refresh(): void {
+  public refresh(): void {
     this.refreshTick.update((val) => val + 1);
   }
 }
