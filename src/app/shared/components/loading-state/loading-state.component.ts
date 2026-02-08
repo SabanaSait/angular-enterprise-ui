@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './loading-state.component.scss',
 })
 export class LoadingStateComponent {
-  @Input() public loadingText = 'Loading...';
+  @Input() public loadingText = $localize`:@@loading.default:Loading...`;
 }

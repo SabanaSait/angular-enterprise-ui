@@ -818,6 +818,54 @@
           <context context-type="linenumber">43,44</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="loading.default" datatype="html">
+        <source>Loading...</source>
+        <target>جارٍ التحميل...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/loading-state/loading-state.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.dashboard" datatype="html">
+        <source>Dashboard</source>
+        <target>لوحة التحكم</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navigation.config.ts</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.users" datatype="html">
+        <source>Users</source>
+        <target>المستخدمون</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navigation.config.ts</context>
+          <context context-type="linenumber">16,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.admin" datatype="html">
+        <source>Admin</source>
+        <target>الإدارة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navigation.config.ts</context>
+          <context context-type="linenumber">21,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.tabs.roles" datatype="html">
+        <source>Roles</source>
+        <target>الأدوار</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/config/admin-tabs.config.ts</context>
+          <context context-type="linenumber">4,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.tabs.permissions" datatype="html">
+        <source>Permissions</source>
+        <target>الأذونات</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/config/admin-tabs.config.ts</context>
+          <context context-type="linenumber">9,12</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>

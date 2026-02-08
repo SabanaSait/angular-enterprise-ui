@@ -8,16 +8,16 @@ export interface NavItem {
 
 export const NAV_ITEMS: NavItem[] = [
   {
-    label: 'Dashboard',
+    label: $localize`:@@nav.dashboard:Dashboard`,
     route: '/dashboard',
   },
   {
-    label: 'Users',
+    label: $localize`:@@nav.users:Users`,
     route: '/users',
     permission: 'VIEW_USERS',
   },
   {
-    label: 'Admin',
+    label: $localize`:@@nav.admin:Admin`,
     route: '/admin',
     permission: 'VIEW_ADMIN',
   },
