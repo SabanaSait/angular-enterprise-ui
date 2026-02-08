@@ -2,7 +2,7 @@
   .layout-sidebar {
     width: 220px;
     background: #f8fafc;
-    border-right: 1px solid #e5e7eb;
+    border-inline-end: 1px solid #e5e7eb;
     padding: 16px;
     transition: transform 0.3s ease;
     height: 100%;
@@ -50,10 +50,32 @@
     .layout-sidebar {
       position: absolute;
       top: 0;
-      left: 0;
+      inset-inline-start: 0;
       transform: translateX(-100%);
       z-index: 10;
       box-shadow: 4px 0 12px rgb(0, 0, 0, 0.15);
+
+      &.open {
+        transform: translateX(0);
+      }
+    }
+  }
+}
+
+:host-context([dir='rtl']) {
+  .layout-sidebar {
+    border-inline-end: 0;
+    border-inline-start: 1px solid #e5e7eb;
+  }
+
+  @media (max-width: 768px) {
+    .layout-sidebar {
+      inset-inline-start: auto;
+      inset-inline-end: 0;
+      left: auto;
+      right: 0;
+      transform: translateX(100%);
+      box-shadow: -4px 0 12px rgb(0, 0, 0, 0.15);
 
       &.open {
         transform: translateX(0);
