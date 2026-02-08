@@ -2,10 +2,11 @@
   #sidebar
   id="app-sidebar"
   aria-label="Main Navigation"
+  i18n-aria-label="@@sidenav.aria.label"
   class="layout-sidebar"
   [class.open]="open"
 >
-  <nav aria-label="Main navigation">
+  <nav aria-label="Main navigation" i18n-aria-label="@@sidenav.nav.aria.label">
     @for (item of navItems; track item.route) {
       @if (auth.hasAccess(item.permission)) {
         <a

@@ -1,14 +1,23 @@
 <main class="login-page">
-  <h1>Demo Login</h1>
+  <h1 i18n="@@login.title">Demo Login</h1>
   <form [formGroup]="loginForm" (ngSubmit)="login()">
     <div class="control-wrapper">
-      <label for="userRole">Select a role to simulate permissions:</label>
+      <label for="userRole" i18n="@@login.select.role"
+        >Select a role to simulate permissions:</label
+      >
       <select id="userRole" formControlName="userRole" required>
         @for (role of roleOptions; track role) {
           <option [value]="role.value">{{ role.label }}</option>
         }
       </select>
     </div>
-    <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+    <button
+      class="btn btn-primary"
+      type="submit"
+      [disabled]="loginForm.invalid"
+      i18n="@@login.button.text"
+    >
+      Login
+    </button>
   </form>
 </main>

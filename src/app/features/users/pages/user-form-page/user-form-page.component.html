@@ -1,12 +1,16 @@
 <div class="page-header">
-  <h1>{{ isEdit() ? 'Edit User' : 'Create User' }}</h1>
+  @if (isEdit()) {
+    <h1 i18n="@@users.form.title.edit">Edit User</h1>
+  } @else {
+    <h1 i18n="@@users.form.title.create">Create User</h1>
+  }
 </div>
 <form [formGroup]="form" (ngSubmit)="submit()">
   @let isNameInvalid = isInvalidControl('name');
   <div class="controls" [class.invalidControl]="isNameInvalid">
     <div class="control-wrapper">
-      <label for="name"
-        >Name
+      <label for="name">
+        <span i18n="@@users.form.name.label">Name</span>
         @if (isRequired('name')) {
           <span class="required">*</span>
         }
@@ -16,6 +20,7 @@
         type="text"
         formControlName="name"
         placeholder="e.g. John Doe"
+        i18n-placeholder="@@users.form.name.placeholder"
         aria-required="true"
         aria-describedby="name-error"
         [attr.aria-invalid]="isNameInvalid"
@@ -23,16 +28,22 @@
       />
     </div>
     @if (form.controls.name.errors?.['required']) {
-      <span role="alert" id="name-error" class="errMessage" [attr.aria-hidden]="!isNameInvalid"
-        >Name is required</span
+      <span
+        role="alert"
+        id="name-error"
+        class="errMessage"
+        [attr.aria-hidden]="!isNameInvalid"
+        i18n="@@users.form.name.required"
       >
+        Name is required
+      </span>
     }
   </div>
   @let isEmailInvalid = isInvalidControl('email');
   <div class="controls" [class.invalidControl]="isEmailInvalid">
     <div class="control-wrapper">
-      <label for="email"
-        >Email
+      <label for="email">
+        <span i18n="@@users.form.email.label">Email</span>
         @if (isRequired('email')) {
           <span class="required">*</span>
         }
@@ -42,6 +53,7 @@
         type="email"
         formControlName="email"
         placeholder="e.g. john.doe@company.com"
+        i18n-placeholder="@@users.form.email.placeholder"
         aria-required="true"
         [attr.aria-describedby]="
           isEmailInvalid
@@ -61,8 +73,10 @@
           id="email-required-error"
           class="errMessage"
           [attr.aria-hidden]="!isEmailInvalid"
-          >Email is required</span
+          i18n="@@users.form.email.required"
         >
+          Email is required
+        </span>
       }
       @if (form.controls.email.errors?.['email']) {
         <span
@@ -70,16 +84,18 @@
           id="email-format-error"
           class="errMessage"
           [attr.aria-hidden]="!isEmailInvalid"
-          >Enter a valid email address</span
+          i18n="@@users.form.email.invalid"
         >
+          Enter a valid email address
+        </span>
       }
     }
   </div>
   @let isRoleInvalid = isInvalidControl('role');
   <div class="controls" [class.invalidControl]="isRoleInvalid">
     <div class="control-wrapper">
-      <label for="role"
-        >Role
+      <label for="role">
+        <span i18n="@@users.form.role.label">Role</span>
         @if (isRequired('role')) {
           <span class="required">*</span>
         }
@@ -92,30 +108,47 @@
         [attr.aria-invalid]="isRoleInvalid"
         required
       >
-        <option value="" disabled>Select a role</option>
+        <option value="" disabled i18n="@@users.form.role.select">Select a role</option>
         @for (role of roleOptions; track role) {
           <option [value]="role.value">{{ role.label }}</option>
         }
       </select>
     </div>
     @if (form.controls.role.errors?.['required']) {
-      <span role="alert" id="role-error" class="errMessage" [attr.aria-hidden]="!isRoleInvalid"
-        >Role is required</span
+      <span
+        role="alert"
+        id="role-error"
+        class="errMessage"
+        [attr.aria-hidden]="!isRoleInvalid"
+        i18n="@@users.form.role.required"
       >
+        Role is required
+      </span>
     }
   </div>
   <div class="controls">
     <div class="control-wrapper">
-      <label for="status">Status</label>
+      <label for="status">
+        <span i18n="@@users.form.status.label">Status</span>
+      </label>
       <select id="status" formControlName="status">
-        <option value="Active">Active</option>
-        <option value="Inactive">Inactive</option>
+        <option value="Active" i18n="@@users.form.status.active">Active</option>
+        <option value="Inactive" i18n="@@users.form.status.inactive">Inactive</option>
       </select>
     </div>
   </div>
 
   <div class="actions">
-    <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Save</button>
-    <button class="btn btn-secondary" type="button" (click)="cancel()">Cancel</button>
+    <button
+      class="btn btn-primary"
+      type="submit"
+      [disabled]="form.invalid"
+      i18n="@@users.form.save"
+    >
+      Save
+    </button>
+    <button class="btn btn-secondary" type="button" (click)="cancel()" i18n="@@users.form.cancel">
+      Cancel
+    </button>
   </div>
 </form>

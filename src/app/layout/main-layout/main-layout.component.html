@@ -3,14 +3,17 @@
     <button
       class="menu-btn"
       aria-label="Open navigation menu"
+      i18n-aria-label="@@layout.menu.open"
       [aria-expanded]="isSidebarOpen()"
       aria-controls="app-sidebar"
       (click)="toggleSidebar()"
     >
       ☰
     </button>
-    <h3 class="app-title">Enterprise Dashboard</h3>
-    <button class="btn btn-secondary btn-logout" (click)="logout()">Logout</button>
+    <h3 class="app-title" i18n="@@layout.title">Enterprise Dashboard</h3>
+    <button class="btn btn-secondary btn-logout" (click)="logout()" i18n="@@layout.logout">
+      Logout
+    </button>
   </header>
   <div class="layout-body">
     <app-sidenav [open]="isSidebarOpen()" (close)="closeSidebar()"></app-sidenav>

@@ -1,12 +1,12 @@
 <div class="data-table-wrapper">
-  <table aria-label="Roles list">
+  <table aria-label="Roles list" i18n-aria-label="@@admin.roles.table.aria.label">
     <thead>
       <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Code</th>
-        <th scope="col">Description</th>
-        <th scope="col">Type</th>
-        <th scope="col">Actions</th>
+        <th scope="col" i18n="@@admin.roles.table.name">Name</th>
+        <th scope="col" i18n="@@admin.roles.table.code">Code</th>
+        <th scope="col" i18n="@@admin.roles.table.description">Description</th>
+        <th scope="col" i18n="@@admin.roles.table.type">Type</th>
+        <th scope="col" i18n="@@admin.roles.table.actions">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -16,10 +16,19 @@
           <td>{{ role.code }}</td>
           <td>{{ role.description }}</td>
           <td>
-            <app-badge
-              [label]="role.system ? 'System' : 'Custom'"
-              [variant]="role.system ? 'neutral' : 'info'"
-            ></app-badge>
+            @if (role.system) {
+              <app-badge
+                label="System"
+                [variant]="'neutral'"
+                i18n-label="@@admin.roles.table.type.system"
+              ></app-badge>
+            } @else {
+              <app-badge
+                label="Custom"
+                [variant]="'info'"
+                i18n-label="@@admin.roles.table.type.custom"
+              ></app-badge>
+            }
           </td>
           <td class="actions">
             <button
@@ -27,6 +36,8 @@
               type="button"
               title="View details"
               aria-label="View details of role {{ role.name }}"
+              i18n-title="@@admin.roles.table.view.title"
+              i18n-aria-label="@@admin.roles.table.view.aria"
               (click)="viewRoleDetails(role.id)"
             >
               <span aria-hidden="true">👁</span>

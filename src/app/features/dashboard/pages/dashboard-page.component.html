@@ -1,6 +1,6 @@
 <div class="page-header">
-  <h1>Dashboard</h1>
-  <p>Overview of system activity.</p>
+  <h1 i18n="@@dashboard.page.title">Dashboard</h1>
+  <p i18n="@@dashboard.page.subtitle">Overview of system activity.</p>
 </div>
 @switch (metricsState().status) {
   @case ('loading') {
@@ -10,6 +10,8 @@
     <app-error-state
       errorTitle="Unable to load dashboard metrics"
       errorDescription="Please try again later."
+      i18n-errorTitle="@@dashboard.page.error.title"
+      i18n-errorDescription="@@dashboard.page.error.description"
     ></app-error-state>
   }
   @default {
@@ -17,33 +19,45 @@
     @if (metrics?.totalUsers) {
       <ul class="stat-cards">
         <li>
-          <app-stat-card label="Total Users" [value]="metrics?.totalUsers || 0"> </app-stat-card>
+          <app-stat-card
+            label="Total Users"
+            [value]="metrics?.totalUsers || 0"
+            i18n-label="@@dashboard.stats.totalUsers"
+          ></app-stat-card>
         </li>
         <li>
-          <app-stat-card label="Active Users" [value]="metrics?.activeUsers || 0"></app-stat-card>
+          <app-stat-card
+            label="Active Users"
+            [value]="metrics?.activeUsers || 0"
+            i18n-label="@@dashboard.stats.activeUsers"
+          ></app-stat-card>
         </li>
         <li>
           <app-stat-card
             label="Inactive Users"
             [value]="metrics?.inactiveUsers || 0"
+            i18n-label="@@dashboard.stats.inactiveUsers"
           ></app-stat-card>
         </li>
         <li>
           <app-stat-card
             label="Admin Users"
             [value]="metrics?.adminUsersCount || 0"
+            i18n-label="@@dashboard.stats.adminUsers"
           ></app-stat-card>
         </li>
         <li>
           <app-stat-card
             label="Supervisors"
             [value]="metrics?.supervisorsCount || 0"
+            i18n-label="@@dashboard.stats.supervisors"
           ></app-stat-card>
         </li>
         <li>
           <app-stat-card
             label="General Users"
             [value]="metrics?.generalUsersCount || 0"
+            i18n-label="@@dashboard.stats.generalUsers"
           ></app-stat-card>
         </li>
       </ul>
@@ -52,6 +66,9 @@
         heading="No metrics available"
         description="Metrics will appear once users are added to the system."
         actionLabel="Go to Users"
+        i18n-heading="@@dashboard.empty.heading"
+        i18n-description="@@dashboard.empty.description"
+        i18n-actionLabel="@@dashboard.empty.action"
         (action)="goToUsers()"
       ></app-empty-state>
     }

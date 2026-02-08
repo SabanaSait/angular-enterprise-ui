@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template" target-language="ar">
+    <body>
+      <trans-unit id="admin.permissions.table.aria.label" datatype="html">
+        <source>Permissions list</source>
+        <target>قائمة الأذونات</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/components/permissions-table/permissions-table.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.permissions.table.name" datatype="html">
+        <source>Name</source>
+        <target>الاسم</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/components/permissions-table/permissions-table.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.permissions.table.code" datatype="html">
+        <source>Code</source>
+        <target>الرمز</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/components/permissions-table/permissions-table.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.permissions.table.description" datatype="html">
+        <source>Description</source>
+        <target>الوصف</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/components/permissions-table/permissions-table.component.html</context>
+          <context context-type="linenumber">7,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.roles.table.aria.label" datatype="html">
+        <source>Roles list</source>
+        <target>قائمة الأدوار</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/components/roles-table/roles-table.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.roles.table.name" datatype="html">
+        <source>Name</source>
+        <target>الاسم</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/components/roles-table/roles-table.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.roles.table.code" datatype="html">
+        <source>Code</source>
+        <target>الرمز</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/components/roles-table/roles-table.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.roles.table.description" datatype="html">
+        <source>Description</source>
+        <target>الوصف</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/components/roles-table/roles-table.component.html</context>
+          <context context-type="linenumber">7,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.roles.table.type" datatype="html">
+        <source>Type</source>
+        <target>النوع</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/components/roles-table/roles-table.component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.roles.table.actions" datatype="html">
+        <source>Actions</source>
+        <target>الإجراءات</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/components/roles-table/roles-table.component.html</context>
+          <context context-type="linenumber">9,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.roles.table.type.system" datatype="html">
+        <source>System</source>
+        <target>النظام</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/components/roles-table/roles-table.component.html</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.roles.table.type.custom" datatype="html">
+        <source>Custom</source>
+        <target>مخصص</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/components/roles-table/roles-table.component.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.roles.table.view.title" datatype="html">
+        <source>View details</source>
+        <target>عرض التفاصيل</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/components/roles-table/roles-table.component.html</context>
+          <context context-type="linenumber">37,38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.roles.table.view.aria" datatype="html">
+        <source>View details of role <x id="INTERPOLATION" equiv-text="{{ role.name }}"/></source>
+        <target>عرض تفاصيل الدور <x id="INTERPOLATION" equiv-text="{{ role.name }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/components/roles-table/roles-table.component.html</context>
+          <context context-type="linenumber">38,39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.page.title" datatype="html">
+        <source>Admin</source>
+        <target>الإدارة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/pages/admin-index/admin-index.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.page.subtitle" datatype="html">
+        <source>Manage roles and permissions.</source>
+        <target>إدارة الأدوار والأذونات.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/pages/admin-index/admin-index.component.html</context>
+          <context context-type="linenumber">3,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.permissions.page.error.title" datatype="html">
+        <source>Unable to load permissions</source>
+        <target>تعذر تحميل الأذونات</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/pages/permissions-page/permissions-page.component.html</context>
+          <context context-type="linenumber">7,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.permissions.page.error.description" datatype="html">
+        <source>Please try again later.</source>
+        <target>يرجى المحاولة لاحقًا.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/pages/permissions-page/permissions-page.component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.permissions.page.empty.heading" datatype="html">
+        <source>No permissions available</source>
+        <target>لا توجد أذونات متاحة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/pages/permissions-page/permissions-page.component.html</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.permissions.page.empty.description" datatype="html">
+        <source>Permissions control access to features across the application. System permissions will appear here once available.</source>
+        <target>تتحكم الأذونات في الوصول إلى ميزات التطبيق. ستظهر أذونات النظام هنا عند توفرها.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/pages/permissions-page/permissions-page.component.html</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.role.details.title" datatype="html">
+        <source>Role Details: <x id="INTERPOLATION" equiv-text="{{ role?.name }}"/></source>
+        <target>تفاصيل الدور: <x id="INTERPOLATION" equiv-text="{{ role?.name }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/pages/role-details/role-details.component.html</context>
+          <context context-type="linenumber">5,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.role.label" datatype="html">
+        <source>Role:</source>
+        <target>الدور:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/pages/role-details/role-details.component.html</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.role.description.label" datatype="html">
+        <source>Description:</source>
+        <target>الوصف:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/pages/role-details/role-details.component.html</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.role.type.label" datatype="html">
+        <source>Type:</source>
+        <target>النوع:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/pages/role-details/role-details.component.html</context>
+          <context context-type="linenumber">17,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.role.type.system" datatype="html">
+        <source>System</source>
+        <target>النظام</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/pages/role-details/role-details.component.html</context>
+          <context context-type="linenumber">21,22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.role.type.custom" datatype="html">
+        <source>Custom</source>
+        <target>مخصص</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/pages/role-details/role-details.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.role.permissions.assigned" datatype="html">
+        <source>Assigned permissions:</source>
+        <target>الأذونات المعينة:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/pages/role-details/role-details.component.html</context>
+          <context context-type="linenumber">34,36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.role.cancel" datatype="html">
+        <source> Cancel </source>
+        <target>إلغاء</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/pages/role-details/role-details.component.html</context>
+          <context context-type="linenumber">61,64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.roles.page.error.title" datatype="html">
+        <source>Unable to load roles</source>
+        <target>تعذر تحميل الأدوار</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/pages/roles-page/roles-page.component.html</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.roles.page.error.description" datatype="html">
+        <source>Please try again later.</source>
+        <target>يرجى المحاولة لاحقًا.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/pages/roles-page/roles-page.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.roles.page.empty.heading" datatype="html">
+        <source>No roles available</source>
+        <target>لا توجد أدوار متاحة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/pages/roles-page/roles-page.component.html</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.roles.page.empty.description" datatype="html">
+        <source>Roles define access levels in the system. System roles will appear here once configured.</source>
+        <target>تحدد الأدوار مستويات الوصول في النظام. ستظهر أدوار النظام هنا بمجرد إعدادها.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/admin/pages/roles-page/roles-page.component.html</context>
+          <context context-type="linenumber">21,22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboard.page.title" datatype="html">
+        <source>Dashboard</source>
+        <target>لوحة التحكم</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/pages/dashboard-page.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboard.page.subtitle" datatype="html">
+        <source>Overview of system activity.</source>
+        <target>نظرة عامة على نشاط النظام.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/pages/dashboard-page.component.html</context>
+          <context context-type="linenumber">3,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboard.page.error.title" datatype="html">
+        <source>Unable to load dashboard metrics</source>
+        <target>تعذر تحميل مؤشرات لوحة التحكم</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/pages/dashboard-page.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboard.page.error.description" datatype="html">
+        <source>Please try again later.</source>
+        <target>يرجى المحاولة لاحقًا.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/pages/dashboard-page.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboard.stats.totalUsers" datatype="html">
+        <source>Total Users</source>
+        <target>إجمالي المستخدمين</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/pages/dashboard-page.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboard.stats.activeUsers" datatype="html">
+        <source>Active Users</source>
+        <target>المستخدمون النشطون</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/pages/dashboard-page.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboard.stats.inactiveUsers" datatype="html">
+        <source>Inactive Users</source>
+        <target>المستخدمون غير النشطين</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/pages/dashboard-page.component.html</context>
+          <context context-type="linenumber">37,38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboard.stats.adminUsers" datatype="html">
+        <source>Admin Users</source>
+        <target>مستخدمو الإدارة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/pages/dashboard-page.component.html</context>
+          <context context-type="linenumber">44,45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboard.stats.supervisors" datatype="html">
+        <source>Supervisors</source>
+        <target>المشرفون</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/pages/dashboard-page.component.html</context>
+          <context context-type="linenumber">51,52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboard.stats.generalUsers" datatype="html">
+        <source>General Users</source>
+        <target>المستخدمون العامون</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/pages/dashboard-page.component.html</context>
+          <context context-type="linenumber">58,59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboard.empty.heading" datatype="html">
+        <source>No metrics available</source>
+        <target>لا توجد مؤشرات متاحة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/pages/dashboard-page.component.html</context>
+          <context context-type="linenumber">66,67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboard.empty.description" datatype="html">
+        <source>Metrics will appear once users are added to the system.</source>
+        <target>ستظهر المؤشرات بمجرد إضافة مستخدمين إلى النظام.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/pages/dashboard-page.component.html</context>
+          <context context-type="linenumber">67,69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboard.empty.action" datatype="html">
+        <source>Go to Users</source>
+        <target>اذهب إلى المستخدمين</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/pages/dashboard-page.component.html</context>
+          <context context-type="linenumber">68,69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.title" datatype="html">
+        <source>Demo Login</source>
+        <target>تسجيل دخول تجريبي</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/login/login.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.select.role" datatype="html">
+        <source>Select a role to simulate permissions:</source>
+        <target>اختر دورًا لمحاكاة الصلاحيات:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/login/login.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.button.text" datatype="html">
+        <source>Login</source>
+        <target>تسجيل الدخول</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/login/login.component.html</context>
+          <context context-type="linenumber">12,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="unauthorized.action" datatype="html">
+        <source>Go back to Dashboard</source>
+        <target>العودة إلى لوحة التحكم</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/unauthorized/unauthorized.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.table.aria.label" datatype="html">
+        <source>Users list</source>
+        <target>قائمة المستخدمين</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/components/users-table/users-table.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.table.sort.name.aria" datatype="html">
+        <source>Sort by name</source>
+        <target>ترتيب حسب الاسم</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/components/users-table/users-table.component.html</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.table.name" datatype="html">
+        <source>Name</source>
+        <target>الاسم</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/components/users-table/users-table.component.html</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.table.email" datatype="html">
+        <source>Email</source>
+        <target>البريد الإلكتروني</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/components/users-table/users-table.component.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.table.role" datatype="html">
+        <source>Role</source>
+        <target>الدور</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/components/users-table/users-table.component.html</context>
+          <context context-type="linenumber">29,30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.table.status" datatype="html">
+        <source>Status</source>
+        <target>الحالة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/components/users-table/users-table.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.table.actions" datatype="html">
+        <source>Actions</source>
+        <target>الإجراءات</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/components/users-table/users-table.component.html</context>
+          <context context-type="linenumber">32,35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.table.edit.title" datatype="html">
+        <source>Edit user</source>
+        <target>تعديل المستخدم</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/components/users-table/users-table.component.html</context>
+          <context context-type="linenumber">53,54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.table.edit.aria" datatype="html">
+        <source>Edit user <x id="INTERPOLATION" equiv-text="{{ user.name }}"/></source>
+        <target>تعديل المستخدم <x id="INTERPOLATION" equiv-text="{{ user.name }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/components/users-table/users-table.component.html</context>
+          <context context-type="linenumber">54,55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.table.delete.title" datatype="html">
+        <source>Delete user</source>
+        <target>حذف المستخدم</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/components/users-table/users-table.component.html</context>
+          <context context-type="linenumber">64,65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.table.delete.aria" datatype="html">
+        <source>Delete user <x id="INTERPOLATION" equiv-text="{{ user.name }}"/></source>
+        <target>حذف المستخدم <x id="INTERPOLATION" equiv-text="{{ user.name }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/components/users-table/users-table.component.html</context>
+          <context context-type="linenumber">65,66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.table.empty.manage.heading" datatype="html">
+        <source>No users yet</source>
+        <target>لا يوجد مستخدمون بعد</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/components/users-table/users-table.component.html</context>
+          <context context-type="linenumber">93,94</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.table.empty.manage.description" datatype="html">
+        <source>Get started by adding your first user to the system.</source>
+        <target>ابدأ بإضافة أول مستخدم إلى النظام.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/components/users-table/users-table.component.html</context>
+          <context context-type="linenumber">94,96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.table.empty.manage.action" datatype="html">
+        <source>+ Add User</source>
+        <target>+ إضافة مستخدم</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/components/users-table/users-table.component.html</context>
+          <context context-type="linenumber">95,96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.table.empty.readonly.heading" datatype="html">
+        <source>No users yet</source>
+        <target>لا يوجد مستخدمون بعد</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/components/users-table/users-table.component.html</context>
+          <context context-type="linenumber">104,105</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.table.empty.readonly.description" datatype="html">
+        <source>Users will appear here once they are added by an administrator.</source>
+        <target>سيظهر المستخدمون هنا بمجرد إضافتهم بواسطة مسؤول.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/components/users-table/users-table.component.html</context>
+          <context context-type="linenumber">105,106</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.form.title.edit" datatype="html">
+        <source>Edit User</source>
+        <target>تعديل مستخدم</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/pages/user-form-page/user-form-page.component.html</context>
+          <context context-type="linenumber">3,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.form.title.create" datatype="html">
+        <source>Create User</source>
+        <target>إنشاء مستخدم</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/pages/user-form-page/user-form-page.component.html</context>
+          <context context-type="linenumber">5,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.form.name.label" datatype="html">
+        <source>Name</source>
+        <target>الاسم</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/pages/user-form-page/user-form-page.component.html</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.form.name.placeholder" datatype="html">
+        <source>e.g. John Doe</source>
+        <target>مثال: جون دو</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/pages/user-form-page/user-form-page.component.html</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.form.name.required" datatype="html">
+        <source> Name is required </source>
+        <target>الاسم مطلوب</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/pages/user-form-page/user-form-page.component.html</context>
+          <context context-type="linenumber">32,36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.form.email.label" datatype="html">
+        <source>Email</source>
+        <target>البريد الإلكتروني</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/pages/user-form-page/user-form-page.component.html</context>
+          <context context-type="linenumber">40,41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.form.email.placeholder" datatype="html">
+        <source>e.g. john.doe@company.com</source>
+        <target>مثال: john.doe@company.com</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/pages/user-form-page/user-form-page.component.html</context>
+          <context context-type="linenumber">49,50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.form.email.required" datatype="html">
+        <source> Email is required </source>
+        <target>البريد الإلكتروني مطلوب</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/pages/user-form-page/user-form-page.component.html</context>
+          <context context-type="linenumber">72,75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.form.email.invalid" datatype="html">
+        <source> Enter a valid email address </source>
+        <target>أدخل عنوان بريد إلكتروني صالح</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/pages/user-form-page/user-form-page.component.html</context>
+          <context context-type="linenumber">83,86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.form.role.label" datatype="html">
+        <source>Role</source>
+        <target>الدور</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/pages/user-form-page/user-form-page.component.html</context>
+          <context context-type="linenumber">92,93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.form.role.select" datatype="html">
+        <source>Select a role</source>
+        <target>اختر دورًا</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/pages/user-form-page/user-form-page.component.html</context>
+          <context context-type="linenumber">105,106</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.form.role.required" datatype="html">
+        <source> Role is required </source>
+        <target>الدور مطلوب</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/pages/user-form-page/user-form-page.component.html</context>
+          <context context-type="linenumber">113,117</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.form.status.label" datatype="html">
+        <source>Status</source>
+        <target>الحالة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/pages/user-form-page/user-form-page.component.html</context>
+          <context context-type="linenumber">120,122</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.form.status.active" datatype="html">
+        <source>Active</source>
+        <target>نشط</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/pages/user-form-page/user-form-page.component.html</context>
+          <context context-type="linenumber">123,124</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.form.status.inactive" datatype="html">
+        <source>Inactive</source>
+        <target>غير نشط</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/pages/user-form-page/user-form-page.component.html</context>
+          <context context-type="linenumber">124,127</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.form.save" datatype="html">
+        <source> Save </source>
+        <target>حفظ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/pages/user-form-page/user-form-page.component.html</context>
+          <context context-type="linenumber">131,133</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.form.cancel" datatype="html">
+        <source> Cancel </source>
+        <target>إلغاء</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/pages/user-form-page/user-form-page.component.html</context>
+          <context context-type="linenumber">134,137</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.page.title" datatype="html">
+        <source>Users</source>
+        <target>المستخدمون</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/pages/user-page/users-page.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.page.subtitle" datatype="html">
+        <source>Manage users and their access.</source>
+        <target>إدارة المستخدمين وصلاحياتهم.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/pages/user-page/users-page.component.html</context>
+          <context context-type="linenumber">4,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.page.add" datatype="html">
+        <source> + Add User </source>
+        <target>+ إضافة مستخدم</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/pages/user-page/users-page.component.html</context>
+          <context context-type="linenumber">14,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.page.error.title" datatype="html">
+        <source>Unable to load users list</source>
+        <target>تعذر تحميل قائمة المستخدمين</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/pages/user-page/users-page.component.html</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users.page.error.description" datatype="html">
+        <source>Please try again later.</source>
+        <target>يرجى المحاولة لاحقًا.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/pages/user-page/users-page.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="layout.menu.open" datatype="html">
+        <source>Open navigation menu</source>
+        <target>فتح قائمة التنقل</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/main-layout/main-layout.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="layout.title" datatype="html">
+        <source>Enterprise Dashboard</source>
+        <target>لوحة تحكم المؤسسة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/main-layout/main-layout.component.html</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="layout.logout" datatype="html">
+        <source> Logout </source>
+        <target>تسجيل الخروج</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/main-layout/main-layout.component.html</context>
+          <context context-type="linenumber">15,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sidenav.aria.label" datatype="html">
+        <source>Main Navigation</source>
+        <target>التنقل الرئيسي</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/sidenav/sidenav.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sidenav.nav.aria.label" datatype="html">
+        <source>Main navigation</source>
+        <target>التنقل الرئيسي</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/sidenav/sidenav.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination.aria.label" datatype="html">
+        <source>pagination</source>
+        <target>ترقيم الصفحات</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/pagination/pagination.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination.first.title" datatype="html">
+        <source>First</source>
+        <target>الأول</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/pagination/pagination.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination.first.aria" datatype="html">
+        <source>Go to first page</source>
+        <target>اذهب إلى الصفحة الأولى</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/pagination/pagination.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination.prev.title" datatype="html">
+        <source>Previous</source>
+        <target>السابق</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/pagination/pagination.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination.prev.aria" datatype="html">
+        <source>Go to previous page</source>
+        <target>اذهب إلى الصفحة السابقة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/pagination/pagination.component.html</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination.status" datatype="html">
+        <source>Page <x id="INTERPOLATION" equiv-text="{{ pageNumber }}"/> of <x id="INTERPOLATION_1" equiv-text="{{ totalPages }}"/></source>
+        <target>الصفحة <x id="INTERPOLATION" equiv-text="{{ pageNumber }}"/> من <x id="INTERPOLATION_1" equiv-text="{{ totalPages }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/pagination/pagination.component.html</context>
+          <context context-type="linenumber">26,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination.next.title" datatype="html">
+        <source>Next</source>
+        <target>التالي</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/pagination/pagination.component.html</context>
+          <context context-type="linenumber">31,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination.next.aria" datatype="html">
+        <source>Go to next page</source>
+        <target>اذهب إلى الصفحة التالية</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/pagination/pagination.component.html</context>
+          <context context-type="linenumber">31,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination.last.title" datatype="html">
+        <source>Last</source>
+        <target>الأخير</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/pagination/pagination.component.html</context>
+          <context context-type="linenumber">43,44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pagination.last.aria" datatype="html">
+        <source>Go to last page</source>
+        <target>اذهب إلى الصفحة الأخيرة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/pagination/pagination.component.html</context>
+          <context context-type="linenumber">43,44</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

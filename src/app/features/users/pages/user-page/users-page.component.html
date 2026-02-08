@@ -1,7 +1,7 @@
 <div class="page-header">
   <div>
-    <h1>Users</h1>
-    <p>Manage users and their access.</p>
+    <h1 i18n="@@users.page.title">Users</h1>
+    <p i18n="@@users.page.subtitle">Manage users and their access.</p>
   </div>
   @if (canManageUsers) {
     <button
@@ -9,6 +9,7 @@
       class="btn btn-primary"
       [disabled]="userState().status === 'loading'"
       (click)="onAddUser()"
+      i18n="@@users.page.add"
     >
       + Add User
     </button>
@@ -20,6 +21,8 @@
     <app-error-state
       errorTitle="Unable to load users list"
       errorDescription="Please try again later."
+      i18n-errorTitle="@@users.page.error.title"
+      i18n-errorDescription="@@users.page.error.description"
     ></app-error-state>
   }
   @default {

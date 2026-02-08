@@ -1,9 +1,11 @@
-<nav aria-label="pagination">
+<nav aria-label="pagination" i18n-aria-label="@@pagination.aria.label">
   <button
     class="btn btn-ghost btn-pagination"
     type="button"
     title="First"
     aria-label="Go to first page"
+    i18n-title="@@pagination.first.title"
+    i18n-aria-label="@@pagination.first.aria"
     [disabled]="disabled || pageNumber === 1"
     (click)="firstPage()"
   >
@@ -14,17 +16,23 @@
     type="button"
     title="Previous"
     aria-label="Go to previous page"
+    i18n-title="@@pagination.prev.title"
+    i18n-aria-label="@@pagination.prev.aria"
     [disabled]="disabled || pageNumber === 1"
     (click)="prevPage()"
   >
     <span aria-hidden="true"><</span>
   </button>
-  <span aria-live="polite"> Page {{ pageNumber }} of {{ totalPages }} </span>
+  <span class="page-info" aria-live="polite" i18n="@@pagination.status"
+    >Page {{ pageNumber }} of {{ totalPages }}</span
+  >
   <button
     class="btn btn-ghost btn-pagination"
     type="button"
     title="Next"
     aria-label="Go to next page"
+    i18n-title="@@pagination.next.title"
+    i18n-aria-label="@@pagination.next.aria"
     (click)="nextPage()"
     [disabled]="disabled || pageNumber === totalPages"
   >
@@ -35,6 +43,8 @@
     type="button"
     title="Last"
     aria-label="Go to last page"
+    i18n-title="@@pagination.last.title"
+    i18n-aria-label="@@pagination.last.aria"
     (click)="lastPage()"
     [disabled]="disabled || pageNumber === totalPages"
   >

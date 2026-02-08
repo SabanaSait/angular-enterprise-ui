@@ -3,7 +3,7 @@
     <app-loading-state class="loading-overlay"></app-loading-state>
   }
   <div class="data-table-wrapper" [class.is-loading]="loading">
-    <table aria-label="Users list">
+    <table aria-label="Users list" i18n-aria-label="@@users.table.aria.label">
       <thead>
         <tr>
           <th class="sort" scope="col">
@@ -13,9 +13,10 @@
                 sortBy === 'name' ? (sortDirection === 'asc' ? 'ascending' : 'descending') : 'none'
               "
               aria-label="Sort by name"
+              i18n-aria-label="@@users.table.sort.name.aria"
               (click)="toggleSort('name')"
             >
-              Name
+              <span i18n="@@users.table.name">Name</span>
               @if (sortBy === 'name') {
                 <span class="sort-indicator">
                   {{ sortDirection === 'asc' ? '▲' : '▼' }}
@@ -24,11 +25,11 @@
             </button>
           </th>
 
-          <th scope="col">Email</th>
-          <th scope="col">Role</th>
-          <th scope="col">Status</th>
+          <th scope="col" i18n="@@users.table.email">Email</th>
+          <th scope="col" i18n="@@users.table.role">Role</th>
+          <th scope="col" i18n="@@users.table.status">Status</th>
           @if (canManageUsers) {
-            <th scope="col">Actions</th>
+            <th scope="col" i18n="@@users.table.actions">Actions</th>
           }
         </tr>
       </thead>
@@ -51,6 +52,8 @@
                   type="button"
                   title="Edit user"
                   aria-label="Edit user {{ user.name }}"
+                  i18n-title="@@users.table.edit.title"
+                  i18n-aria-label="@@users.table.edit.aria"
                   (click)="editUser.emit(user)"
                 >
                   <span aria-hidden="true">✏️</span>
@@ -60,6 +63,8 @@
                   type="button"
                   title="Delete user"
                   aria-label="Delete user {{ user.name }}"
+                  i18n-title="@@users.table.delete.title"
+                  i18n-aria-label="@@users.table.delete.aria"
                   (click)="deleteUser.emit(user)"
                 >
                   <span aria-hidden="true">🗑</span>
@@ -82,16 +87,25 @@
   @if (loading) {
     <app-loading-state></app-loading-state>
   } @else {
-    <app-empty-state
-      class="no-border"
-      heading="No users yet"
-      [description]="
-        canManageUsers
-          ? 'Get started by adding your first user to the system.'
-          : 'Users will appear here once they are added by an administrator.'
-      "
-      [actionLabel]="canManageUsers ? '+ Add User' : ''"
-      (action)="addUser.emit()"
-    ></app-empty-state>
+    @if (canManageUsers) {
+      <app-empty-state
+        class="no-border"
+        heading="No users yet"
+        description="Get started by adding your first user to the system."
+        actionLabel="+ Add User"
+        i18n-heading="@@users.table.empty.manage.heading"
+        i18n-description="@@users.table.empty.manage.description"
+        i18n-actionLabel="@@users.table.empty.manage.action"
+        (action)="addUser.emit()"
+      ></app-empty-state>
+    } @else {
+      <app-empty-state
+        class="no-border"
+        heading="No users yet"
+        description="Users will appear here once they are added by an administrator."
+        i18n-heading="@@users.table.empty.readonly.heading"
+        i18n-description="@@users.table.empty.readonly.description"
+      ></app-empty-state>
+    }
   }
 }

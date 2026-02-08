@@ -2,25 +2,36 @@
 
 @if (role) {
   <div class="role-page-header">
-    <h1>Role Details: {{ role?.name }}</h1>
+    <h1 i18n="@@admin.role.details.title">Role Details: {{ role?.name }}</h1>
   </div>
   <div class="role-page-details">
     <div class="role-metadata">
-      <span class="label">Role:</span><span class="value role-code">{{ role.code }}</span>
+      <span class="label" i18n="@@admin.role.label">Role:</span
+      ><span class="value role-code">{{ role.code }}</span>
     </div>
     <div class="role-metadata">
-      <span class="label">Description:</span> <span class="value">{{ role.description }}</span>
+      <span class="label" i18n="@@admin.role.description.label">Description:</span>
+      <span class="value">{{ role.description }}</span>
     </div>
     <div class="role-metadata">
-      <span class="label">Type:</span>
-      <app-badge
-        [label]="role.system ? 'System' : 'Custom'"
-        [variant]="role.system ? 'neutral' : 'info'"
-      ></app-badge>
+      <span class="label" i18n="@@admin.role.type.label">Type:</span>
+      @if (role.system) {
+        <app-badge
+          label="System"
+          [variant]="'neutral'"
+          i18n-label="@@admin.role.type.system"
+        ></app-badge>
+      } @else {
+        <app-badge
+          label="Custom"
+          [variant]="'info'"
+          i18n-label="@@admin.role.type.custom"
+        ></app-badge>
+      }
     </div>
 
     <div class="role-permissions">
-      <div class="label">Assigned permissions:</div>
+      <div class="label" i18n="@@admin.role.permissions.assigned">Assigned permissions:</div>
       <div class="value">
         @let permissions = role.permissions;
         @if (permissions?.length) {
@@ -46,5 +57,12 @@
       </div>
     </div>
   </div>
-  <button class="btn btn-secondary cancel" type="button" (click)="cancel()">Cancel</button>
+  <button
+    class="btn btn-secondary cancel"
+    type="button"
+    (click)="cancel()"
+    i18n="@@admin.role.cancel"
+  >
+    Cancel
+  </button>
 }
