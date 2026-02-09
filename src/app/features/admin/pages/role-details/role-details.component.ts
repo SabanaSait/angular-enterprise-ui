@@ -7,10 +7,11 @@ import { Permission, Role } from '../../../../core/auth/auth.types';
 import { ROLE_PERMISSION_GROUPS, PermissionGroup } from './role-permission-groups';
 import { BadgeComponent } from '../../../../shared/components/badge/badge.component';
 import { PermissionLabelPipe } from '../../../../shared/pipes/permission-label.pipe';
+import { IconComponent } from '../../../../shared/components/icon/icon.component';
 
 @Component({
   selector: 'app-role-details',
-  imports: [BadgeComponent, PermissionLabelPipe],
+  imports: [BadgeComponent, PermissionLabelPipe, IconComponent],
   templateUrl: './role-details.component.html',
   styleUrl: './role-details.component.scss',
 })

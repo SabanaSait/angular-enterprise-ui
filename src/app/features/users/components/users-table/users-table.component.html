@@ -56,7 +56,7 @@
                   i18n-aria-label="@@users.table.edit.aria"
                   (click)="editUser.emit(user)"
                 >
-                  <span aria-hidden="true">✏️</span>
+                  <app-icon name="edit" [size]="16" className="icon-primary"></app-icon>
                 </button>
                 <button
                   class="btn btn-ghost"
@@ -67,7 +67,7 @@
                   i18n-aria-label="@@users.table.delete.aria"
                   (click)="deleteUser.emit(user)"
                 >
-                  <span aria-hidden="true">🗑</span>
+                  <app-icon name="delete" [size]="16" className="icon-danger"></app-icon>
                 </button>
               </td>
             }

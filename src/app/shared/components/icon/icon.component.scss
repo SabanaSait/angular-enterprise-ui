@@ -1,0 +1,21 @@
+:host {
+  display: inline-flex;
+}
+
+.app-icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.icon-muted {
+  color: var(--color-text-muted);
+}
+
+.icon-danger {
+  color: var(--color-danger-text);
+}
+
+.icon-primary {
+  color: var(--color-primary);
+}

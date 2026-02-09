@@ -7,6 +7,7 @@ import { SortDirection, UserSortKey } from '../../models/users-query.model';
 import { RoleLabelPipe } from '../../../../shared/pipes/role-label.pipe';
 import { BadgeComponent } from '../../../../shared/components/badge/badge.component';
 import { LoadingStateComponent } from '../../../../shared/components/loading-state/loading-state.component';
+import { IconComponent } from '../../../../shared/components/icon/icon.component';
 
 @Component({
   selector: 'app-users-table',
@@ -17,6 +18,7 @@ import { LoadingStateComponent } from '../../../../shared/components/loading-sta
     RoleLabelPipe,
     BadgeComponent,
     LoadingStateComponent,
+    IconComponent,
   ],
   templateUrl: './users-table.component.html',
   styleUrl: './users-table.component.scss',

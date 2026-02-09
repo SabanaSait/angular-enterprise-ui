@@ -63,7 +63,9 @@
     }
   }
   .check {
-    color: var(--color-primary);
+    color: var(--color-text-secondary);
+    vertical-align: middle;
+    margin-inline-end: 6px;
   }
   .cancel {
     align-self: flex-start;

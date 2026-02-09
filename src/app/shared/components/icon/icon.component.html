@@ -1,0 +1,14 @@
+@if (path) {
+  <svg
+    class="app-icon"
+    [ngClass]="className"
+    viewBox="0 0 24 24"
+    [attr.width]="size"
+    [attr.height]="size"
+    [attr.aria-hidden]="ariaLabel ? null : 'true'"
+    [attr.aria-label]="ariaLabel || null"
+    [attr.role]="ariaLabel ? 'img' : 'presentation'"
+  >
+    <path [attr.d]="path" fill="currentColor" />
+  </svg>
+}
