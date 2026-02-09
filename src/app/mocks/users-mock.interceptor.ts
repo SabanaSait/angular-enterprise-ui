@@ -148,8 +148,6 @@ export const usersMockInterceptor: HttpInterceptorFn = (req, next) => {
     const supervisorsCount = usersDB.filter((u) => u.role === 'SUPERVISOR').length;
     const generalUsersCount = usersDB.filter((u) => u.role === 'USER').length;
 
-    console.log(usersDB);
-
     return of(
       new HttpResponse({
         status: 200,

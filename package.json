@@ -6,7 +6,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:ar": "ng serve --configuration=ar",
     "build": "ng build",
+    "build:localize": "ng build --configuration=production --localize",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",

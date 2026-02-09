@@ -12,7 +12,6 @@ export class RolesApi {
   private readonly baseUrl = '/api/admin/roles';
 
   public getRoles(): Observable<AdminRole[]> {
-    console.log('get roles called....');
     return this.api.get<AdminRole[]>(this.baseUrl, {
       interceptorOptions: {
         retry: true,

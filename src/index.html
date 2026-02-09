@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -9,5 +9,38 @@
   </head>
   <body>
     <app-root></app-root>
+    <script>
+      (function () {
+        try {
+          const path = window.location.pathname;
+          if (
+            path === '/en' ||
+            path === '/ar' ||
+            path.startsWith('/en/') ||
+            path.startsWith('/ar/')
+          ) {
+            return;
+          }
+          if (path !== '/') {
+            return;
+          }
+          const supported = ['en', 'ar'];
+          const stored = window.localStorage.getItem('preferredLocale');
+          const browser =
+            (window.navigator.languages && window.navigator.languages[0]) ||
+            window.navigator.language ||
+            'en';
+          const browserLocale = browser.toLowerCase().startsWith('ar') ? 'ar' : 'en';
+          const locale = stored && supported.includes(stored) ? stored : browserLocale;
+          const targetPath = '/' + locale + (path === '/' ? '/' : path);
+          const target = targetPath + window.location.search + window.location.hash;
+          if (target !== window.location.pathname + window.location.search + window.location.hash) {
+            window.location.replace(target);
+          }
+        } catch (e) {
+          // Ignore locale redirect failures.
+        }
+      })();
+    </script>
   </body>
 </html>
