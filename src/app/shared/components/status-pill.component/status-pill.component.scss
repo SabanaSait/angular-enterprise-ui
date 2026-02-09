@@ -5,12 +5,12 @@
     border-radius: 999px;
     font-size: 12px;
     font-weight: 600;
-    background: #fef2f2;
-    color: #b91c1c;
+    background: var(--color-bg-danger-soft);
+    color: var(--color-status-inactive-text);
 
     &.status-active {
-      background: #ecfdf5;
-      color: #047857;
+      background: var(--color-bg-success-soft);
+      color: var(--color-success-text);
     }
   }
 }

@@ -15,25 +15,25 @@
     gap: 10px;
     padding: 12px 16px;
     border-radius: 6px;
-    color: #fff;
+    color: var(--color-text-inverse);
 
     button {
       border: 0;
       background: none;
-      color: #fff;
+      color: var(--color-text-inverse);
     }
   }
 
   .toast.success {
-    background: #2e7d32;
+    background: var(--color-bg-toast-success);
   }
   .toast.error {
-    background: #c62828;
+    background: var(--color-bg-toast-error);
   }
   .toast.info {
-    background: #0277bd;
+    background: var(--color-bg-toast-info);
   }
   .toast.warning {
-    background: #f9a825;
+    background: var(--color-bg-toast-warning);
   }
 }

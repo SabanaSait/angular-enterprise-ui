@@ -3,15 +3,15 @@
   .stat-card {
     padding: 16px;
     border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 1px 3px #000;
+    background-color: var(--color-bg-surface);
+    box-shadow: var(--shadow-card);
 
     .label {
-      color: #6b7280;
+      color: var(--color-text-muted);
     }
 
     .value {
-      color: #111827;
+      color: var(--color-text-strong);
       font-weight: 600;
       text-align: center;
     }

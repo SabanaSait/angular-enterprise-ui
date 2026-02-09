@@ -1,8 +1,8 @@
 :host {
   .layout-sidebar {
     width: 220px;
-    background: #f8fafc;
-    border-inline-end: 1px solid #e5e7eb;
+    background: var(--color-bg-sidebar);
+    border-inline-end: 1px solid var(--color-border-default);
     padding: 16px;
     transition: transform 0.3s ease;
     height: 100%;
@@ -32,7 +32,7 @@
 
         &.active {
           background: var(--color-link-active-bg);
-          color: #0f172a;
+          color: var(--color-link-active);
           font-weight: 600;
         }
       }
@@ -41,7 +41,7 @@
   .sidebar-backdrop {
     position: absolute;
     inset: 0;
-    background: rgba(15, 23, 42, 0.45);
+    background: var(--color-overlay-backdrop);
     z-index: 5;
   }
 
@@ -53,7 +53,7 @@
       inset-inline-start: 0;
       transform: translateX(-100%);
       z-index: 10;
-      box-shadow: 4px 0 12px rgb(0, 0, 0, 0.15);
+      box-shadow: var(--shadow-sidebar);
 
       &.open {
         transform: translateX(0);
@@ -65,7 +65,7 @@
 :host-context([dir='rtl']) {
   .layout-sidebar {
     border-inline-end: 0;
-    border-inline-start: 1px solid #e5e7eb;
+    border-inline-start: 1px solid var(--color-border-default);
   }
 
   @media (max-width: 768px) {
@@ -75,7 +75,7 @@
       left: auto;
       right: 0;
       transform: translateX(100%);
-      box-shadow: -4px 0 12px rgb(0, 0, 0, 0.15);
+      box-shadow: var(--shadow-sidebar-rtl);
 
       &.open {
         transform: translateX(0);

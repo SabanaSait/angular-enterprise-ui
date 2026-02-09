@@ -24,7 +24,7 @@ button {
 
 .btn-primary {
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-text-inverse);
 }
 
 .btn-primary:hover:not(:disabled) {
@@ -32,13 +32,13 @@ button {
 }
 
 .btn-secondary {
-  background: #fff;
+  background: var(--color-bg-surface);
   color: var(--color-primary);
-  border-color: var(--color-border);
+  border-color: var(--color-border-default);
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background: #f8fafc;
+  background: var(--color-bg-sidebar);
   border-color: var(--color-primary);
 }
 
@@ -48,21 +48,21 @@ button {
 }
 
 .btn-ghost:hover:not(:disabled) {
-  background: #f1f5f9;
+  background: var(--color-table-row-divider);
 }
 
 .btn-danger {
   background: transparent;
-  color: #dc2626;
-  border: 1px solid #fecaca;
+  color: var(--color-error);
+  border: 1px solid var(--color-border-danger);
 }
 
 .btn-danger:hover:not(:disabled) {
-  background: #fef2f2;
-  border-color: #fca5a5;
+  background: var(--color-bg-danger-soft);
+  border-color: var(--color-border-danger-hover);
 }
 
 .btn:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 0 0 2px var(--color-focus-ring);
 }

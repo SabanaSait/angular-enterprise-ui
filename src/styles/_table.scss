@@ -43,7 +43,7 @@ table {
           background-color: var(--color-table-row-hover);
         }
         &:not(:last-child) td {
-          border-bottom: 1px solid #f1f5f9;
+          border-bottom: 1px solid var(--color-table-row-divider);
         }
       }
     }

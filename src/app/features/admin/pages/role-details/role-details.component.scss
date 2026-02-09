@@ -15,7 +15,7 @@
     flex-direction: column;
     gap: 0.6rem;
     padding: 20px;
-    border: 1px solid #dcc;
+    border: 1px solid var(--color-border-muted);
     border-radius: 6px;
   }
   .role-metadata {
@@ -34,10 +34,10 @@
   .role-type {
     padding: 2px 8px;
     border-radius: 12px;
-    background-color: #eefff2;
+    background-color: var(--color-bg-role-system);
 
     &.custom {
-      background-color: #fce09a;
+      background-color: var(--color-bg-role-custom);
     }
   }
   .role-permissions {
@@ -47,7 +47,7 @@
     margin-top: 10px;
 
     .label {
-      box-shadow: 0 0.5px 0.5px #dcc;
+      box-shadow: 0 0.5px 0.5px var(--color-border-muted);
       padding-bottom: 10px;
     }
 

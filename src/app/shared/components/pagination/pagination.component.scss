@@ -7,7 +7,7 @@
   .btn-pagination {
     font-weight: bold;
     &:hover:not(:disabled) {
-      background: #f3f4f6;
+      background: var(--color-bg-hover);
     }
   }
   .page-info {

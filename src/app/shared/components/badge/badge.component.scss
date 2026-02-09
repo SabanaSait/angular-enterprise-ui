@@ -6,28 +6,28 @@
     font-weight: 500;
 
     &-success {
-      background: #ecfdf5;
-      color: #047857;
+      background: var(--color-bg-success-soft);
+      color: var(--color-success-text);
     }
 
     &-neutral {
-      background: #eef2f7;
-      color: #334155;
+      background: var(--color-bg-neutral-soft);
+      color: var(--color-link);
     }
 
     &-warning {
-      background: #fff4e5;
-      color: #92400e;
+      background: var(--color-bg-warning-soft);
+      color: var(--color-warning-text);
     }
 
     &-info {
-      background: #e7f1ff;
-      color: #1c5fd4;
+      background: var(--color-bg-info-soft);
+      color: var(--color-info-text);
     }
 
     &-danger {
-      background: #fdecea;
-      color: #c92a2a;
+      background: var(--color-bg-danger);
+      color: var(--color-danger-text);
     }
   }
 }

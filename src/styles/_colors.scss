@@ -4,14 +4,34 @@
   --color-text-secondary: #4b5563; // slate-600
   --color-text-muted: #6b7280; // slate-500
   --color-text-disabled: #cdcfd0;
+  --color-text-inverse: #ffffff;
+  --color-text-strong: #111827;
 
   /* Backgrounds */
   --color-bg-page: #f9fafb;
   --color-bg-surface: #ffffff;
   --color-bg-hover: #f3f4f6;
+  --color-bg-header: #1e293b;
+  --color-bg-sidebar: #f8fafc;
+  --color-bg-toast-success: #2e7d32;
+  --color-bg-toast-error: #c62828;
+  --color-bg-toast-info: #0277bd;
+  --color-bg-toast-warning: #f9a825;
+  --color-bg-danger-soft: #fef2f2;
+  --color-bg-danger: #fdecea;
+  --color-bg-warning-soft: #fff4e5;
+  --color-bg-info-soft: #e7f1ff;
+  --color-bg-success-soft: #ecfdf5;
+  --color-bg-neutral-soft: #eef2f7;
+  --color-bg-role-system: #eefff2;
+  --color-bg-role-custom: #fce09a;
 
   /* Borders */
   --color-border-default: #e5e7eb;
+  --color-border-muted: #dcc;
+  --color-border-header: #334155;
+  --color-border-danger: #fecaca;
+  --color-border-danger-hover: #fca5a5;
 
   /* Brand / Actions */
   --color-primary: #2563eb; // blue-600
@@ -21,6 +41,11 @@
   --color-success: #16a34a;
   --color-warning: #d97706;
   --color-error: #dc2626;
+  --color-success-text: #047857;
+  --color-warning-text: #92400e;
+  --color-info-text: #1c5fd4;
+  --color-danger-text: #c92a2a;
+  --color-status-inactive-text: #b91c1c;
 
   /* Table */
   --color-table-bg: #ffffff;
@@ -28,10 +53,21 @@
   --color-table-row-alt: #f9fafb;
   --color-table-row-hover: #f3f4f6;
   --color-table-border: #e5e7eb;
+  --color-table-row-divider: #f1f5f9;
 
   /* Link */
   --color-link: #334155;
   --color-link-active: #0f172a;
   --color-link-active-bg: #e5e8f0;
   --color-link-hover-bg: #e5e7eb;
+
+  /* Overlay */
+  --color-overlay-backdrop: rgba(15, 23, 42, 0.45);
+
+  /* Focus / Shadows */
+  --color-focus-ring: rgba(59, 130, 246, 0.4);
+  --shadow-header: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-sidebar: 4px 0 12px rgba(0, 0, 0, 0.15);
+  --shadow-sidebar-rtl: -4px 0 12px rgba(0, 0, 0, 0.15);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
