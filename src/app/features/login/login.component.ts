@@ -17,7 +17,9 @@ export class LoginComponent {
   private route = inject(ActivatedRoute);
 
   private readonly fb = inject(FormBuilder);
-  public readonly roleOptions = ROLE_OPTIONS;
+  public get roleOptions() {
+    return ROLE_OPTIONS;
+  }
 
   public readonly loginForm = this.fb.nonNullable.group({
     userRole: ['USER', Validators.required],

@@ -51,9 +51,9 @@
                   class="btn btn-ghost"
                   type="button"
                   title="Edit user"
-                  aria-label="Edit user {{ user.name }}"
+                  [attr.aria-label]="'Edit user ' + user.name"
                   i18n-title="@@users.table.edit.title"
-                  i18n-aria-label="@@users.table.edit.aria"
+                  i18n-attr.aria-label="@@users.table.edit.aria"
                   (click)="editUser.emit(user)"
                 >
                   <app-icon name="edit" [size]="16" className="icon-primary"></app-icon>
@@ -62,9 +62,9 @@
                   class="btn btn-ghost"
                   type="button"
                   title="Delete user"
-                  aria-label="Delete user {{ user.name }}"
+                  [attr.aria-label]="'Delete user ' + user.name"
                   i18n-title="@@users.table.delete.title"
-                  i18n-aria-label="@@users.table.delete.aria"
+                  i18n-attr.aria-label="@@users.table.delete.aria"
                   (click)="deleteUser.emit(user)"
                 >
                   <app-icon name="delete" [size]="16" className="icon-danger"></app-icon>

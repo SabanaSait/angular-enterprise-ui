@@ -24,7 +24,7 @@ export class UsersPageComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.facade.refresh();
+    this.facade.resetQuery();
   }
 
   public setPageNumber(pageNumber: number): void {

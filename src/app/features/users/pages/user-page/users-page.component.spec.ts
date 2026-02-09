@@ -55,7 +55,7 @@ describe('UsersPageComponent', () => {
     usersState: any;
     loading: any;
     query: any;
-    refresh: ReturnType<typeof vi.fn>;
+    resetQuery: ReturnType<typeof vi.fn>;
     setPage: ReturnType<typeof vi.fn>;
     setSort: ReturnType<typeof vi.fn>;
     deleteUser: ReturnType<typeof vi.fn>;
@@ -73,7 +73,7 @@ describe('UsersPageComponent', () => {
       usersState: signal({ status: 'success', data: null }),
       loading: signal(false),
       query: signal({ pageNumber: 1, pageSize: 20, sortBy: 'name', sortDirection: 'asc' }),
-      refresh: vi.fn(),
+      resetQuery: vi.fn(),
       setPage: vi.fn(),
       setSort: vi.fn(),
       deleteUser: vi.fn(),
@@ -121,7 +121,7 @@ describe('UsersPageComponent', () => {
    * ------------------------------------------ */
 
   it('should refresh users on init', () => {
-    expect(facadeMock.refresh).toHaveBeenCalledOnce();
+    expect(facadeMock.resetQuery).toHaveBeenCalledOnce();
   });
 
   /* --------------------------------------------

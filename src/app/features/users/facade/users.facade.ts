@@ -1,5 +1,5 @@
 import { Injectable, signal, computed, inject } from '@angular/core';
-import { skip, switchMap } from 'rxjs';
+import { switchMap } from 'rxjs';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { UsersApi } from '../services/users.api';
 import { toDataStateSignal } from '../../../core/data-state/data-state.signal';
@@ -12,12 +12,14 @@ import { PaginatedResponse } from '../../../core/api/api.model';
 export class UsersFacade {
   private readonly usersApi = inject(UsersApi);
 
-  private readonly _query = signal<UsersQuery>({
+  private readonly initialQuery: UsersQuery = {
     pageNumber: 1,
     pageSize: 20,
     sortBy: 'name',
     sortDirection: 'asc',
-  });
+  };
+
+  private readonly _query = signal<UsersQuery>(this.initialQuery);
   private readonly refreshTick = signal(0);
 
   public readonly query = this._query.asReadonly();
@@ -28,7 +30,6 @@ export class UsersFacade {
       refresh: this.refreshTick(),
     })),
   ).pipe(
-    skip(1),
     switchMap(({ query }) =>
       this.usersApi.getUsers({
         pageNumber: query.pageNumber,
@@ -66,6 +67,10 @@ export class UsersFacade {
       sortBy,
       sortDirection,
     }));
+  }
+
+  public resetQuery(): void {
+    this._query.set({ ...this.initialQuery });
   }
 
   public getUser(id: string) {
