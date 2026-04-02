@@ -15,48 +15,49 @@
     ></app-error-state>
   }
   @default {
-    @let metrics = metricsState().data;
-    @if (metrics?.totalUsers) {
+    @let m = metrics();
+    @let total = m?.totalUsers ?? 0;
+    @if (total > 0) {
       <ul class="stat-cards">
         <li>
           <app-stat-card
             label="Total Users"
-            [value]="metrics?.totalUsers || 0"
+            [value]="total"
             i18n-label="@@dashboard.stats.totalUsers"
           ></app-stat-card>
         </li>
         <li>
           <app-stat-card
             label="Active Users"
-            [value]="metrics?.activeUsers || 0"
+            [value]="m?.activeUsers || 0"
             i18n-label="@@dashboard.stats.activeUsers"
           ></app-stat-card>
         </li>
         <li>
           <app-stat-card
             label="Inactive Users"
-            [value]="metrics?.inactiveUsers || 0"
+            [value]="m?.inactiveUsers || 0"
             i18n-label="@@dashboard.stats.inactiveUsers"
           ></app-stat-card>
         </li>
         <li>
           <app-stat-card
             label="Admin Users"
-            [value]="metrics?.adminUsersCount || 0"
+            [value]="m?.adminUsersCount || 0"
             i18n-label="@@dashboard.stats.adminUsers"
           ></app-stat-card>
         </li>
         <li>
           <app-stat-card
             label="Supervisors"
-            [value]="metrics?.supervisorsCount || 0"
+            [value]="m?.supervisorsCount || 0"
             i18n-label="@@dashboard.stats.supervisors"
           ></app-stat-card>
         </li>
         <li>
           <app-stat-card
             label="General Users"
-            [value]="metrics?.generalUsersCount || 0"
+            [value]="m?.generalUsersCount || 0"
             i18n-label="@@dashboard.stats.generalUsers"
           ></app-stat-card>
         </li>
