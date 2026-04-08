@@ -4,8 +4,6 @@ An enterprise-grade admin dashboard built with **Angular v21**, designed to refl
 
 This project is a production-oriented reference implementation showcasing senior-level Angular and frontend engineering.
 
----
-
 ## Key Features
 
 - Modern Angular v21 with **standalone components**
@@ -13,10 +11,9 @@ This project is a production-oriented reference implementation showcasing senior
 - **Role-Based Access Control (RBAC)** with Users, Roles, and Permissions
 - Enterprise-grade **UX and accessibility (A11y)**
 - Localization with **English (LTR) & Arabic (RTL)** support
+- **Mock API ↔ Real Backend switching**
 - Unit-tested core logic and UI flows
 - Clean, scalable project structure aligned with enterprise standards
-
----
 
 ## Tech Stack
 
@@ -28,14 +25,14 @@ This project is a production-oriented reference implementation showcasing senior
 - **Localization:** Angular built-in i18n (XLIFF)
 - **Accessibility:** WCAG-aligned ARIA practices
 
----
-
 ## Architecture Overview
 
 ### App Shell & Layout Architecture
 
 - Persistent application shell (header + sidenav)
+
 - Layout-driven routing with a routed content area
+
 - Responsive navigation patterns:
   - Desktop: fixed sidebar
   - Tablet & Mobile: off-canvas sidenav with overlay
@@ -52,12 +49,10 @@ This project is a production-oriented reference implementation showcasing senior
 
 ### Shared UI Building Blocks
 
-- `app-badge` - read-only status indicators
+- `app-badge` — read-only status indicators
 - `app-pagination`
 - `app-tabs`
 - Shared **pipes** for mapping role and permission codes to human-readable labels
-
----
 
 ## Architecture Decisions
 
@@ -66,36 +61,39 @@ This project is a production-oriented reference implementation showcasing senior
 - Feature-first folder structure to keep routing, state, and UI co-located
 - Compile-time i18n for reliable RTL and predictable release artifacts
 - Accessibility as a design constraint, not a retrofit
-
----
+- Environment-driven mock vs backend API switching using HTTP interceptors
 
 ## Authentication & Authorization (RBAC)
 
 This project includes a realistic authentication and authorization foundation:
 
 - Authentication state managed using **Angular Signals**
+
 - Session persistence with safe bootstrap restoration
+
 - **Role-Based Access Control (RBAC)**:
   - Permissions derived from roles
   - Permission-based route protection using `canMatch`
   - Permission-driven navigation rendering
 
-- Secure-by-default access model (no permission -> no access)
+- Secure-by-default access model (no permission → no access)
 
 Authorization logic is intentionally centralized to avoid stale or inconsistent permission state.
 
----
-
 ## Accessibility (A11y)
 
-Accessibility was treated as a **first-class requirement**, not a retrofit. A full pass was completed across the entire application (login -> role details).
+Accessibility was treated as a **first-class requirement**, not a retrofit. A full pass was completed across the entire application (login → role details).
 
 ### Highlights
 
 - Proper heading hierarchy (`h1` per page, no skipped levels)
+
 - Semantic HTML tables with `thead`, `tbody`, and `scope="col"`
+
 - Accessible navigation with `aria-current="page"`
+
 - ARIA-labeled pagination, tabs, and action buttons
+
 - Keyboard-safe navigation patterns:
   - ESC key handling
   - Focus trapping within overlays
@@ -104,8 +102,6 @@ Accessibility was treated as a **first-class requirement**, not a retrofit. A fu
 - Icons treated as decorative unless interactive
 
 Badges are intentionally **presentational-only** and kept free of ARIA roles.
-
----
 
 ## Localization (i18n)
 
@@ -135,9 +131,72 @@ dist/enterprise-dashboard/browser/en/
 dist/enterprise-dashboard/browser/ar/
 ```
 
-> In future iterations, a runtime i18n solution (e.g. Transloco) would be considered for dynamic language switching and improved developer experience.
+> In future iterations, a runtime i18n solution (e.g., Transloco) may be introduced.
 
----
+## Mock API vs Real Backend Support
+
+This project supports switching between **mock data** and **real backend APIs** using environment-based configuration.
+
+Mock APIs are implemented using **HTTP interceptors**, allowing frontend development to continue independently of backend availability while keeping service logic unchanged.
+
+### Run with Mock APIs
+
+```bash
+npm run start:mock
+```
+
+- API calls are intercepted
+- Mock datasets are returned
+- Backend not required
+
+### Run with Real Backend
+
+```bash
+npm start
+```
+
+Ensure backend services are running before starting the application.
+
+### Proxy Configuration
+
+Backend communication during development is handled using an Angular proxy:
+
+```json
+{
+  "/api": {
+    "target": "http://127.0.0.1:3000",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}
+```
+
+This configuration routes `/api/*` requests to the backend and prevents CORS issues during development.
+
+### Optional: Runtime Mock Toggle
+
+Mock mode can also be enabled dynamically using browser local storage.
+
+Enable mock mode:
+
+```js
+localStorage.setItem('USE_MOCK_API', 'true');
+location.reload();
+```
+
+Disable mock mode:
+
+```js
+localStorage.removeItem('USE_MOCK_API');
+location.reload();
+```
+
+After refreshing the page, API requests will switch between mock and real backend accordingly.
+
+> Intended for development and debugging purposes only.
 
 ## Testing Strategy
 
@@ -147,14 +206,12 @@ dist/enterprise-dashboard/browser/ar/
 
 Testing is treated as a **core quality practice**, not an afterthought.
 
----
-
 ## Local Development Setup
 
 ### Prerequisites
 
-- **Node.js:** v24.12.0 (used during development)
-- **npm:** v11.x (as defined in `packageManager`)
+- **Node.js:** v24.12.0
+- **npm:** v11.x
 - **Angular CLI:** v21+
 
 ### Install dependencies
@@ -166,14 +223,15 @@ npm install
 ### Run the application
 
 ```bash
-# Default (English)
+# Development (real backend)
 npm start
+
+# Mock API mode
+npm run start:mock
 
 # Arabic (RTL)
 npm run start:ar
 ```
-
-Optional: after `npm run build:localize`, you can serve the locale folders with any static server and open `/en/` or `/ar/` paths to validate the production output.
 
 ### Build
 
@@ -224,8 +282,6 @@ Hooks are installed automatically via:
 npm run prepare
 ```
 
----
-
 ## Future Improvements
 
 Potential next steps:
@@ -238,8 +294,7 @@ Potential next steps:
 - Expanded Roles & Permissions CRUD
 - Performance profiling & optimization
 - Theming support
-
----
+- WebSocket-based real-time updates
 
 ## Project Intent
 

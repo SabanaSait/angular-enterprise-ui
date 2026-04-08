@@ -12,9 +12,10 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { authInterceptor } from './core/auth/auth.interceptor';
 import { apiInterceptor } from './core/api/api.interceptor';
 import { retryInterceptor } from './core/api/retry.interceptor';
-import { usersMockInterceptor } from './mocks/users-mock.interceptor';
-import { rolesMockInterceptor } from './mocks/roles-mock.interceptor';
-import { PermissionsMockInterceptor } from './mocks/permissions-mock.interceptor';
+// import { usersMockInterceptor } from './mocks/users-mock.interceptor';
+// import { rolesMockInterceptor } from './mocks/roles-mock.interceptor';
+// import { permissionsMockInterceptor } from './mocks/permissions-mock.interceptor';
+import { getMockInterceptors } from './mocks/mock.providers';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -27,11 +28,9 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(
       withInterceptors([
         authInterceptor,
-        usersMockInterceptor,
-        rolesMockInterceptor,
-        PermissionsMockInterceptor,
-        retryInterceptor,
+        ...getMockInterceptors(),
         apiInterceptor,
+        retryInterceptor,
       ]),
     ),
   ],

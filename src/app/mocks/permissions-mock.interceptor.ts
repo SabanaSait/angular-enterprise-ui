@@ -5,7 +5,7 @@ import { MOCK_PERMISSIONS } from './permissions-mock';
 
 const permissionsDB = [...MOCK_PERMISSIONS];
 
-export const PermissionsMockInterceptor: HttpInterceptorFn = (
+export const permissionsMockInterceptor: HttpInterceptorFn = (
   req: HttpRequest<unknown>,
   next: HttpHandlerFn,
 ) => {

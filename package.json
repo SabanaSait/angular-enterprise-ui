@@ -6,8 +6,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:mock": "ng serve --configuration mock",
+    "start:prod": "ng serve --configuration production",
     "start:ar": "ng serve --configuration=ar",
     "build": "ng build",
+    "build:dev": "ng build --configuration development",
+    "build:mock": "ng build --configuration mock",
     "build:localize": "ng build --configuration=production --localize",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
