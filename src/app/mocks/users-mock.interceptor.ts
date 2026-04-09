@@ -89,7 +89,7 @@ export const usersMockInterceptor: HttpInterceptorFn = (req, next) => {
    * /api/users/:id
    * ------------------------------- */
   if (method === 'PUT') {
-    const id = (body as Partial<User>)?.id;
+    const id = req.url.split('/').pop();
     const index = usersDB.findIndex((u) => u.id === id);
 
     if (index === -1) {
