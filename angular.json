@@ -47,6 +47,12 @@
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -61,6 +67,14 @@
               ],
               "outputHashing": "all",
               "localize": true
+            },
+            "mock": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.mock.ts"
+                }
+              ]
             },
             "development": {
               "optimization": false,
@@ -78,6 +92,9 @@
           "configurations": {
             "production": {
               "buildTarget": "enterprise-dashboard:build:production"
+            },
+            "mock": {
+              "buildTarget": "enterprise-dashboard:build:mock"
             },
             "development": {
               "buildTarget": "enterprise-dashboard:build:development"
