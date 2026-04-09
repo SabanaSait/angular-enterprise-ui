@@ -7,10 +7,10 @@ import { ApiService } from '../../../core/api/api.service';
 export class DashboardApi {
   private readonly api = inject(ApiService);
 
-  private readonly baseUrl = '/api/dashboard';
+  private readonly baseUrl = '/api/dashboard/metrics';
 
   public getDashboardMetrics(): Observable<DashboardMetrics> {
-    return this.api.get(`${this.baseUrl}/metrics`, {
+    return this.api.get(`${this.baseUrl}`, {
       interceptorOptions: {
         retry: true,
         retryCount: 3,
