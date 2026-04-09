@@ -52,7 +52,7 @@ export class UserFormPageComponent {
     };
 
     if (this.userId) {
-      this.facade.updateUser({ id: this.userId, ...dto });
+      this.facade.updateUser(this.userId, dto);
     } else {
       this.facade.createUser(dto);
     }

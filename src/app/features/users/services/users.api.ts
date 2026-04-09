@@ -13,7 +13,6 @@ export class UsersApi {
   private api = inject(ApiService);
   private notificationService = inject(NotificationService);
 
-
   public getUsers(params: {
     pageNumber?: number;
     pageSize: number;
@@ -53,9 +52,9 @@ export class UsersApi {
       .pipe(tap(() => this.notificationService.success('User created successfully!')));
   }
 
-  public updateUser(payload: UpdateUserDto) {
+  public updateUser(id: string, payload: UpdateUserDto) {
     return this.api
-      .put('/api/users', payload)
+      .put(`/api/users/${id}`, payload)
       .pipe(tap(() => this.notificationService.success('User updated successfully!')));
   }
 
