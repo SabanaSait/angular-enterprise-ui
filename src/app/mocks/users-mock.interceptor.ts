@@ -16,18 +16,18 @@ export const usersMockInterceptor: HttpInterceptorFn = (req, next) => {
     const pageNumber = Number(params.get('pageNumber') ?? 1);
     const pageSize = Number(params.get('pageSize') ?? 10);
     const sortBy = params.get('sortBy') as UserSortKey | null;
-    const sortDir = params.get('sortDir') as SortDirection | null;
+    const sortDirection = params.get('SortDirection') as SortDirection | null;
 
-    if (sortBy && sortDir) {
+    if (sortBy && sortDirection) {
       usersDB.sort((a, b) => {
         const aVal = a[sortBy];
         const bVal = b[sortBy];
 
         if (typeof aVal === 'string' && typeof bVal === 'string') {
-          return sortDir === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+          return sortDirection === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
         }
 
-        return sortDir === 'asc' ? Number(aVal) - Number(bVal) : Number(bVal) - Number(aVal);
+        return sortDirection === 'asc' ? Number(aVal) - Number(bVal) : Number(bVal) - Number(aVal);
       });
     }
 
