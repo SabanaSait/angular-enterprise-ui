@@ -24,7 +24,7 @@ export class UsersApi {
         pageNumber: params.pageNumber ?? 1,
         pageSize: params.pageSize ?? 10,
         ...(params.sortBy && { sortBy: params.sortBy }),
-        ...(params.sortDirection && { sortDir: params.sortDirection }),
+        ...(params.sortDirection && { sortDirection: params.sortDirection }),
       },
     });
 
