@@ -12,6 +12,11 @@ export class AuthService {
   public readonly isInitialized = computed(() => this._initialized());
   public readonly user = this._user.asReadonly();
 
+  public hasFeature(feature: string): boolean {
+    if (feature === 'COPILOT') return true;
+    return false;
+  }
+
   public hasPermission(permission: Permission): boolean {
     return this._user()?.permissions.includes(permission) ?? false;
   }

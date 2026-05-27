@@ -1,2 +1,7 @@
 <router-outlet />
 <app-toast-container></app-toast-container>
+
+<!-- Copilot lives globally -->
+@if (isCopilotEnabled) {
+  <app-copilot-host></app-copilot-host>
+}
